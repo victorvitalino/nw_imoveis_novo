@@ -1,0 +1,56 @@
+%aside
+  #sidebar.nav-collapse
+    / sidebar menu start
+    .leftside-navigation
+      %ul#nav-accordion.sidebar-menu
+        %li
+          %a.active{:href => "#{root_path}"}
+            %i.fa.fa-dashboard
+            %span Visão Geral
+        %li.sub-menu
+          %a{:href => "javascript:;"}
+            %i.fa.fa-laptop
+            %span Clientes
+          %ul.sub
+            %li
+              %a{:href => "boxed_page.html"} Listagem de Clientes
+            %li
+              %a{:href => "horizontal_menu.html"} Novo Cliente
+            %li
+              %a{:href => "language_switch.html"} Relatórios
+        %li.sub-menu
+          %a{:href => "javascript:;"}
+            %i.fa.fa-book
+            %span Imóveis
+          %ul.sub
+            %li
+              %a{:href => "general.html"} Listagem de Imóveis
+            %li
+              %a{:href => "buttons.html"} Novo Imóvel
+            %li
+              %a{:href => "widget.html"} Attributos de Imóvel
+            %li
+              %a{:href => "slider.html"} Situação de Imóvel
+            %li
+              %a{:href => "tree_view.html"} Empreendimentos
+            %li
+              %a{:href => "draggable_portlet.html"} Relatórios
+        %li.sub-menu
+          %a{:href => "javascript:;"}
+            %i.fa.fa-book
+            %span Publicidade
+          %ul.sub
+            %li
+              %a{:href => "general.html"} Anúncios
+            %li
+              %a{:href => "buttons.html"} Banners            
+        %li.sub-menu
+          %a{:href => "javascript:;"}
+            %i.fa.fa-th
+            %span Usuários
+          %ul.sub
+            %li
+              %a{:href => "basic_table.html"} Listagem de Usuários
+            %li
+              %a{:href => "responsive_table.html"} Novo Usuário
+            

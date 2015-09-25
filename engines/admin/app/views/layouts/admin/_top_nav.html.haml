@@ -1,0 +1,29 @@
+%header.header.fixed-top.clearfix
+  / logo start
+  .brand
+    %a.logo{:href => "index.html"}
+      %img{:alt => "", :src => "images/logo.png"}/
+    .sidebar-toggle-box
+      .fa.fa-bars
+  / logo end
+  #top_menu.nav.notify-row
+    / notification start
+    %ul.nav.top-menu
+      / settings start
+ 
+  .top-nav.clearfix
+    / search & user info start
+    %ul.nav.pull-right.top-menu
+      %li.dropdown
+        %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+          %span John Doe
+          %b.caret
+        %ul.dropdown-menu.extended.logout
+          %li
+            %a{:href => "#"}
+              %i.fa.fa-suitcase>
+              Minha Conta
+          %li
+            %a{:href => "login.html"}
+              %i.fa.fa-key
+              Sair
