@@ -1,0 +1,24 @@
+ 
+@Admin
+ ☐ edição de dados do usuário logado
+ ☐ tela de visão geral
+ ☐ cadastro de empreendimento por cliente
+ ☐ cadastro de attributos de imóvel
+ ☐ cadastro de situações por imóvel
+ ☐ cadastro de imóveis por cliente e ou empreendimento
+ ☐ listagem de imóveis
+ ☐ cadastro e listagem de anúncios com ordenação e tipo
+ ☐ cadastro e listagem de banners
+ ☐ cadastro de usuários gerais do sistema
+ 
+@cliente
+ ☐ tela de visão geral
+ ☐ cadastro de imóveis e ou empreendimento
+ ☐ listagem de imóveis
+ ☐ relatórios
+ ☐ edição de dados do cliente geral
+
+
+@to-do
+ ☐ logo do meunw
+ ☐ correção de cores e bordas do bucket

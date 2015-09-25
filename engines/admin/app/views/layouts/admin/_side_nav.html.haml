@@ -4,20 +4,20 @@
     .leftside-navigation
       %ul#nav-accordion.sidebar-menu
         %li
-          %a.active{:href => "#{root_path}"}
+          %a{:href => "#{admin.root_path}"}
             %i.fa.fa-dashboard
             %span Visão Geral
         %li.sub-menu
-          %a{:href => "javascript:;"}
+          %a{:href => "javascript:;", :class => 'active'}
             %i.fa.fa-laptop
             %span Clientes
-          %ul.sub
+          %ul.sub{style: "display: block"}
             %li
-              %a{:href => "boxed_page.html"} Listagem de Clientes
+              %a{:href => "#{admin.clients_path}"} Listagem de Clientes
             %li
-              %a{:href => "horizontal_menu.html"} Novo Cliente
+              %a{:href => "#{admin.new_client_path}"} Novo Cliente
             %li
-              %a{:href => "language_switch.html"} Relatórios
+              %a{:href => "#{admin.report_clients_path}"} Relatórios
         %li.sub-menu
           %a{:href => "javascript:;"}
             %i.fa.fa-book

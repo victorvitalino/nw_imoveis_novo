@@ -225,87 +225,11 @@ var Script = function () {
 
     $('.popovers').popover();
 
-    // notification pie chart
-    $(function() {
-        $('.notification-pie-chart').easyPieChart({
-            onStep: function(from, to, percent) {
-                $(this.el).find('.percent').text(Math.round(percent));
-            },
-            barColor: "#39b6ac",
-            lineWidth: 3,
-            size:50,
-            trackColor: "#efefef",
-            scaleColor:"#cccccc"
-
-        });
-
-    });
-
-
-    $(function() {
-
-        var datatPie = [30,50];
-// DONUT
-        $.plot($(".target-sell"), datatPie,
-            {
-                series: {
-                    pie: {
-                        innerRadius: 0.6,
-                        show: true,
-                        label: {
-                            show: false
-
-                        },
-                        stroke: {
-                            width:.01,
-                            color: '#fff'
-
-                        }
-                    }
 
 
 
 
-                },
-
-                legend: {
-                    show: true
-                },
-                grid: {
-                    hoverable: true,
-                    clickable: true
-                },
-
-                colors: ["#ff6d60", "#cbcdd9"]
-            });
-    });
-
-    $(function() {
-        $('.pc-epie-chart').easyPieChart({
-            onStep: function(from, to, percent) {
-                $(this.el).find('.percent').text(Math.round(percent));
-            },
-            barColor: "#5bc6f0",
-            lineWidth: 3,
-            size:50,
-            trackColor: "#32323a",
-            scaleColor:"#cccccc"
-
-        });
-
-    });
-
-
-
-    $(function() {
-        $(".d-pending").sparkline([3,1], {
-            type: 'pie',
-            width: '40',
-            height: '40',
-            sliceColors: ['#e1e1e1','#8175c9']
-        });
-    });
-
+ 
 
 
 // SPARKLINE

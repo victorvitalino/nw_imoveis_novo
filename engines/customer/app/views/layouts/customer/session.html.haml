@@ -1,0 +1,14 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title MeunwImoveis
+    = stylesheet_link_tag 'client/application', media: 'all'
+    = csrf_meta_tags
+  %body
+    %section#container
+      %section#main-content
+        .wrapper
+          = yield
+    = javascript_include_tag 'client/application'
+    

@@ -1,0 +1,24 @@
+pt-BR:
+  activerecord:
+    models:
+      'client' : "Cliente"
+    attributes:
+      'client' :
+        type_client: "Tipo"
+        cpf: "CPF"
+        cnpj: "CNPJ"
+        logo_path: "Logo"
+        social_reason: "Razão Social"
+        fantasy_name: "Nome Fantasia"
+        username: "Username"
+        password: "Senha"
+        password_confirmation: "Senha Confirmação"
+        city: "Cidade"
+        uf: "UF"
+        cep: "CEP"
+        address: "Endereço"
+        contract_email: "E-mail de Contato" 
+        cadastre_email: "E-mail de Cadastro"
+        telephone: "Telefone"
+        celphone: "Celular"
+        responsible_telephone: "Telefone do Responsável" 

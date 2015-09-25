@@ -35,6 +35,6 @@ group :production do
   gem 'rails_12factor'
 end
 
-gem 'site',   path: 'engines/site'
-gem 'admin',  path: 'engines/admin'
-gem 'client', path: 'engines/client'
+gem 'site',       path: 'engines/site'
+gem 'admin',      path: 'engines/admin'
+gem 'customer',   path: 'engines/customer'

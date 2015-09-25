@@ -1,0 +1,72 @@
+= simple_form_for @client do |f|
+
+  .row
+    .col-md-2
+      = f.input :type_client, as: :select, collection: Admin::Client.type_clients.keys.to_a.map { |key| [key.humanize, key]}, include_blank: false
+    .col-md-2
+      .cnpj{:style => @client.pessoa_jurídica? ? "display: block;" : "display: none;"}
+        = f.input :cnpj
+      .cpf{:style => @client.pessoa_física? ? "display: block;" : "display: none;"}
+        = f.input :cpf
+    .col-md-2
+      = f.input :logo_path, as: :file
+  %hr/
+  .row
+    .col-md-8
+      = f.input :social_reason
+  .row
+    .col-md-8
+      = f.input :fantasy_name
+  - if f.object.new_record?
+    %hr/
+    .row
+      .col-md-2
+        = f.input :username
+      .col-md-2
+        = f.input :password
+      .col-md-2
+        = f.input :password_confirmation
+  %hr/
+  .row
+    .col-md-5
+      = f.input :city
+    .col-md-1
+      = f.input :uf
+    .col-md-2
+      = f.input :cep
+  .row
+    .col-md-8
+      = f.input :address
+  %hr/
+  .row
+    .col-md-3
+      = f.input :email
+    .col-md-3
+      = f.input :cadastre_email
+  .row
+    .col-md-2
+      = f.input :telephone
+    .col-md-2
+      = f.input :celphone
+    .col-md-2
+      = f.input :responsible_telephone
+  %hr/
+  .row
+    .col-md-8
+      = f.button :submit, class: 'btn btn-success'
+      = link_to "Voltar", clients_path, class: 'btn btn-default'
+
+:javascript
+  $(document).ready(function(){
+    $('#client_type_client').on('change', function() {
+      if($(this).val() == "pessoa_física") {
+        $('.cnpj').hide()
+        $('.cpf').show()
+      }
+
+      if($(this).val() == "pessoa_jurídica") {
+        $('.cnpj').show()
+        $('.cpf').hide()
+      }
+    })
+  })

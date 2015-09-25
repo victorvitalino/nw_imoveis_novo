@@ -16,14 +16,12 @@
     %ul.nav.pull-right.top-menu
       %li.dropdown
         %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
-          %span John Doe
+          %span= current_user.email
           %b.caret
         %ul.dropdown-menu.extended.logout
           %li
-            %a{:href => "#"}
+            %a{:href => "#{main_app.edit_user_registration_path}"}
               %i.fa.fa-suitcase>
               Minha Conta
           %li
-            %a{:href => "login.html"}
-              %i.fa.fa-key
-              Sair
+            = link_to "Sair", main_app.destroy_user_session_path, method: :delete

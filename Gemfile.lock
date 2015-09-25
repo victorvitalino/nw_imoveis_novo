@@ -13,9 +13,9 @@ PATH
       rails (~> 4.2.4)
 
 PATH
-  remote: engines/client
+  remote: engines/customer
   specs:
-    client (0.0.1)
+    customer (0.0.1)
       rails (~> 4.2.4)
 
 PATH
@@ -205,7 +205,7 @@ DEPENDENCIES
   admin!
   byebug
   carrierwave
-  client!
+  customer!
   devise
   email_validator
   friendly_id
