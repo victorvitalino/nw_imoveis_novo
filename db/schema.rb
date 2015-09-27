@@ -66,9 +66,51 @@ ActiveRecord::Schema.define(version: 20150925182529) do
   add_index "projects", ["client_id"], name: "index_projects_on_client_id"
 
   create_table "properties", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "situation",               default: 0
+    t.integer  "type_property",           default: 0
+    t.boolean  "status",                  default: true
+    t.string   "iptu"
+    t.date     "expiration_date"
+    t.string   "cep"
+    t.integer  "state_id"
+    t.string   "city"
+    t.string   "region"
+    t.string   "district"
+    t.string   "address"
+    t.string   "group"
+    t.string   "number"
+    t.string   "block"
+    t.string   "complement"
+    t.string   "reference_point"
+    t.boolean  "address_link_visible"
+    t.boolean  "complement_link_visible"
+    t.string   "name"
+    t.integer  "rooms",                   default: 0
+    t.string   "unit"
+    t.float    "value",                   default: 0.0
+    t.integer  "suit",                    default: 0
+    t.float    "value_m2",                default: 0.0
+    t.float    "area",                    default: 0.0
+    t.integer  "parking_spaces",          default: 0
+    t.integer  "floor",                   default: 0
+    t.string   "sun_position"
+    t.string   "link_tour"
+    t.float    "value_rent",              default: 0.0
+    t.integer  "client_id"
+    t.integer  "project_id"
+    t.text     "description"
+    t.boolean  "commercial",              default: false
+    t.boolean  "elevator",                default: false
+    t.boolean  "coverage",                default: false
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
   end
+
+  add_index "properties", ["client_id"], name: "index_properties_on_client_id"
+  add_index "properties", ["project_id"], name: "index_properties_on_project_id"
+  add_index "properties", ["situation"], name: "index_properties_on_situation"
+  add_index "properties", ["state_id"], name: "index_properties_on_state_id"
+  add_index "properties", ["type_property"], name: "index_properties_on_type_property"
 
   create_table "property_attributes", force: :cascade do |t|
     t.datetime "created_at", null: false
