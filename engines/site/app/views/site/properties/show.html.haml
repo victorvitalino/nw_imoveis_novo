@@ -70,11 +70,13 @@
   .col-lg-4.col-md-4.col-sm-12.col-xs-12.info{:style => "background: #fff;"}
     .row
       .col-md-12.height
-        %h5 SQNW  309 B
+        %h5
+          = @propertie.name
       .col-md-12.height
         %h5
           Valor (Consulte Condições):
-          %span R$  0,00
+          %span
+            = @propertie.value
     .row
       .col-md-4.height
         %h5
@@ -216,3 +218,27 @@
     .col-lg-12.col-md-12.col-sm-12.col-xs-12.box
       %a{:href => "http://www.meunw.com.br/360/111/meunw.html?s=pano6160&h=-30.2721&v=2.4324&f=90.0000&skipintro&norotation", :onclick => "ga('send', 'event', 'pg-consulta', 'click-360', 'NWV0000000195', 1);", :target => "_blank"}
         %img.box-img.box-img-tour{:src => "http://www.meunw.com.br/assets/images/icons-360.png"}/
+
+        %script{:charset => "utf-8", :type => "text/javascript"}
+          :cdata
+            $(window).load(function() {
+            \// The slider being synced must be initialized first
+            $('#carousel').flexslider({
+            animation: "slide",
+            controlNav: false,
+            animationLoop: false,
+            slideshow: false,
+            itemWidth: 210,
+            itemMargin: 10,
+            maxItems: 6,
+            move: 1,
+            asNavFor: '#slider'
+            });
+
+            $('#slider').flexslider({
+            animation: "slide",
+            controlNav: false,
+            animationLoop: false,
+            slideshow: false
+            });
+            });

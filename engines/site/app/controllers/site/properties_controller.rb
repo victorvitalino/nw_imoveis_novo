@@ -3,10 +3,11 @@ module Site
   class PropertiesController < ApplicationController
     def index
     end
-    
+
     def show
+      @propertie = Property.find(params[:id])
     end
-    
+
     def property_type
       redirect_to '/404' unless Property.type_properties.keys.include?(params[:property_type])
     end
