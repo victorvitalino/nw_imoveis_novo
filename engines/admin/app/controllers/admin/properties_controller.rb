@@ -3,7 +3,7 @@ require_dependency "admin/application_controller"
 module Admin
   class PropertiesController < ApplicationController
     before_action :set_property, only: [:show, :edit, :update, :destroy]
-
+    before_action :set_nav
     # GET /properties
     def index
       @properties = Property.all
@@ -27,7 +27,8 @@ module Admin
       @property = Property.new(property_params)
 
       if @property.save
-        redirect_to @property, notice: 'Property was successfully created.'
+        flash[:success] = t :success
+        redirect_to action: "index"
       else
         render :new
       end
@@ -36,7 +37,8 @@ module Admin
     # PATCH/PUT /properties/1
     def update
       if @property.update(property_params)
-        redirect_to @property, notice: 'Property was successfully updated.'
+        flash[:success] = t :success
+        redirect_to action: "index"
       else
         render :edit
       end
@@ -44,8 +46,13 @@ module Admin
 
     # DELETE /properties/1
     def destroy
-      @property.destroy
-      redirect_to properties_url, notice: 'Property was successfully destroyed.'
+      if @property.destroy
+        flash[:success] = t :success
+      else
+        flash[:danger]  = t :danger
+      end
+      
+      redirect_to action: "index"
     end
 
     private
@@ -56,8 +63,18 @@ module Admin
 
       # Only allow a trusted parameter "white list" through.
       def property_params
-        params.require(:property).permit(:situation, :type_property, :status, :iptu, 
+        params.require(:property).permit(:situation, :type_property, :status, :iptu,
+                                         :client_id, :project_id, :cep, :region, :district, :group,
+                                         :block, :number, :address, :complement, :reference_point, 
+                                         :address_link_visible, :rooms, :unit, :value, :value_m2, 
+                                         :area, :suit, :parking_spaces, :floor, :sun_position, 
+                                         :link_tour, :value_rent,:description, :commercial, :elevator, :coverage, 
                                          :expiration_date, :name, property_attribute_id: [])
+      end
+
+
+      def set_nav
+        @nav = "property"
       end
   end
 end

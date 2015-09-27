@@ -1,0 +1,24 @@
+.row
+  .col-md-12
+    %section.panel
+      %header.panel-heading
+        Listagem de Empreendimentos
+        = link_to "novo empreendimento", new_project_path, class: "btn btn-success pull-right btn-xs"
+      .panel-body
+        %table.table.table-condensed.table-striped
+          %thead
+            %tr
+              %th Nome
+              %th Cliente
+              %th Status
+              %th Ações
+          %tbody
+            - @projects.each do |project|
+              %tr
+                %td= project.name
+                %td= project.client.social_reason if project.client.present?
+                %td= project.status ? 'ativo' : 'inativo'
+                %td.col-md-3
+                  =link_to "visualizar", project, class: 'btn btn-warning btn-xs'
+                  =link_to "editar", edit_project_path(project), class: 'btn btn-info btn-xs'
+                  =link_to "excluir", project_path(project), method: :delete, class: 'btn btn-danger btn-xs', data: { confirm: t(:confirm)}

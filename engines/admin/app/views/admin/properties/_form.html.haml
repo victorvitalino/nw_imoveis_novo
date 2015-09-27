@@ -1,7 +1,7 @@
 = simple_form_for @property do |f|
   .row
     .col-md-3
-      = f.association :client, prompt: 'selecione...'
+      = f.association :client, label_method: :social_reason, prompt: 'selecione...'
     .col-md-3
       = f.association :project, prompt: 'selecione...'
   %hr/

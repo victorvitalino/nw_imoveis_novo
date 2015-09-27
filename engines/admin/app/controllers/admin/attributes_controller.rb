@@ -3,7 +3,7 @@ require_dependency "admin/application_controller"
 module Admin
   class AttributesController < ApplicationController
     before_action :set_attribute, only: [:show, :edit, :update, :destroy]
-
+    before_action :set_nav
     # GET /attributes
     def index
       @attributes = Attribute.all
@@ -64,6 +64,10 @@ module Admin
       # Only allow a trusted parameter "white list" through.
       def attribute_params
         params.require(:attribute).permit(:name, :status)
+      end
+
+      def set_nav
+        @nav = "property"
       end
   end
 end
