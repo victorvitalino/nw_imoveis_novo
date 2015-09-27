@@ -8,21 +8,19 @@
             %i.fa.fa-dashboard
             %span Visão Geral
         %li.sub-menu
-          %a{:href => "javascript:;", :class => 'active'}
+          %a{:href => "javascript:;", :class => "#{(@nav == 'client') ? 'active' : ''}"}
             %i.fa.fa-laptop
             %span Clientes
-          %ul.sub{style: "display: block"}
+          %ul.sub{style: "#{(@nav == 'client') ? 'display: block' : ''}"}
             %li
               %a{:href => "#{admin.clients_path}"} Listagem de Clientes
             %li
               %a{:href => "#{admin.new_client_path}"} Novo Cliente
-            %li
-              %a{:href => "#{admin.report_clients_path}"} Relatórios
         %li.sub-menu
-          %a{:href => "javascript:;"}
+          %a{:href => "javascript:;", class: "#{(@nav == 'property') ? 'active' : ''}"}
             %i.fa.fa-book
             %span Imóveis
-          %ul.sub
+          %ul.sub{style: "#{(@nav == 'client') ? 'display: property' : ''}"}
             %li
               %a{:href => "#{admin.properties_path}"} Listagem de Imóveis
             %li
@@ -30,11 +28,9 @@
             %li
               %a{:href => "#{admin.attributes_path}"} Attributos de Imóvel
             %li
-              %a{:href => "tree_view.html"} Empreendimentos
-            %li
-              %a{:href => "draggable_portlet.html"} Relatórios
+              %a{:href => "#{admin.projects_path}"} Empreendimentos
         %li.sub-menu
-          %a{:href => "javascript:;"}
+          %a{:href => "javascript:;", class: "#{(@nav == 'ads') ? 'active' : ''}"}
             %i.fa.fa-book
             %span Publicidade
           %ul.sub

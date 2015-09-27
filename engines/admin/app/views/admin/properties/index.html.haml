@@ -11,14 +11,16 @@
               %th Código
               %th Empreendimento
               %th Cliente
+              %th Status
               %th Ações
           %tbody
-            - @properties.each do |attribute|
+            - @properties.each do |property|
               %tr
-                %td= attribute.name
-                %td
-                %td
-                %td.col-md-2
+                %td= property.code
+                %td= property.name
+                %td= property.client.social_reason if property.client.present?
+                %td= property.status ? 'ativo' : 'inativo'
+                %td.col-md-3
                   =link_to "visualizar", property, class: 'btn btn-warning btn-xs'
-                  =link_to "editar", edit_attribute_path(attribute), class: 'btn btn-info btn-xs'
-                  =link_to "excluir", attribute_path(attribute), method: :delete, class: 'btn btn-danger btn-xs', data: { confirm: t(:confirm)}
+                  =link_to "editar", edit_property_path(property), class: 'btn btn-info btn-xs'
+                  =link_to "excluir", property_path(property), method: :delete, class: 'btn btn-danger btn-xs', data: { confirm: t(:confirm)}

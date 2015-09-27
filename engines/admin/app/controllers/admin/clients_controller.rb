@@ -3,7 +3,8 @@ require_dependency "admin/application_controller"
 module Admin
   class ClientsController < ApplicationController
     before_action :set_client, only: [:show, :edit, :update, :destroy]
-    
+    before_action :set_nav
+
     def report
     end
     
@@ -75,6 +76,10 @@ module Admin
         params.require(:client).permit(:type_client, :cpf, :cnpj, :logo_path, :social_reason, :fantasy_name, :logo_path,
                                        :username, :city, :uf, :cep, :address,
                                        :email, :cadastre_email, :telephone, :celphone, :responsible_telephone)
+      end
+
+      def set_nav
+        @nav = "client"
       end
 
   end
