@@ -3,7 +3,8 @@ Site::Engine.routes.draw do
 
   resources :properties, path: 'imoveis' do
     collection do 
-      get '/:detail_type',   to: 'properties#detail_type', as: 'detail_type'
+      get '/:property_type',               to: 'properties#property_type',          as: 'property_type'
+      get '/:property_detail_type/:detail_type',   to: 'properties#property_detail_type',   as: 'property_detail_type'
     end
   end
 end

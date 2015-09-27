@@ -4,5 +4,7 @@ class Property < ActiveRecord::Base
 
   attr_accessor :detail_nav
 
-  enum detail_nav: ['icon-um-quarto', 'icon-dois-quarto', 'icon-tres-quarto','icon-quatro-quarto', 'icon-cobertura','icon-salas-lojas']
+  enum detail_nav: ['um-quarto', 'dois-quartos',
+                    'tres-quartos','quatro-quartos',
+                    'cobertura','salas-e-lojas']
 end
