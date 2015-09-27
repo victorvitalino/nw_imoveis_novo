@@ -2,11 +2,11 @@
 @Admin
  ☐ edição de dados do usuário logado
  ☐ tela de visão geral
- ☐ cadastro de empreendimento por cliente
- ☐ cadastro de attributos de imóvel
- ☐ cadastro de situações por imóvel
- ☐ cadastro de imóveis por cliente e ou empreendimento
- ☐ listagem de imóveis
+ ✔ cadastro de empreendimento por cliente @done (15-09-27 11:37)
+ ✔ cadastro de attributos de imóvel @done (15-09-27 11:37)
+ ✔ cadastro de situações por imóvel @done (15-09-27 11:37)
+ ✔ cadastro de imóveis por cliente e ou empreendimento @done (15-09-27 11:37)
+ ✔ listagem de imóveis @done (15-09-27 11:37)
  ☐ cadastro e listagem de anúncios com ordenação e tipo
  ☐ cadastro e listagem de banners
  ☐ cadastro de usuários gerais do sistema
@@ -20,5 +20,5 @@
 
 
 @to-do
- ☐ logo do meunw
- ☐ correção de cores e bordas do bucket
+ ✔ logo do meunw @done (15-09-27 11:37)
+ ✔ correção de cores e bordas do bucket @done (15-09-27 11:37)
