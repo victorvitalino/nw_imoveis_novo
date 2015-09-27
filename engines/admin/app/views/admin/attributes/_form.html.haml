@@ -1,0 +1,12 @@
+= simple_form_for @attribute do |f|
+  .row
+    .col-md-8
+      = f.input :name
+  .row
+    .col-md-2
+      = f.input :status, as: :select, include_blank: false
+  %hr/
+  .row
+    .col-md-8
+      = f.button :submit, class: 'btn btn-success'
+      = link_to "Voltar", attributes_path, class: 'btn btn-default'

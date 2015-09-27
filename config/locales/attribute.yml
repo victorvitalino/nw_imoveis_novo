@@ -1,0 +1,8 @@
+pt-BR:
+  activerecord:
+    models:
+      'attribute' : "Attributo"
+    attributes:
+      'attribute' :
+        name: "Nome"
+        status: "Status"

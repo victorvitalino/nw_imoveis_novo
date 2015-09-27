@@ -6,4 +6,7 @@ Admin::Engine.routes.draw do
       get 'report', path: 'relatorio', as: 'report' 
     end
   end
+
+  resources :attributes
+  resources :properties
 end

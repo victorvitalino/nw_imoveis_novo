@@ -10,8 +10,8 @@ Rails.application.routes.draw do
     registrations: "user_registrations"
   }
   
-  mount Site::Engine      => '/',         as: 'site'
-  mount Admin::Engine     => '/gestao',   as: 'admin'
+  mount Site::Engine        => '/',         as: 'site'
+  mount Admin::Engine       => '/gestao',   as: 'admin'
   mount Customer::Engine    => '/cliente',  as: 'client'
 
 end

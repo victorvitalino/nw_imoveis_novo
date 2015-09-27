@@ -1,0 +1,24 @@
+.row
+  .col-md-12
+    %section.panel
+      %header.panel-heading
+        Listagem Imóveis
+        = link_to "novo imóvel", new_property_path, class: "btn btn-success pull-right btn-xs"
+      .panel-body
+        %table.table.table-condensed.table-striped
+          %thead
+            %tr
+              %th Código
+              %th Empreendimento
+              %th Cliente
+              %th Ações
+          %tbody
+            - @properties.each do |attribute|
+              %tr
+                %td= attribute.name
+                %td
+                %td
+                %td.col-md-2
+                  =link_to "visualizar", property, class: 'btn btn-warning btn-xs'
+                  =link_to "editar", edit_attribute_path(attribute), class: 'btn btn-info btn-xs'
+                  =link_to "excluir", attribute_path(attribute), method: :delete, class: 'btn btn-danger btn-xs', data: { confirm: t(:confirm)}

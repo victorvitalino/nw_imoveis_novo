@@ -38,6 +38,7 @@ class CreateProperties < ActiveRecord::Migration
 
       t.references :client, index:true
       t.references :project, index: true
+      t.references :property_attribute, array: true, default: []
 
       t.text  :description
       t.boolean :commercial,  default: false

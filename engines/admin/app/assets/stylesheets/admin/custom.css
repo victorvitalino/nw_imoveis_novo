@@ -1,3 +1,7 @@
-input {
-  color: black !important;
-}
+.brand { background: #59b9cc;}
+
+input, select { color: black !important; border-color: black; }
+
+.form-control { border: 1px solid #B0B0B0; }
+
+a.logo { margin: 15px 0 0 45px !important;}
