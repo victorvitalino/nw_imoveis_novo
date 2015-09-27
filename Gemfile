@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.2.1'
+#ruby '2.2.1'
 
 gem 'rails', '4.2.4'
 gem 'uglifier', '>= 1.3.0'
@@ -30,7 +30,7 @@ group :development do
   gem 'spring'
 end
 
-group :production do 
+group :production do
   gem 'pg'
   gem 'rails_12factor'
 end
