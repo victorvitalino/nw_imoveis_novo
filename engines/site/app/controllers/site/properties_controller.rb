@@ -22,16 +22,15 @@ module Site
         @properties = Property.sell_all
       else
       end
-
       case params[:detail_type]
       when 'um-quarto'
-        @properties.one_room_all
+        @properties = @properties.one_room_all
       when 'dois-quartos'
-        @properties.two_room_all
+        @properties = @properties.two_room_all
       when 'tres-quartos'
-        @properties.three_room_all
+        @properties = @properties.three_room_all
       when 'quatro-quartos'
-        @properties.four_room_all
+        @properties = @properties.four_room_all
       else
       end
     end
