@@ -61,58 +61,68 @@
                 %button.btn.btn-default.btnMsgDetalhes{:formaction => "detalhes.php/envioEmail", :type => "button"} Enviar
                 %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close
       .col-lg-12.col-md-12.col-sm-12.col-xs-12.box
-        %a{:href => "http://www.meunw.com.br/360/111/meunw.html?s=pano6160&h=-30.2721&v=2.4324&f=90.0000&skipintro&norotation", :onclick => "ga('send', 'event', 'pg-consulta', 'click-360', 'NWV0000000195', 1);", :target => "_blank"}
+        %a{:href => "#{@property.link_tour}", :onclick => "ga('send', 'event', 'pg-consulta', 'click-360', 'NWV0000000195', 1);", :target => "_blank"}
           %img.box-img.box-img-tour{:src => "http://www.meunw.com.br/assets/images/icons-360.png"}/
     .col-lg-12.col-md-12.col-sm-12.col-xs-12.desc.hidden-sm.hidden-xs
       %h4 Descrição
       %h5
-        %span Conheça o lançamento Privilege Noroeste. Suas ruas são arborizadas e oferecem muita qualidade de vida e bem-estar aos moradores. O empreendimento Privilege Noroeste está a cerca de 15 minutos do Palácio do Planalto e a 5 minutos do Parque Rural e Estação Biológica. A região possui característica residencial, mas ao mesmo tempo está perto de tudo o que você precisa.
+        %span
+          = @property.description
   .col-lg-4.col-md-4.col-sm-12.col-xs-12.info{:style => "background: #fff;"}
     .row
       .col-md-12.height
         %h5
-          = @propertie.name
+          = @property.name
       .col-md-12.height
         %h5
           Valor (Consulte Condições):
           %span
-            = @propertie.value
+            R$
+            = @property.value
     .row
       .col-md-4.height
         %h5
           Quartos:
-          %span 3
+          %span
+            = @property.rooms
       .col-md-4.height
         %h5
           Suítes:
-          %span 1
+          %span
+            = @property.suit
       .col-md-4.height
         %h5
           Vagas:
-          %span 3
+          %span
+            = @property.parking_spaces
     .row
       .col-md-5.height
         %h5
           Elevadores:
-          %span 1
+          %span
+            = @property.elevator
       .col-md-7.height
         %h5
           Valor m2:
-          %span 0,00
+          %span
+            = @property.value_m2
     .row
       .col-md-6.height
         %h5
           Área útil (m²):
-          %span 110.00
+          %span
+            = @property.area
       .col-md-6.height
         %h5
           Andar:
-          %span 4
+          %span
+            = @property.floor
     .row
       .col-md-12.height
         %h5
           Situação do imóvel:
-          %span Pronto
+          %span
+            = @property.situation
     .atributos
       %div
         %h4 Atributos
@@ -120,38 +130,8 @@
           %tr{:height => "8"}
             %td
               %p
-                %span{:style => "margin-top: 10px;"} Área de Lazer
-            %td
-              %p
-                %span{:style => "margin-top: 10px;"} Churrasqueira
-          %tr{:height => "8"}
-            %td
-              %p
-                %span{:style => "margin-top: 10px;"} Guarita
-            %td
-              %p
-                %span{:style => "margin-top: 10px;"} Interfone
-          %tr{:height => "8"}
-            %td
-              %p
-                %span{:style => "margin-top: 10px;"} Jardim
-            %td
-              %p
-                %span{:style => "margin-top: 10px;"} Piscina
-          %tr{:height => "8"}
-            %td
-              %p
-                %span{:style => "margin-top: 10px;"} PlayGround
-            %td
-              %p
-                %span{:style => "margin-top: 10px;"} Sala de Ginástica
-          %tr{:height => "8"}
-            %td
-              %p
-                %span{:style => "margin-top: 10px;"} Salão de Festas
-            %td
-              %p
-                %span{:style => "margin-top: 10px;"} Sauna
+                %span{:style => "margin-top: 10px;"}
+                  = @property.property_attribute
     .row.resp
       .col-md-12
         %h4

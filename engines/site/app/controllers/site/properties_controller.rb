@@ -5,7 +5,7 @@ module Site
     end
 
     def show
-      @propertie = Property.find(params[:id])
+      @property = Property.find(params[:id])
     end
 
     def property_type
