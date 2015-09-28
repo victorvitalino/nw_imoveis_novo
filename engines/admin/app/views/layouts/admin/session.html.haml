@@ -5,10 +5,7 @@
     %title MeunwImoveis
     = stylesheet_link_tag 'admin/application', media: 'all'
     = csrf_meta_tags
-  %body
+  %body.login-body
     %section#container
-      %section#main-content
-        .wrapper
-          = yield
+      = yield
     = javascript_include_tag 'admin/application'
-    

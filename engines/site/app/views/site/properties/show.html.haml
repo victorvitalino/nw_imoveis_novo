@@ -14,7 +14,7 @@
             %img.img-responsive{:src => "http://meunw.com.br/assets/images/imoveis/privilege_fachada9.jpg"}/
     .col-lg-3.col-md-3.col-sm-12.col-xs-12.hidden-sm.hidden-xs
       .col-lg-12.col-md-12.col-sm-12.col-xs-12.box.hidden-sm.hidden-xs
-        %img.img-responsive{:src => "http://www.meunw.com.br/assets/images/logo-empreendimento/privilege_noroeste.jpg", :style => "margin: 0 auto"}/
+        %img.img-responsive{:src => "#{@property.project.image_path}", :style => "margin: 0 auto"}/
       .col-lg-12.col-md-12.col-sm-12.col-xs-12.box
         %a{"data-target" => "#telefone", "data-toggle" => "modal", :href => "javascript:ga('send', 'event', 'pg-consulta', 'call', 'NWV0000000195', 1);"}
           %span.box-icons
@@ -131,7 +131,9 @@
             %td
               %p
                 %span{:style => "margin-top: 10px;"}
-                  = @property.property_attribute
+                  - @property.property_attributes.each do |attribute|
+                    .row
+                      = attribute.name
     .row.resp
       .col-md-12
         %h4
@@ -198,27 +200,3 @@
     .col-lg-12.col-md-12.col-sm-12.col-xs-12.box
       %a{:href => "http://www.meunw.com.br/360/111/meunw.html?s=pano6160&h=-30.2721&v=2.4324&f=90.0000&skipintro&norotation", :onclick => "ga('send', 'event', 'pg-consulta', 'click-360', 'NWV0000000195', 1);", :target => "_blank"}
         %img.box-img.box-img-tour{:src => "http://www.meunw.com.br/assets/images/icons-360.png"}/
-
-        %script{:charset => "utf-8", :type => "text/javascript"}
-          :cdata
-            $(window).load(function() {
-            \// The slider being synced must be initialized first
-            $('#carousel').flexslider({
-            animation: "slide",
-            controlNav: false,
-            animationLoop: false,
-            slideshow: false,
-            itemWidth: 210,
-            itemMargin: 10,
-            maxItems: 6,
-            move: 1,
-            asNavFor: '#slider'
-            });
-
-            $('#slider').flexslider({
-            animation: "slide",
-            controlNav: false,
-            animationLoop: false,
-            slideshow: false
-            });
-            });

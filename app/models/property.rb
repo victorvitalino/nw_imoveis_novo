@@ -3,6 +3,8 @@ class Property < ActiveRecord::Base
   belongs_to :client
   belongs_to :project
 
+  def property_attributes; Attribute.where(id: self.property_attribute_id); end;
+
   scope :rent_all,      -> {where(type_property: 0)}
   scope :release_all,   -> {where(type_property: 1)}
   scope :sell_all,      -> {where(type_property: 2)}
