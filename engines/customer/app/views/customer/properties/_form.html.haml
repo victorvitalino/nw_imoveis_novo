@@ -1,0 +1,114 @@
+= simple_form_for @property do |f|
+  .row
+    .col-md-3
+      = f.association :project, collection: current_client.projects, prompt: 'selecione...'
+      = f.hint link_to "gerenciar empreendimentos", projects_path
+  %hr/
+  .row
+    .col-md-3
+      = f.input :situation, as: :select, collection: Property.situations.keys.to_a.map { |key| [key.humanize, key] }, include_blank: false
+    .col-md-3
+      = f.input :type_property, as: :select, collection: Property.type_properties.keys.to_a.map { |key| [key.humanize, key]}, include_blank: false
+    .col-md-3
+      = f.input :status, as: :select, include_blank: false
+  .row
+    .col-md-3
+      = f.input :iptu
+    .col-md-3
+      = f.input :expiration_date, as: :string, input_html: { class: 'date'}
+  %br/
+  %br/
+  %h4 Localização do Imóvel
+  %hr/
+  .row
+    .col-md-3
+      = f.input :cep 
+    .col-md-3
+      = f.input :region 
+    .col-md-3
+      = f.input :district 
+  .row
+    .col-md-3
+      = f.input :group 
+    .col-md-3
+      = f.input :block 
+    .col-md-3
+      = f.input :number 
+  .row
+    .col-md-9
+      = f.input :address 
+  .row
+    .col-md-9
+      = f.input :complement 
+  .row
+    .col-md-9
+      = f.input :reference_point 
+  .row
+    .col-md-3
+      = f.input :address_link_visible, as: :select, include_blank: false 
+    .col-md-3
+      = f.input :reference_point, as: :select, include_blank: false 
+  %br/
+  %br/
+  %h4 Descrição do Imóvel
+  %hr/
+  .row
+    .col-md-9
+      = f.input :name
+  .row
+    .col-md-1
+      = f.input :rooms
+    .col-md-2
+      = f.input :unit
+    .col-md-2
+      = f.input :value
+    .col-md-2
+      = f.input :value_m2
+    .col-md-2
+      = f.input :area
+  .row
+    .col-md-1
+      = f.input :suit
+    .col-md-2
+      = f.input :parking_spaces
+    .col-md-2
+      = f.input :floor
+    .col-md-4
+      = f.input :sun_position
+  .row
+    .col-md-3
+      = f.input :link_tour
+    .col-md-2
+      = f.input :value_rent
+    .col-md-3
+      = f.input :image_path, as: :file, input_html: {  multiple: true}
+  %hr/
+  .row
+    .col-md-3
+      = f.association :construction_companies, as: :select, label_method: :social_reason, input_html: { class: "chosen-select", multiple: true, data: { placeholder: 'Selecione...'}}
+    .col-md-3
+      = f.association :sellers, as: :select, value: "oi", label_method: :social_reason,  input_html: { class: "chosen-select", multiple: true, data: { placeholder: 'Selecione...'}}
+  %hr/
+  .row
+    .col-md-9
+      = f.input :description
+  .row
+    .col-md-3
+      = f.input :commercial, as: :select, include_blank: false
+    .col-md-3
+      = f.input :elevator, as: :select, include_blank: false
+    .col-md-3
+      = f.input :coverage, as: :select, include_blank: false
+  %br/
+  %br/
+  %h4 Attributos
+  %hr/
+  .row
+    .col-md-2
+      = f.association :property_attribute, label: false, as: :check_boxes
+  %hr/
+  .row
+    .col-md-8
+      = f.button :submit, class: 'btn btn-success'
+      = link_to "Voltar", properties_path, class: 'btn btn-default'
+

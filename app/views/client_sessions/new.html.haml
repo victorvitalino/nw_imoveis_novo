@@ -1,8 +1,12 @@
-%h2 Log in
-= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  .form-inputs
-    = f.input :username, required: false, autofocus: true
-    = f.input :password, required: false
-    = f.input :remember_me, as: :boolean if devise_mapping.rememberable?
-  .form-actions
-    = f.button :submit, "Log in"
+.row
+  .col-md-4.col-md-offset-4
+    .login-wrap
+      = simple_form_for(resource, as: resource_name, url: session_path(resource_name), html: {class:'form-signin'}) do |f|
+        %h2.form-signin-heading
+          MEU NW IMÓVEIS
+        .login-wrap
+          .user-login-info
+            = f.label "Usuário"
+            = f.input :username, label: false,required: false, autofocus: true, placeholder: "Digite seu usuário"
+            = f.input :password, required: false, placeholder: "Digite sua senha"
+          = f.button :submit, "ENTRAR", class: 'btn btn-info'

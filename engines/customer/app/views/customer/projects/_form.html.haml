@@ -1,0 +1,17 @@
+= simple_form_for @project do |f|
+  .row
+    .col-md-9
+      = f.input :name
+  .row
+    .col-md-9
+      = f.input :description
+  .row
+    .col-md-3
+      = f.input :status, as: :select, include_blank: false
+    .col-md-3
+      = f.input :image_path, as: :file
+  %hr/
+  .row
+    .col-md-8
+      = f.button :submit, class: 'btn btn-success'
+      = link_to "Voltar", projects_path, class: 'btn btn-default'

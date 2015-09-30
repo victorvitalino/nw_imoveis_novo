@@ -1,7 +1,7 @@
 %header.header.fixed-top.clearfix
   / logo start
   .brand
-    %a.logo{:href => "#{admin.root_path}"}
+    %a.logo{:href => "#{root_path}"}
       %img{:alt => "", :src => "/images/logo-white.png", width: 130}/
   #top_menu.nav.notify-row
     / notification start
@@ -13,7 +13,7 @@
     %ul.nav.pull-right.top-menu
       %li.dropdown
         %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
-          %span= current_user.email
+          %span= current_client.email
           %b.caret
         %ul.dropdown-menu.extended.logout
           %li
@@ -21,4 +21,4 @@
               %i.fa.fa-suitcase>
               Minha Conta
           %li
-            = link_to "Sair", main_app.destroy_user_session_path, method: :delete
+            = link_to "Sair", main_app.destroy_client_session_path, method: :delete
