@@ -1,20 +1,22 @@
 %section#imovel-detalhes
   .col-sm-12.col-xs-12.hidden-md.hidden-lg
     .col-lg-12.col-md-12.col-sm-12.col-xs-12.box
-      %img.img-responsive{:src => "http://www.meunw.com.br/assets/images/logo-empreendimento/privilege_noroeste.jpg", :style => "margin: 0 auto"}/
+      %img.img-responsive{:src => "#", :style => "margin: 0 auto"}/
   .col-lg-8.col-md-8.col-sm-12.col-xs-12
     .col-lg-9.col-md-9.col-sm-12.col-xs-12.galeria
       #slider.flexslider.flexslider-galeria
         %ul.slides
-          %li
-            %img.img-responsive{:src => "http://meunw.com.br/assets/images/imoveis/privilege_fachada9.jpg"}/
+          - @property.image_path.each do |image|
+            %li
+              %img.img-responsive{:src => "#{image}"}/
       #carousel.flexslider
-        %ul.slides
-          %li
-            %img.img-responsive{:src => "http://meunw.com.br/assets/images/imoveis/privilege_fachada9.jpg"}/
+        %ul.slides.img-carrosel
+          - @property.image_path.each do |image|
+            %li
+              %img.img-responsive{:src => "#{image}"}/
     .col-lg-3.col-md-3.col-sm-12.col-xs-12.hidden-sm.hidden-xs
       .col-lg-12.col-md-12.col-sm-12.col-xs-12.box.hidden-sm.hidden-xs
-        %img.img-responsive{:src => "#{@property.project.image_path}", :style => "margin: 0 auto"}/
+        %img.img-responsive{:src => "#{@property.project.image_path}",:style => "margin: 0 auto; height: 85px"}/
       .col-lg-12.col-md-12.col-sm-12.col-xs-12.box
         %a{"data-target" => "#telefone", "data-toggle" => "modal", :href => "javascript:ga('send', 'event', 'pg-consulta', 'call', 'NWV0000000195', 1);"}
           %span.box-icons
@@ -29,9 +31,14 @@
                 %button.close{"data-dismiss" => "modal", :type => "button"} ×
                 %h4.modal-title Entre em contato
               .modal-body
-                %h4 Lopes Royal
-                %p Telefone: 61 3383-7630
-                %p Celular: 61 9645-1009
+                %h4
+                  = @property.client.username
+                %p
+                  Telefone:
+                  = @property.client.telephone
+                %p
+                  Celular:
+                  = @property.client.celphone
       .col-lg-12.col-md-12.col-sm-12.col-xs-12.box
         %a{"data-target" => "#mensagem", "data-toggle" => "modal", :href => "javascript:ga('send', 'event', 'pg-consulta', 'click-formulario', 'NWV0000000195', 1);"}
           %span.box-icons
@@ -62,7 +69,7 @@
                 %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close
       .col-lg-12.col-md-12.col-sm-12.col-xs-12.box
         %a{:href => "#{@property.link_tour}", :onclick => "ga('send', 'event', 'pg-consulta', 'click-360', 'NWV0000000195', 1);", :target => "_blank"}
-          %img.box-img.box-img-tour{:src => "http://www.meunw.com.br/assets/images/icons-360.png"}/
+          %img.box-img.box-img-tour{:src => "#"}/
     .col-lg-12.col-md-12.col-sm-12.col-xs-12.desc.hidden-sm.hidden-xs
       %h4 Descrição
       %h5
@@ -77,8 +84,7 @@
         %h5
           Valor (Consulte Condições):
           %span
-            R$
-            = @property.value
+            = number_to_currency @property.value
     .row
       .col-md-4.height
         %h5
@@ -100,12 +106,12 @@
         %h5
           Elevadores:
           %span
-            = @property.elevator
+            = @property.elevator ? 'Sim' : 'Não'
       .col-md-7.height
         %h5
           Valor m2:
           %span
-            = @property.value_m2
+            = number_to_currency @property.value_m2
     .row
       .col-md-6.height
         %h5
@@ -116,87 +122,32 @@
         %h5
           Andar:
           %span
-            = @property.floor
+            = "#{@property.floor}º"
     .row
       .col-md-12.height
         %h5
           Situação do imóvel:
           %span
-            = @property.situation
-    .atributos
-      %div
-        %h4 Atributos
-        %table.table
-          %tr{:height => "8"}
-            %td
-              %p
-                %span{:style => "margin-top: 10px;"}
-                  - @property.property_attributes.each do |attribute|
-                    .row
-                      = attribute.name
+            = @property.situation.humanize
+    .row
+      .col-md-12
+        .atributos
+          %h4 Atributos
+          - @property.property_attributes.each do |attribute|
+            .col-md-6.atributos-custom
+              = attribute.name
     .row.resp
       .col-md-12
         %h4
           %span Construtora
         .row
           .col-lg-12.col-md-12.col-sm-12.col-xs-12
-            %img.img-responsive.img-100{:src => "http://www.meunw.com.br/assets/images/logo-cliente/logo_soltec.jpg"}/
+            - @property.property_constructors.each do |constructor|
+              %img.img-responsive.img-100{:src => "#{constructor.logo_path}"}/
       .col-md-12.vendas
         %h4
           %span Venda
         .row
           .col-lg-12.col-md-12.col-sm-12.col-xs-12
-            %img.img-responsive.img-100{:src => "http://www.meunw.com.br/assets/images/logo-cliente/Lopes_Royal.jpg"}/
-  .col-sm-12.col-xs-12.hidden-md.hidden-lg{:style => "margin-top: -60px;"}
-    .col-sm-12.col-xs-12.desc{:style => "margin-bottom: 20px;"}
-      %h4 Descrição
-      %h5
-        %span Conheça o lançamento Privilege Noroeste. Suas ruas são arborizadas e oferecem muita qualidade de vida e bem-estar aos moradores. O empreendimento Privilege Noroeste está a cerca de 15 minutos do Palácio do Planalto e a 5 minutos do Parque Rural e Estação Biológica. A região possui característica residencial, mas ao mesmo tempo está perto de tudo o que você precisa.
-    .col-lg-12.col-md-12.col-sm-12.col-xs-12.box
-      %a{"data-target" => "#telefoneMobile", "data-toggle" => "modal", :href => "javascript:ga('send', 'event', 'pg-consulta', 'call', 'NWV0000000195', 1);"}
-        %span.box-icons
-          %i.fa.fa-phone
-          %span
-      / Modal
-      #telefoneMobile.modal.fade{:role => "dialog"}
-        .modal-dialog
-          / Modal content
-          .modal-content
-            .modal-header
-              %button.close{"data-dismiss" => "modal", :type => "button"} ×
-              %h4.modal-title Entre em contato
-            .modal-body
-              %h4 Lopes Royal
-              %p Telefone: 61 3383-7630
-              %p Celular: 61 9645-1009
-    .col-lg-12.col-md-12.col-sm-12.col-xs-12.box
-      %a{"data-target" => "#mensagemMobile", "data-toggle" => "modal", :href => "javascript:ga('send', 'event', 'pg-consulta', 'click-formulario', 'NWV0000000195', 1);"}
-        %span.box-icons
-          %i.fa.fa-paper-plane
-          %span
-      / Modal
-      #mensagemMobile.modal.fade{:role => "dialog"}
-        .modal-dialog
-          / Modal content
-          .modal-content
-            .modal-header
-              %button.close{"data-dismiss" => "modal", :type => "button"} ×
-              %h4.modal-title Entre em contato
-            .modal-body
-              .form-group
-                %input#cliemailcad{:name => "cliemailcad", :type => "hidden", :value => "acesar@lopes.com.br"}/
-                %input#imocodigo{:name => "imocodigo", :type => "hidden", :value => "NWV0000000195"}/
-                %label{:for => "nome"} Nome:
-                %input#nome.form-control{:name => "nome", :type => "text"}/
-              .form-group
-                %label{:for => "email"} E-mail:
-                %input#email.form-control{:name => "email", :type => "text"}/
-              .form-group
-                %label{:for => "msg"} Mensagem:
-                %textarea#msg.form-control{:name => "msg", :rows => "5"}
-            .modal-footer
-              %button.btn.btn-default.btnMsgDetalhes{:formaction => "detalhes.php/envioEmail", :type => "button"} Enviar
-              %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close
-    .col-lg-12.col-md-12.col-sm-12.col-xs-12.box
-      %a{:href => "http://www.meunw.com.br/360/111/meunw.html?s=pano6160&h=-30.2721&v=2.4324&f=90.0000&skipintro&norotation", :onclick => "ga('send', 'event', 'pg-consulta', 'click-360', 'NWV0000000195', 1);", :target => "_blank"}
-        %img.box-img.box-img-tour{:src => "http://www.meunw.com.br/assets/images/icons-360.png"}/
+            - @property.property_sellers.each do |seller|
+              %img.img-responsive.img-100{:src => "#{seller.logo_path}"}/
