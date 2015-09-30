@@ -13,7 +13,7 @@ gem 'pundit', :git => 'https://github.com/geekninja/pundit.git', :branch => 'mas
 gem 'simple_form'
 gem 'haml-rails'
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
-
+gem "fog-aws"
 
 gem 'friendly_id'
 gem 'validates_cpf_cnpj'
