@@ -1,0 +1,11 @@
+pt-BR:
+  activerecord:
+    models:
+      'user' : "Cliente"
+    attributes:
+      'user' :
+        username: "Usuário"
+        email: "E-mail"
+        password: "Senha"
+        password_confirmation: "Confirmação da Senha"
+        current_password: "Senha Atual"

@@ -1,0 +1,11 @@
+pt-BR:
+  activerecord:
+    models:
+      'button' : "Botão"
+    attributes:
+      'button' :
+        title: "Título"
+        code: "Página"
+        order: "Posição"
+        image_path: "Imagem"
+        status: "Ativo?"

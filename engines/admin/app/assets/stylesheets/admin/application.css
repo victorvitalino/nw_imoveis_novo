@@ -5,5 +5,6 @@
  *= require bucket/assets/font-awesome/css/font-awesome.css
  *= require bucket/css/style
  *= require bucket/css/style-responsive
+ *= require admin/chosen
  *= require admin/custom
  */

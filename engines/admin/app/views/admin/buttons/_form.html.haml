@@ -1,0 +1,26 @@
+= simple_form_for @button do |f|
+  .row
+    .col-md-6
+      = f.input :title, placeholder: "Digite um título identificar o botão"
+  .row
+    .col-md-2
+      = f.input :code, as: :select, collection: Button.codes.keys.to_a, include_blank: false
+    .col-md-2
+      = f.input :order,  as: :select, collection: Button.orders.keys.map { |key| ["#{key}º", key] }, include_blank: false
+    .col-md-2
+      = f.input :link, placeholder: "Link do anunciante"
+  %br/
+  .row
+    .col-md-2
+      = f.input :image_path, as: :file, placeholder: "Digite um e-mail válido"
+    .col-md-3
+      = image_tag @button.image_path_url, width: 90, height: 90, class: 'img-circle' if @button.image_path?
+  %br/
+  .row
+    .col-md-2
+      = f.input :status, as: :select, include_blank: false
+  %hr/
+  .row
+    .col-md-12
+      = f.button :submit, class: 'btn btn-success'
+      = link_to "Voltar", buttons_path, class: 'btn btn-default'

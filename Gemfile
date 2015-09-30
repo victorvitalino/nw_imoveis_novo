@@ -12,7 +12,7 @@ gem 'devise'
 gem 'pundit', :git => 'https://github.com/geekninja/pundit.git', :branch => 'master'
 gem 'simple_form'
 gem 'haml-rails'
-gem 'carrierwave'
+gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 
 
 gem 'friendly_id'

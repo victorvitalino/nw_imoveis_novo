@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150925182529) do
+ActiveRecord::Schema.define(version: 20150930152939) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,17 @@ ActiveRecord::Schema.define(version: 20150925182529) do
   create_table "attributes", force: :cascade do |t|
     t.string   "name"
     t.boolean  "status",     default: true
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
+
+  create_table "buttons", force: :cascade do |t|
+    t.string   "title"
+    t.integer  "order",      default: 0
+    t.string   "image_path"
+    t.integer  "code",       default: 0
+    t.boolean  "status",     default: true
+    t.string   "link"
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
   end
@@ -71,9 +82,10 @@ ActiveRecord::Schema.define(version: 20150925182529) do
   add_index "projects", ["client_id"], name: "index_projects_on_client_id", using: :btree
 
   create_table "properties", force: :cascade do |t|
-    t.integer  "situation",               default: 0
-    t.integer  "type_property",           default: 0
-    t.boolean  "status",                  default: true
+    t.integer  "situation",                 default: 0
+    t.integer  "type_property",             default: 0
+    t.boolean  "status",                    default: true
+    t.json     "image_path"
     t.string   "iptu"
     t.date     "expiration_date"
     t.string   "cep"
@@ -90,26 +102,28 @@ ActiveRecord::Schema.define(version: 20150925182529) do
     t.boolean  "address_link_visible"
     t.boolean  "complement_link_visible"
     t.string   "name"
-    t.integer  "rooms",                   default: 0
+    t.integer  "rooms",                     default: 0
     t.string   "unit"
-    t.float    "value",                   default: 0.0
-    t.integer  "suit",                    default: 0
-    t.float    "value_m2",                default: 0.0
-    t.float    "area",                    default: 0.0
-    t.integer  "parking_spaces",          default: 0
-    t.integer  "floor",                   default: 0
+    t.float    "value",                     default: 0.0
+    t.integer  "suit",                      default: 0
+    t.float    "value_m2",                  default: 0.0
+    t.float    "area",                      default: 0.0
+    t.integer  "parking_spaces",            default: 0
+    t.integer  "floor",                     default: 0
     t.string   "sun_position"
     t.string   "link_tour"
-    t.float    "value_rent",              default: 0.0
+    t.float    "value_rent",                default: 0.0
     t.integer  "client_id"
     t.integer  "project_id"
-    t.integer  "property_attribute_id",   default: [],                 array: true
+    t.integer  "property_attribute_id",     default: [],                 array: true
+    t.integer  "construction_companies_id", default: [],                 array: true
+    t.integer  "sellers_id",                default: [],                 array: true
     t.text     "description"
-    t.boolean  "commercial",              default: false
-    t.boolean  "elevator",                default: false
-    t.boolean  "coverage",                default: false
-    t.datetime "created_at",                              null: false
-    t.datetime "updated_at",                              null: false
+    t.boolean  "commercial",                default: false
+    t.boolean  "elevator",                  default: false
+    t.boolean  "coverage",                  default: false
+    t.datetime "created_at",                                null: false
+    t.datetime "updated_at",                                null: false
   end
 
   add_index "properties", ["client_id"], name: "index_properties_on_client_id", using: :btree

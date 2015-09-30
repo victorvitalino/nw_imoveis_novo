@@ -2,8 +2,10 @@
   .row
     .col-md-3
       = f.association :client, label_method: :social_reason, prompt: 'selecione...'
+      = f.hint link_to "gerenciar clientes", clients_path
     .col-md-3
       = f.association :project, prompt: 'selecione...'
+      = f.hint link_to "gerenciar empreendimentos", projects_path
   %hr/
   .row
     .col-md-3
@@ -81,7 +83,14 @@
       = f.input :link_tour
     .col-md-2
       = f.input :value_rent
- 
+    .col-md-3
+      = f.input :image_path, as: :file, input_html: {  multiple: true}
+  %hr/
+  .row
+    .col-md-3
+      = f.association :construction_companies, as: :select, label_method: :social_reason, input_html: { class: "chosen-select", multiple: true, data: { placeholder: 'Selecione...'}}
+    .col-md-3
+      = f.association :sellers, as: :select, value: "oi", label_method: :social_reason,  input_html: { class: "chosen-select", multiple: true, data: { placeholder: 'Selecione...'}}
   %hr/
   .row
     .col-md-9
@@ -105,3 +114,25 @@
     .col-md-8
       = f.button :submit, class: 'btn btn-success'
       = link_to "Voltar", properties_path, class: 'btn btn-default'
+
+:javascript 
+  
+  $(document).ready(function() {
+    $('#property_client_id').on('change', function() {
+      var id = $(this).val()
+      var html = "carregando..."
+      
+      $.get("#{client_json_path}?client_id=" + id, function(data) {
+
+        if(data.length > 0) {
+          for(var i = 0; i < data.length; i++) {
+            html += "<option value="+data[i].id+">"+data[i].name+"</option>";
+          }
+        } else {
+          html = "<option value>não existem empreendimentos</øption>";
+        }
+
+        $("#property_project_id").val(html)
+      });
+    });
+  });

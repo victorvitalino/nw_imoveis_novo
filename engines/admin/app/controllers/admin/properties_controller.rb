@@ -69,7 +69,7 @@ module Admin
                                          :address_link_visible, :rooms, :unit, :value, :value_m2, 
                                          :area, :suit, :parking_spaces, :floor, :sun_position, 
                                          :link_tour, :value_rent,:description, :commercial, :elevator, :coverage, 
-                                         :expiration_date, :name, property_attribute_id: [])
+                                         :expiration_date, :name, image_path: [], construction_companies_id: [], sellers_id: [], property_attribute_id: [])
       end
 
 
