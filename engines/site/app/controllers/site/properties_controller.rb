@@ -10,9 +10,12 @@ module Site
 
     def property_type
       redirect_to '/404' unless Property.type_properties.keys.include?(params[:property_type])
+      @buttons = Button.per_type(params[:property_type])
     end
 
     def property_detail_type
+
+       
 
       case params[:property_detail_type]
       when 'aluguel'
@@ -22,7 +25,9 @@ module Site
       when 'venda'
         @properties = Property.sell_all
       else
+        redirect_to '/404'
       end
+
       case params[:detail_type]
       when 'um-quarto'
         @properties = @properties.one_room_all
@@ -32,8 +37,12 @@ module Site
         @properties = @properties.three_room_all
       when 'quatro-quartos'
         @properties = @properties.four_room_all
+      when 'cobertura'
+      when 'salas-e-lojas'
       else
+        redirect_to '/404'
       end
+
     end
   end
 end

@@ -1,0 +1,11 @@
+pt-BR:
+  activerecord:
+    models:
+      'project' : "Projeto"
+    attributes:
+      'project' :
+        client: "Cliente"
+        name: "Nome"
+        description: "Descrição"
+        status: "Ativo?"
+        image_path: "Ícone"

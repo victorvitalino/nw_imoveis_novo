@@ -10,10 +10,9 @@
   .row 
     .col-lg-12.col-md-12.col-sm-12.col-xs-12
       #imovel-menu-default
-        - 8.times do 
+        - Button.principal.order(:order).each do |button| 
           .col-lg-3.col-md-3.col-sm-3.col-xs-4
             .inner
               .imovel-menu-text
                 %a{:href => "#"}
-                  %img.img-responsive{:src => "/images/icon-anuncie.png"}/
-/ END MAIN CONTAINER
+                  = link_to image_tag(button.image_path, width: 110, height: 110, class: 'img-circle'), button.link.present? ? button.link : '#'

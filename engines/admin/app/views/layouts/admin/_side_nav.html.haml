@@ -35,16 +35,16 @@
             %span Publicidade
           %ul.sub
             %li
-              %a{:href => "general.html"} Anúncios
+              %a{:href => "#{buttons_path}"} Botões
             %li
-              %a{:href => "buttons.html"} Banners            
+              %a{:href => "#{banners_path}"} Banners            
         %li.sub-menu
-          %a{:href => "javascript:;"}
+          %a{:href => "javascript:;", class: "#{(@nav == 'user') ? 'active' : ''}"}
             %i.fa.fa-th
             %span Usuários
-          %ul.sub
+          %ul.sub{style: "#{(@nav == 'user') ? 'display: block;' : ''}"}
             %li
-              %a{:href => "basic_table.html"} Listagem de Usuários
+              %a{:href => "#{users_path}"} Listagem de Usuários
             %li
-              %a{:href => "responsive_table.html"} Novo Usuário
+              %a{:href => "#{new_user_path}"} Novo Usuário
             

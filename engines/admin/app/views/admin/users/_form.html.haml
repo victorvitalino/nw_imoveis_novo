@@ -1,0 +1,18 @@
+= simple_form_for @user do |f|
+  .row
+    .col-md-6
+      = f.input :username, placeholder: "Digite um usuário para acesso"
+  .row
+    .col-md-6
+      = f.input :email, placeholder: "Digite um e-mail válido"
+  - if f.object.new_record?
+    .row
+      .col-md-3
+        = f.input :password, placeholder: "Digite sua senha"
+      .col-md-3
+        = f.input :password_confirmation, placeholder: "Confirme sua senha"
+  %hr/
+  .row
+    .col-md-12
+      = f.button :submit, class: 'btn btn-success'
+      = link_to "Voltar", users_path, class: 'btn btn-default'

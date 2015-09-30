@@ -5,6 +5,8 @@ class CreateProperties < ActiveRecord::Migration
       t.integer :type_property, default: 0, index: true
       t.boolean :status, default: true
 
+      t.json    :image_path
+      
       t.string :iptu
       t.date   :expiration_date
 
@@ -39,6 +41,9 @@ class CreateProperties < ActiveRecord::Migration
       t.references :client, index:true
       t.references :project, index: true
       t.references :property_attribute, array: true, default: []
+
+      t.references :construction_companies, array: true, default: []
+      t.references :sellers, array: true, default: []
 
       t.text  :description
       t.boolean :commercial,  default: false

@@ -5,6 +5,11 @@ module Admin
     before_action :set_project, only: [:show, :edit, :update, :destroy]
     before_action :set_nav
     # GET /projects
+
+    def client_json
+      render json: Project.where(client_id: params[:client_id])
+    end  
+    
     def index
       @projects = Project.all
     end
