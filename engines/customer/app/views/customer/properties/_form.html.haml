@@ -1,10 +1,7 @@
 = simple_form_for @property do |f|
   .row
     .col-md-3
-      = f.association :client, label_method: :social_reason, prompt: 'selecione...'
-      = f.hint link_to "gerenciar clientes", clients_path
-    .col-md-3
-      = f.association :project, prompt: 'selecione...'
+      = f.association :project, collection: current_client.projects, prompt: 'selecione...'
       = f.hint link_to "gerenciar empreendimentos", projects_path
   %hr/
   .row
@@ -115,24 +112,3 @@
       = f.button :submit, class: 'btn btn-success'
       = link_to "Voltar", properties_path, class: 'btn btn-default'
 
-:javascript 
-  
-  $(document).ready(function() {
-    $('#property_client_id').on('change', function() {
-      var id = $(this).val()
-      var html = "carregando..."
-      
-      $.get("#{client_json_path}?client_id=" + id, function(data) {
-
-        if(data.length > 0) {
-          for(var i = 0; i < data.length; i++) {
-            html += "<option value="+data[i].id+">"+data[i].name+"</option>";
-          }
-        } else {
-          html = "<option value>não existem empreendimentos</øption>";
-        }
-
-        $("#property_project_id").val(html)
-      });
-    });
-  });

@@ -1,0 +1,27 @@
+%aside
+  #sidebar.nav-collapse
+    / sidebar menu start
+    .leftside-navigation
+      %ul#nav-accordion.sidebar-menu
+        %li
+          %a{:href => "#{root_path}"}
+            %i.fa.fa-dashboard
+            %span Visão Geral
+        %li.sub-menu
+          %a{:href => "javascript:;", class: "#{(@nav == 'property') ? 'active' : ''}"}
+            %i.fa.fa-book
+            %span Imóveis
+          %ul.sub{style: "#{(@nav == 'client') ? 'display: property' : ''}"}
+            %li
+              %a{:href => "#{customer.properties_path}"} Meus de Imóveis
+            %li
+              %a{:href => "#{customer.new_property_path}"} Novo Imóvel
+            %li
+              %a{:href => "#{customer.projects_path}"} Meus Empreendimentos
+        %li.sub-menu
+          %a{:href => "javascript:;", :class => "#{(@nav == 'client') ? 'active' : ''}"}
+            %i.fa.fa-laptop
+            %span Mensagens
+          %ul.sub{style: "#{(@nav == 'client') ? 'display: block' : ''}"}
+            %li
+              %a{:href => "#{customer.messages_path}"} Minhas Mensagens

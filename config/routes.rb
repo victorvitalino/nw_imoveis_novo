@@ -12,6 +12,6 @@ Rails.application.routes.draw do
   
   mount Site::Engine        => '/',         as: 'site'
   mount Admin::Engine       => '/gestao',   as: 'admin'
-  mount Customer::Engine    => '/cliente',  as: 'client'
+  mount Customer::Engine    => '/cliente',  as: 'customer'
 
 end
