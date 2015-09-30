@@ -1,6 +1,6 @@
 .brand { background: #59b9cc;}
 
-input, select { color: black !important; border-color: black; }
+select { color: black !important; border-color: black; }
 
 .form-control { border: 1px solid #B0B0B0; }
 

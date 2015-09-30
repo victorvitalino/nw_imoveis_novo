@@ -3,6 +3,9 @@
  *= require bucket/css/bootstrap-reset
  *= require bucket/assets/jquery-ui/jquery-ui-1.10.1.custom.min
  *= require bucket/assets/font-awesome/css/font-awesome.css
+ *= require bucket/assets/data-tables/advanced1
+ *= require bucket/assets/data-tables/advanced2
+ *= require bucket/assets/data-tables/DT_bootstrap
  *= require bucket/css/style
  *= require bucket/css/style-responsive
  *= require admin/chosen

@@ -8,7 +8,8 @@
 //= require bucket/assets/skycons/skycons
 //= require bucket/assets/jquery.scrollTo/jquery.scrollTo
 //= require bucket/js/jquery.chosen.min
+//= require bucket/assets/data-tables/jquery.dataTables
+//= require bucket/assets/data-tables/DT_bootstrap
 //= require bucket/js/scripts
 //= require admin/custom
-
 

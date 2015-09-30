@@ -8,7 +8,6 @@ class Property < ActiveRecord::Base
   belongs_to :sellers, class_name: "Client"
 
   scope :active, ->              {where(status: true)}
-  scope :property_attributes, -> { Attribute.where(id: self.property_attribute_id) }
   
   scope :rent_all,            -> {active.where(type_property: 0)}
   scope :release_all,         -> {active.where(type_property: 1)}
@@ -36,6 +35,9 @@ class Property < ActiveRecord::Base
   validates :situation, presence: true
   validates :name, presence: true
   validates :client, :project, presence: true 
+  
+
+  def property_attributes; Attribute.where(id: self.property_attribute_id); end;
   
   def code
     "#{'%06d' % self.id}"
