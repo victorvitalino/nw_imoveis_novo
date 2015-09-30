@@ -7,3 +7,6 @@
 .atributos-custom{
   padding: 5px 0;
 }
+.img-carrosel li img{
+  cursor: pointer;
+}

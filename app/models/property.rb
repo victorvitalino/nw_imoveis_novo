@@ -1,6 +1,6 @@
 class Property < ActiveRecord::Base
   belongs_to :property_attribute, class_name: "Attribute"
-  
+
   belongs_to :client
   belongs_to :project
 
@@ -8,7 +8,7 @@ class Property < ActiveRecord::Base
   belongs_to :sellers, class_name: "Client"
 
   scope :active, ->              {where(status: true)}
-  
+
   scope :rent_all,            -> {active.where(type_property: 0)}
   scope :release_all,         -> {active.where(type_property: 1)}
   scope :sell_all,            -> {active.where(type_property: 2)}
@@ -24,8 +24,8 @@ class Property < ActiveRecord::Base
   enum situation:     ['breve_lançamento', 'na_planta', 'em_construção', 'pronto']
   enum type_property: ['aluguel', 'lançamento','venda']
 
-  validates :image_path, presence: true 
-  
+  validates :image_path, presence: true
+
   mount_uploaders :image_path, ImageUploader
 
   attr_accessor :detail_nav, :check_boxes
@@ -34,11 +34,13 @@ class Property < ActiveRecord::Base
 
   validates :situation, presence: true
   validates :name, presence: true
-  validates :client, :project, presence: true 
-  
+  validates :client, :project, presence: true
+
 
   def property_attributes; Attribute.where(id: self.property_attribute_id); end;
-  
+  def property_constructors; Client.where(id: self.construction_companies_id); end;
+  def property_sellers; Client.where(id: self.sellers_id); end;
+
   def code
     "#{'%06d' % self.id}"
   end
