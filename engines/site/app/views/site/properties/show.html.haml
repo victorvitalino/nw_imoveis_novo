@@ -1,17 +1,19 @@
 %section#imovel-detalhes
   .col-sm-12.col-xs-12.hidden-md.hidden-lg
     .col-lg-12.col-md-12.col-sm-12.col-xs-12.box
-      %img.img-responsive{:src => "http://www.meunw.com.br/assets/images/logo-empreendimento/privilege_noroeste.jpg", :style => "margin: 0 auto"}/
+      %img.img-responsive{:src => "#", :style => "margin: 0 auto"}/
   .col-lg-8.col-md-8.col-sm-12.col-xs-12
     .col-lg-9.col-md-9.col-sm-12.col-xs-12.galeria
       #slider.flexslider.flexslider-galeria
         %ul.slides
-          %li
-            %img.img-responsive{:src => "http://meunw.com.br/assets/images/imoveis/privilege_fachada9.jpg"}/
+          - 5.times do
+            %li
+              %img.img-responsive{:src => "http://henz.s3-website-sa-east-1.amazonaws.com/images/MANUTENCAO_VEGETAL_2.jpg"}/
       #carousel.flexslider
-        %ul.slides
-          %li
-            %img.img-responsive{:src => "http://meunw.com.br/assets/images/imoveis/privilege_fachada9.jpg"}/
+        %ul.slides.imgdois
+          - 5.times do
+            %li
+              %img.img-responsive{:src => "http://henz.s3-website-sa-east-1.amazonaws.com/images/MANUTENCAO_VEGETAL_2.jpg"}/
     .col-lg-3.col-md-3.col-sm-12.col-xs-12.hidden-sm.hidden-xs
       .col-lg-12.col-md-12.col-sm-12.col-xs-12.box.hidden-sm.hidden-xs
         %img.img-responsive{:src => "#{@property.project.image_path}", :style => "margin: 0 auto"}/
@@ -62,7 +64,7 @@
                 %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close
       .col-lg-12.col-md-12.col-sm-12.col-xs-12.box
         %a{:href => "#{@property.link_tour}", :onclick => "ga('send', 'event', 'pg-consulta', 'click-360', 'NWV0000000195', 1);", :target => "_blank"}
-          %img.box-img.box-img-tour{:src => "http://www.meunw.com.br/assets/images/icons-360.png"}/
+          %img.box-img.box-img-tour{:src => "#"}/
     .col-lg-12.col-md-12.col-sm-12.col-xs-12.desc.hidden-sm.hidden-xs
       %h4 Descrição
       %h5
@@ -124,29 +126,24 @@
           %span
             = @property.situation
     .atributos
-      %div
+      .row
         %h4 Atributos
-        %table.table
-          %tr{:height => "8"}
-            %td
-              %p
-                %span{:style => "margin-top: 10px;"}
-                  - @property.property_attributes.each do |attribute|
-                    .row
-                      = attribute.name
+        - @property.property_attributes.each do |attribute|
+          .col-md-6.atributos-custom
+            = attribute.name
     .row.resp
       .col-md-12
         %h4
           %span Construtora
         .row
           .col-lg-12.col-md-12.col-sm-12.col-xs-12
-            %img.img-responsive.img-100{:src => "http://www.meunw.com.br/assets/images/logo-cliente/logo_soltec.jpg"}/
+            %img.img-responsive.img-100{:src => "#"}/
       .col-md-12.vendas
         %h4
           %span Venda
         .row
           .col-lg-12.col-md-12.col-sm-12.col-xs-12
-            %img.img-responsive.img-100{:src => "http://www.meunw.com.br/assets/images/logo-cliente/Lopes_Royal.jpg"}/
+            %img.img-responsive.img-100{:src => "#"}/
   .col-sm-12.col-xs-12.hidden-md.hidden-lg{:style => "margin-top: -60px;"}
     .col-sm-12.col-xs-12.desc{:style => "margin-bottom: 20px;"}
       %h4 Descrição
@@ -198,5 +195,5 @@
               %button.btn.btn-default.btnMsgDetalhes{:formaction => "detalhes.php/envioEmail", :type => "button"} Enviar
               %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close
     .col-lg-12.col-md-12.col-sm-12.col-xs-12.box
-      %a{:href => "http://www.meunw.com.br/360/111/meunw.html?s=pano6160&h=-30.2721&v=2.4324&f=90.0000&skipintro&norotation", :onclick => "ga('send', 'event', 'pg-consulta', 'click-360', 'NWV0000000195', 1);", :target => "_blank"}
-        %img.box-img.box-img-tour{:src => "http://www.meunw.com.br/assets/images/icons-360.png"}/
+      %a{:href => "#", :onclick => "ga('send', 'event', 'pg-consulta', 'click-360', 'NWV0000000195', 1);", :target => "_blank"}
+        %img.box-img.box-img-tour{:src => "#"}/
