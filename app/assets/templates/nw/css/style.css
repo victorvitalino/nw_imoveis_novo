@@ -32,7 +32,7 @@ hr {
     display: none;
 }
 
-#menu-default {
+#menu-default {￼￼￼
     margin: 0 auto 10px;
     bottom: 15%;
 }
@@ -282,7 +282,7 @@ footer .nav {
 .img-center a, .img-center img, .img-center span {
     display: table-cell !important;
     vertical-align: middle;
-}
+}￼￼￼
 
 .lista-tipo-imovel {
     padding-top: 50px;
@@ -975,3 +975,13 @@ footer .nav {
         margin-top: -3px !important;
     }
  }
+/*mod*/
+
+.img-carrosel li{
+  overflow: hidden!important;
+  height: 110px!important;
+}
+.flexslider-galeria .flex-viewport ul li{
+  height: 356px!important;
+  overflow: hidden;
+}
