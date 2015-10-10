@@ -471,3 +471,507 @@ footer .nav {
 .box-img-tour{
     margin-top: -20px;
 }
+@media screen and (min-width: 980px) and (max-width: 1199px) {
+    .container{
+        width: 92%;
+    }
+    #home-section-imovel {
+        padding: 0 20%;
+    }
+    #menu-default {
+        margin: 0 auto -5px;
+    }
+    #lista-imoveis {
+        margin: 160px auto;
+        width: 80%;
+    }
+    footer{
+        position: relative;
+    }
+}
+@media screen and (min-width: 768px) and (max-width: 979px) {
+    .container{
+        width: 95%;
+    }
+    #home-section-imovel {
+        padding: 0 20%;
+    }
+    #menu-default {
+        margin: 0 auto -5px;
+    }
+    #logo{
+        text-align: center;
+    }
+
+    footer{
+        position: relative;
+    }
+    .middle{
+        margin-top:10%;
+        position: relative;
+    }
+
+    .lista-imoveis-item-logo2 {
+        border-right: none;;
+    }
+    .lista-imoveis-item img {
+        margin: 7% auto 0;
+    }
+    .lista-imoveis-item-quartos img{
+        margin-left: 40%;
+        margin-top: 10%;
+        max-width: 50px;
+    }
+    .lista-imoveis-item-detalhes img {
+         margin-top: 10%;
+    }
+    .lista-imoveis-item-tour img {
+        margin-left: 40%;
+        margin-top: 11%;
+    }
+    .lista-imoveis-item-info {
+        border-top: 2px solid #59b9cc;
+        border-right: none;
+        border-bottom: 2px solid #59b9cc;
+    }
+    .icone-show-mobile{
+        display: block;
+    }
+    .icone-none-mobile{
+        display: none;
+    }
+    #lista-imoveis {
+        margin: 160px auto;
+        width: 90%;
+    }
+    .lista-imoveis-item {
+        margin-bottom: 20px;
+    }
+    .table-responsive {
+        border: none !important;
+        overflow-x: none !important;
+        overflow-y: none !important;
+    }
+    .flexslider-galeria {
+        margin: 15px auto 0 !important;
+        min-height: 150px;
+    }
+ }
+ @media screen and (max-width: 768px) and (orientation: landscape) {
+    body {
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+    .middle {
+        margin-bottom: 60px;
+    }
+    footer {
+        min-height: 20px;
+        position: relative;
+    }
+    .social {
+        font-size: 2em;
+        margin-top: -75px;
+    }
+    /*----------TIPO SECTION-----------*/
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        padding-top: 10px;
+    }
+    #voltar {
+        padding-left: 10px;
+        top: 0px;
+    }
+    .uma_coluna {
+        width: 50%;
+        float: left;
+    }
+    #logo {
+        text-align: center;
+    }
+    #logo .logohome {
+        max-width: 55%;
+    }
+    .middle {
+        margin-top: 50px;
+        position: relative;
+    }
+    .mobilehome {
+        max-width: 50% !important;
+    }
+    .mobilehome .inner img {
+        max-width: 85% !important;
+    }
+    #home-section-imovel {
+        padding: 0;
+    }
+    #imovel-menu-default {
+        margin-left: 0;
+        width: 100%;
+    }@media screen and (max-width: 320px) {
+    body {
+        overflow-x: hidden;
+        overflow-y: auto;
+        }
+
+    #voltar{
+        padding-left: 50px;
+        top: 0px;
+    }
+
+    #logo{
+        text-align: center;
+    }
+    #logo img{
+        max-width: 100%;
+    }
+
+    .mobilehome{
+        max-width: 50% !important;
+    }
+    .mobilehome .inner img{
+        max-width: 100% !important;
+    }
+    #drop{
+        clear: both;
+    }
+
+    .fa {
+        font-size: 0.7em;
+    }
+
+    .nav{
+        font-size: 0.9em;
+    }
+
+    .nav a {
+        padding: 0px !important;
+    }
+
+    .footer-text{
+        margin: 20px 0 0;
+        display: block;
+        -webkit-margin-before: 1em;
+        -webkit-margin-after: 1em;
+        -webkit-margin-start: 0px;
+        -webkit-margin-end: 0px;
+    }
+    .galeria {
+        min-height: 320px;
+    }
+    .flexslider {
+        margin: 0 auto -55px !important;
+    }
+    /*----------TIPO SECTION-----------*/
+    .mobilevolta{
+        display: none;
+    }
+    .rowmobile{
+        max-width: 100%;
+    }
+
+    .anumobile{
+        max-width: 100%;
+    }
+    .top{
+        display: table;
+    }
+    .mobiledisplay{
+        display: table-cell;
+        max-width: 55px;
+    }
+
+    .lista-imoveis-item-quartos img{
+        margin-left: 0 !important;
+        margin-top: 10px !important;
+        width: 100%;
+    }
+    .lista-imoveis-item-tour img{
+        margin-left: 5px !important;
+        margin-top: -3px !important;
+    }
+ }
+    #menu-default .inner {
+        margin-bottom: 15px;
+    }
+    #imovel-menu-default .inner {
+        margin-bottom: 15px;
+    }
+    #menu-default {
+        margin: -5px auto -25px;
+    }
+    #drop {
+        clear: both;
+    }
+    .nav {
+        font-size: 0.9em;
+    }
+    footer {
+        position: relative;
+    }
+    .footer-text {
+        margin: 15px 0 -5px;
+        display: block;
+        -webkit-margin-before: 1em;
+        -webkit-margin-after: 1em;
+        -webkit-margin-start: 0px;
+        -webkit-margin-end: 0px;
+    }
+    .lista-tipo-imovel{
+        padding-top: 10px;
+        padding-bottom: 25px;
+    }
+    .tipo-imovel {
+        margin-bottom: 13px;
+    }
+    .lista-imoveis-item-logo1 {
+        width: 50%;
+    }
+    .lista-imoveis-item-logo2 {
+        width: 50%;
+        border-right: none;;
+    }
+    .lista-imoveis-item-info {
+        border-top: 2px solid #59b9cc;
+        border-right: none;
+        border-bottom: 2px solid #59b9cc;
+    }
+    .icone-show-mobile{
+        display: block;
+    }
+    .icone-none-mobile{
+        display: none;
+    }
+    #lista-imoveis {
+        margin: 150px auto;
+        width: 90%;
+    }
+    .lista-imoveis-item {
+        margin-bottom: 30px;
+    }
+    .info {
+        width: 95%;
+        margin-left: 2.5%;
+    }
+    .lista-imoveis-item img {
+        margin: 7% auto 0;
+    }
+    .lista-imoveis-item-quartos img{
+        margin-left: 35%;
+        margin-top: 10%;
+        max-width: 50px;
+    }
+    .lista-imoveis-item-detalhes img {
+         margin-top: 10%;
+    }
+    .lista-imoveis-item-tour img {
+        margin-left: 35%;
+        margin-top: 9%;
+    }
+    .flexslider-galeria {
+        margin: 0 auto 0px;
+        min-height: 150px;
+    }
+    /*----------TIPO SECTION-----------*/
+    .rowmobile {
+        max-width: 100%;
+    }
+    .table-responsive {
+        border: none !important;
+        overflow-x: none !important;
+        overflow-y: none !important;
+    }
+    .row {
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+}
+@media screen and (max-width: 481px) {
+    body {
+        overflow-x: hidden;
+        overflow-y: auto;
+        }
+
+    #voltar{
+        padding-left: 50px;
+        top: 0px;
+    }
+
+    #logo{
+        text-align: center;
+    }
+
+    #logo .logohome{
+        max-width: 55%;
+    }
+
+    .uma_coluna{
+        width: 100% !important;
+        float: none;
+    }
+
+    .mobilehome{
+        max-width: 50% !important;
+    }
+    .mobilehome .inner img{
+        max-width: 85% !important;
+    }
+    #drop{
+        clear: both;
+    }
+
+    .social {
+    font-size: 2em;
+    }
+
+    .nav{
+        font-size: 0.9em;
+    }
+    .nav a {
+        padding: 13px;
+    }
+
+    footer{
+        position: relative;
+    }
+
+    .footer-text{
+        margin: 20px 0 0;
+        display: block;
+        -webkit-margin-before: 1em;
+        -webkit-margin-after: 1em;
+        -webkit-margin-start: 0px;
+        -webkit-margin-end: 0px;
+    }
+
+    .lista-imoveis-item-logo1 {
+        width: 100% !important;
+        border-right: none;
+        border-bottom: 2px solid #59b9cc;
+    }
+    .lista-imoveis-item-logo2 {
+        width: 100% !important;
+        border-right: none;
+    }
+    .lista-imoveis-item-info {
+        border-right: none;
+        border-bottom: 2px solid #59b9cc;
+    }
+    .lista-imoveis-item img {
+        margin: 7% auto 0;
+    }
+    .lista-imoveis-item-quartos img{
+        margin-left: 20% !important;
+        margin-top: 18% !important;
+    }
+    .lista-imoveis-item-detalhes img {
+         margin-top: 15% !important;
+    }
+    .lista-imoveis-item-tour img {
+        margin-left: 20% !important;
+        margin-top: 6% !important;
+    }
+    .lista-imoveis-item-detalhes {
+    }
+    .lista-imoveis-item-tour {
+        padding-top: 10px;
+    }
+    #lista-imoveis {
+        margin: 140px auto !important;
+        width: 90%;
+    }
+    .flexslider-galeria {
+        margin: 0 auto -50px;
+        min-height: 150px;
+    }
+    /*----------TIPO SECTION-----------*/
+    .rowmobile{
+        max-width: 100%;
+    }
+
+ }
+ @media screen and (max-width: 320px) {
+    body {
+        overflow-x: hidden;
+        overflow-y: auto;
+        }
+
+    #voltar{
+        padding-left: 50px;
+        top: 0px;
+    }
+
+    #logo{
+        text-align: center;
+    }
+    #logo img{
+        max-width: 100%;
+    }
+
+    .mobilehome{
+        max-width: 50% !important;
+    }
+    .mobilehome .inner img{
+        max-width: 100% !important;
+    }
+    #drop{
+        clear: both;
+    }
+
+    .fa {
+        font-size: 0.7em;
+    }
+
+    .nav{
+        font-size: 0.9em;
+    }
+
+    .nav a {
+        padding: 0px !important;
+    }
+
+    .footer-text{
+        margin: 20px 0 0;
+        display: block;
+        -webkit-margin-before: 1em;
+        -webkit-margin-after: 1em;
+        -webkit-margin-start: 0px;
+        -webkit-margin-end: 0px;
+    }
+    .galeria {
+        min-height: 320px;
+    }
+    .flexslider {
+        margin: 0 auto -55px !important;
+    }
+    /*----------TIPO SECTION-----------*/
+    .mobilevolta{
+        display: none;
+    }
+    .rowmobile{
+        max-width: 100%;
+    }
+
+    .anumobile{
+        max-width: 100%;
+    }
+    .top{
+        display: table;
+    }
+    .mobiledisplay{
+        display: table-cell;
+        max-width: 55px;
+    }
+
+    .lista-imoveis-item-quartos img{
+        margin-left: 0 !important;
+        margin-top: 10px !important;
+        width: 100%;
+    }
+    .lista-imoveis-item-tour img{
+        margin-left: 5px !important;
+        margin-top: -3px !important;
+    }
+ }
