@@ -16,7 +16,7 @@
               %img.img-responsive{:src => "#{image}"}/
     .col-lg-3.col-md-3.col-sm-12.col-xs-12.hidden-sm.hidden-xs
       .col-lg-12.col-md-12.col-sm-12.col-xs-12.box.hidden-sm.hidden-xs
-        %img.img-responsive{:src => "#{@property.project.image_path}",:style => "margin: 0 auto; height: 85px"}/
+        %img.img-responsive{:src => "#{@property.project.image_path}",:style => "margin: 0 auto; height: 55px"}/
       .col-lg-12.col-md-12.col-sm-12.col-xs-12.box
         %a{"data-target" => "#telefone", "data-toggle" => "modal", :href => "javascript:ga('send', 'event', 'pg-consulta', 'call', 'NWV0000000195', 1);"}
           %span.box-icons
@@ -69,7 +69,7 @@
                 %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close
       .col-lg-12.col-md-12.col-sm-12.col-xs-12.box
         %a{:href => "#{@property.link_tour}", :onclick => "ga('send', 'event', 'pg-consulta', 'click-360', 'NWV0000000195', 1);", :target => "_blank"}
-          %img.box-img.box-img-tour{:src => "#"}/
+          %img.box-img.box-img-tour{:src => "http://www.meunw.com.br/assets/images/icons-360.png"}/
     .col-lg-12.col-md-12.col-sm-12.col-xs-12.desc.hidden-sm.hidden-xs
       %h4 Descrição
       %h5
@@ -79,7 +79,15 @@
     .row
       .col-md-12.height
         %h5
-          = @property.name
+          = @property.address
+          ,
+          = @property.district
+          -
+          = @property.group
+          -
+          = @property.block
+          -
+          = @property.number
       .col-md-12.height
         %h5
           Valor (Consulte Condições):
@@ -129,6 +137,11 @@
           Situação do imóvel:
           %span
             = @property.situation.humanize
+      .col-md-12.height
+        %h5
+          Posição do Sol:
+          %span
+            = @property.sun_position
     .row
       .col-md-12.atributos
         %h4.attribute_title
