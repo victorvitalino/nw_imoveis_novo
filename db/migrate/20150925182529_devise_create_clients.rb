@@ -19,24 +19,25 @@ class DeviseCreateClients < ActiveRecord::Migration
       t.string   :current_sign_in_ip
       t.string   :last_sign_in_ip
 
-        
+
       t.string :username, index: true, unique: true
       t.string :logo_path
-      t.string :social_reason 
+      t.string :social_reason
       t.string :fantasy_name
-      t.string :cnpj 
+      t.string :cnpj
       t.string :cpf
       t.integer :type_client, default: 0
       t.string :address
       t.string :cep
-      t.string :uf 
+      t.string :uf
       t.string :city
       t.string :contact_email
       t.string :cadastre_email
       t.string :telephone
       t.string :celphone
       t.string :responsible_telephone
-    
+      t.string :responsible_name
+
 
 
       t.timestamps null: false

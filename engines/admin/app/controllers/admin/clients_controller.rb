@@ -7,7 +7,7 @@ module Admin
 
     def report
     end
-    
+
     # GET /clients
     def index
       @clients = Admin::Client.all
@@ -69,13 +69,13 @@ module Admin
       def client_params
         params.require(:client).permit(:type_client, :cpf, :cnpj, :logo_path, :social_reason, :fantasy_name, :logo_path,
                                        :username, :password, :password_confirmation, :city, :uf, :cep, :address,
-                                       :email, :cadastre_email, :telephone, :celphone, :responsible_telephone)
+                                       :email, :cadastre_email, :telephone, :celphone, :responsible_telephone, :responsible_name)
       end
 
       def client_update_params
         params.require(:client).permit(:type_client, :cpf, :cnpj, :logo_path, :social_reason, :fantasy_name, :logo_path,
                                        :username, :city, :uf, :cep, :address,
-                                       :email, :cadastre_email, :telephone, :celphone, :responsible_telephone)
+                                       :email, :cadastre_email, :telephone, :celphone, :responsible_telephone, :responsible_name)
       end
 
       def set_nav

@@ -8,24 +8,24 @@
         %table.table.table-condensed.table-striped.datatable
           %thead
             %tr
-              %th Razão 
-              %th Nome Fantasia 
+              %th Nome Fantasia
               %th CPF/CNPJ
               %th Cidade/UF
               %th E-mail Cadastro
+              %th Responsável
               %th Telefone Responsável
               %th Data de cadastro
               %th Ações
           %tbody
             - @clients.each do |client|
               %tr
-                %td= client.social_reason
                 %td= client.fantasy_name
                 %td= client.pessoa_física? ? client.cpf : client.cnpj
                 %td= "#{client.city} / #{client.uf.upcase}"
                 %td= client.cadastre_email
+                %td= client.responsible_name
                 %td= client.responsible_telephone
                 %td= client.created_at.strftime('%d/%m/%Y às %H:%M')
-                %td 
+                %td
                   =link_to "editar", edit_client_path(client), class: 'btn btn-info btn-xs'
                   =link_to "excluir", client_path(client), method: :delete, class: 'btn btn-danger btn-xs', data: { confirm: t(:confirm)}

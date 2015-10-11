@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(version: 20150930152939) do
     t.string   "telephone"
     t.string   "celphone"
     t.string   "responsible_telephone"
+    t.string   "responsible_name"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
   end
