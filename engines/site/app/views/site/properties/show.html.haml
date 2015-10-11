@@ -130,15 +130,15 @@
           %span
             = @property.situation.humanize
     .row
-      .col-md-12
-        .atributos
-          %h4 Atributos
-          - @property.property_attributes.each do |attribute|
-            .col-md-6.atributos-custom
-              = attribute.name
+      .col-md-12.atributos
+        %h4.attribute_title
+          %span.span-attribute Atributos
+        - @property.property_attributes.each do |attribute|
+          .col-md-6.atributos-custom
+            = attribute.name
     .row.resp
       .col-md-12
-        %h4
+        %h4.h4-mod
           %span Construtora
         .row
           .col-lg-12.col-md-12.col-sm-12.col-xs-12

@@ -9,17 +9,21 @@
           %thead
             %tr
               %th Código
-              %th Cliente
               %th Empreendimento
+              %th Cliente
+              %th Bairro
+              %th Tipo de imóvel
               %th Status
               %th Ações
           %tbody
             - @properties.each do |property|
               %tr
-                %td.col-md-1= property.code
-                %td.col-md-4= property.client.social_reason if property.client.present?
-                %td.col-md-4= property.name
-                %td= property.status ? "<span class='label label-success'>ativo</span>".html_safe : "<span class='label label-danger'>inativo</span>".html_safe 
+                %td= property.code
+                %td= property.name
+                %td= property.client.social_reason if property.client.present?
+                %td= property.district
+                %td= property.type_property
+                %td= property.status ? "<span class='label label-success'>ativo</span>".html_safe : "<span class='label label-danger'>inativo</span>".html_safe
                 %td.col-md-3
                   =link_to "visualizar", property, class: 'btn btn-warning btn-xs'
                   =link_to "editar", edit_property_path(property), class: 'btn btn-info btn-xs'
