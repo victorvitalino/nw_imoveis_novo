@@ -10,7 +10,11 @@ Admin::Engine.routes.draw do
   get 'client_json', to: 'projects#client_json', as: 'client_json'
   
   resources :attributes, path: 'imovel_attributos'
-  resources :properties, path: 'imovel'
+  
+  resources :properties, path: 'imovel' do 
+    resources :property_images, path: 'images'
+  end
+
   resources :projects,   path: 'empreendimentos'
   resources :users,      path: 'usuarios'
   resources :buttons,    path: 'botoes'

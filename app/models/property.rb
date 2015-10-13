@@ -1,4 +1,5 @@
 class Property < ActiveRecord::Base
+  has_many :property_images
   belongs_to :property_attribute, class_name: "Attribute"
 
   belongs_to :client
