@@ -22,7 +22,7 @@ class Property < ActiveRecord::Base
   scope :coverage_all,        -> {active.where(coverage: true)}
   scope :rooms_shops,         -> {active.where(commercial: true)}
 
-  enum situation:     ['breve_lançamento', 'na_planta', 'em_construção', 'pronto']
+  enum situation:     ['nenhuma', 'breve_lançamento', 'na_planta', 'em_construção', 'pronto']
   enum type_property: ['lançamento','venda', 'aluguel']
 
   attr_accessor :detail_nav, :check_boxes

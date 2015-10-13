@@ -2,14 +2,16 @@
   - @properties.each do |property|
     .lista-imoveis-item.col-lg-12.col-md-12.col-sm-12.col-xs-12
       .col-lg-2.col-md-2.col-sm-6.col-xs-12.lista-imoveis-item-logo1
-        %img.img-responsive{:src => "#{property.client.logo_path if property.client.present?}"}/
+        %img.img-responsive{:src => "#{property.project.client.logo_path if property.project.present?}"}/
       .col-lg-2.col-md-2.col-sm-6.col-xs-12.lista-imoveis-item-logo2
         %img.img-responsive{:src => "#{property.project.image_path if property.project.present?}"}/
       .col-lg-1.col-md-1.col-sm-4.col-xs-4.lista-imoveis-item-quartos.icone-none-mobile
         %img.img-responsive{:src => "#{logo_helper(property)}"}/
       .col-lg-5.col-md-5.col-sm-12.col-xs-12.lista-imoveis-item-info
         %span.lista-imoveis-item-end
-          %strong= property.address
+          %strong= property.group
+          = property.block
+          = property.number
         %br/
         %span.lista-imoveis-item-valor
           %strong Valor: R$
