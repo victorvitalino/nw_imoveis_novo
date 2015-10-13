@@ -66,7 +66,6 @@ ActiveRecord::Schema.define(version: 20150930152939) do
     t.datetime "updated_at",                          null: false
   end
 
-  add_index "clients", ["email"], name: "index_clients_on_email", unique: true, using: :btree
   add_index "clients", ["reset_password_token"], name: "index_clients_on_reset_password_token", unique: true, using: :btree
   add_index "clients", ["username"], name: "index_clients_on_username", using: :btree
 
@@ -75,9 +74,9 @@ ActiveRecord::Schema.define(version: 20150930152939) do
     t.string   "image_path"
     t.string   "name"
     t.string   "description"
-    t.boolean  "status"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.boolean  "status",      default: true
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
   add_index "projects", ["client_id"], name: "index_projects_on_client_id", using: :btree
@@ -86,11 +85,10 @@ ActiveRecord::Schema.define(version: 20150930152939) do
     t.integer  "situation",                 default: 0
     t.integer  "type_property",             default: 0
     t.boolean  "status",                    default: true
-    t.json     "image_path"
     t.string   "iptu"
     t.date     "expiration_date"
     t.string   "cep"
-    t.integer  "state_id"
+    t.string   "uf"
     t.string   "city"
     t.string   "region"
     t.string   "district"
@@ -130,8 +128,8 @@ ActiveRecord::Schema.define(version: 20150930152939) do
   add_index "properties", ["client_id"], name: "index_properties_on_client_id", using: :btree
   add_index "properties", ["project_id"], name: "index_properties_on_project_id", using: :btree
   add_index "properties", ["situation"], name: "index_properties_on_situation", using: :btree
-  add_index "properties", ["state_id"], name: "index_properties_on_state_id", using: :btree
   add_index "properties", ["type_property"], name: "index_properties_on_type_property", using: :btree
+  add_index "properties", ["uf"], name: "index_properties_on_uf", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

@@ -22,11 +22,7 @@ class Property < ActiveRecord::Base
   scope :rooms_shops,         -> {active.where(commercial: true)}
 
   enum situation:     ['breve_lançamento', 'na_planta', 'em_construção', 'pronto']
-  enum type_property: ['aluguel', 'lançamento','venda']
-
-  validates :image_path, presence: true
-
-  mount_uploaders :image_path, ImageUploader
+  enum type_property: ['lançamento','venda', 'aluguel']
 
   attr_accessor :detail_nav, :check_boxes
 

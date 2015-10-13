@@ -38,4 +38,15 @@ Rails.application.configure do
 
   # Raises error for missing translations
 
+  CarrierWave.configure do|config|
+    config.fog_credentials = {
+     provider:              'AWS',
+     aws_access_key_id:     'AWSAccessKeyId=AKIAIMRS5F2Q7IJZLKOA',
+     aws_secret_access_key: 'AWSSecretKey=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',
+     region:                'us-west-2'
+    }
+    config.fog_directory = 'nwaqui'
+    config.fog_public = 'false' #WTF?
+    config.fog_attributes = {'Cache-Control' => "max-age=#{365.to_i}" }
+  end
 end
