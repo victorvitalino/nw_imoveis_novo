@@ -8,24 +8,22 @@
         %table.table.table-condensed.table-striped.datatable
           %thead
             %tr
+              %th Logo
+              %th Código
               %th Nome Fantasia
-              %th CPF/CNPJ
               %th Cidade/UF
               %th E-mail Cadastro
               %th Responsável
-              %th Telefone Responsável
-              %th Data de cadastro
               %th Ações
           %tbody
             - @clients.each do |client|
               %tr
-                %td= client.fantasy_name
-                %td= client.pessoa_física? ? client.cpf : client.cnpj
-                %td= "#{client.city} / #{client.uf.upcase}"
-                %td= client.cadastre_email
-                %td= client.responsible_name
-                %td= client.responsible_telephone
-                %td= client.created_at.strftime('%d/%m/%Y às %H:%M')
-                %td
+                %td.col-md-1= (client.logo_path?) ? image_tag(client.logo_path, width: 80) : 'sem imagem'
+                %td.col-md-1= client.code
+                %td.col-md-3= client.fantasy_name
+                %td.col-md-1= "#{client.city} / #{client.uf.upcase}"
+                %td.col-md-2= client.email
+                %td.col-md-2= client.responsible_name
+                %td.col-md-2
                   =link_to "editar", edit_client_path(client), class: 'btn btn-info btn-xs'
                   =link_to "excluir", client_path(client), method: :delete, class: 'btn btn-danger btn-xs', data: { confirm: t(:confirm)}

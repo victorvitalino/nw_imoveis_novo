@@ -5,13 +5,13 @@ class CreateProperties < ActiveRecord::Migration
       t.integer :type_property, default: 0, index: true
       t.boolean :status, default: true
 
-      t.json    :image_path
+      #t.json    :image_path
       
       t.string :iptu
       t.date   :expiration_date
 
       t.string  :cep
-      t.references  :state, index: true
+      t.string   :uf, index: true
 
       t.string :city
       t.string :region
