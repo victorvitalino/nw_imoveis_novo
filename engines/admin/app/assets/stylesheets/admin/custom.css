@@ -5,3 +5,11 @@ select { color: black !important; border-color: black; }
 .form-control { border: 1px solid #B0B0B0; }
 
 a.logo { margin: 15px 0 0 45px !important;}
+
+input[type='text'], input[type='number'], input[type='email'], input[type='password'], input[type='tel'], textarea {
+  color: black !important;
+}
+
+textarea {
+  min-height: 200px !important;
+}

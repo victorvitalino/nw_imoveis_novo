@@ -6,14 +6,14 @@
     .col-lg-9.col-md-9.col-sm-12.col-xs-12.galeria
       #slider.flexslider.flexslider-galeria
         %ul.slides
-          - @property.image_path.each do |image|
+          - @property.property_images.each do |image|
             %li
-              %img.img-responsive{:src => "#{image}"}/
+              %img.img-responsive{:src => "#{image.image_path}"}/
       #carousel.flexslider
         %ul.slides.img-carrosel
-          - @property.image_path.each do |image|
+          - @property.property_images.each do |image|
             %li
-              %img.img-responsive{:src => "#{image}"}/
+              %img.img-responsive{:src => "#{image.image_path}"}/
     .col-lg-3.col-md-3.col-sm-12.col-xs-12.hidden-sm.hidden-xs
       .col-lg-12.col-md-12.col-sm-12.col-xs-12.box.hidden-sm.hidden-xs
         %img.img-responsive{:src => "#{@property.project.image_path}",:style => "margin: 0 auto; height: 55px"}/
@@ -32,13 +32,13 @@
                 %h4.modal-title Entre em contato
               .modal-body
                 %h4
-                  = @property.client.username
+                  = @property.project.client.username
                 %p
                   Telefone:
-                  = @property.client.telephone
+                  = @property.project.client.telephone
                 %p
                   Celular:
-                  = @property.client.celphone
+                  = @property.project.client.celphone
       .col-lg-12.col-md-12.col-sm-12.col-xs-12.box
         %a{"data-target" => "#mensagem", "data-toggle" => "modal", :href => "javascript:ga('send', 'event', 'pg-consulta', 'click-formulario', 'NWV0000000195', 1);"}
           %span.box-icons

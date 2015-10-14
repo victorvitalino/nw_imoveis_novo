@@ -1,0 +1,25 @@
+.row
+  .col-md-12
+    %section.panel
+      %header.panel-heading
+        %h4
+          %b= @property.name 
+          %br/
+          %small Imagens
+.row
+  .col-md-12
+    %section.panel
+      %header.panel-heading
+        = simple_form_for [:property, @property_image] do |f|
+          = f.input :image_path, as: :file
+.row
+  - @property.property_images.each do |image|
+    .col-md-3
+      .panel.panel-default
+        .panel-body
+          = image_tag image.image_path, width: 280
+        .panel-footer
+          .row
+            .col-md-12{style: 'text-align: center'}
+              = link_to "Editar", "#", remote: true, class: 'btn btn-info btn-xs'
+              = link_to "Remover", "#", remote: true, class: 'btn btn-danger btn-xs'

@@ -1,9 +1,9 @@
 class ImageUploader < CarrierWave::Uploader::Base
   
-  storage :file
+  storage :fog
 
   def store_dir
-    'images'
+    'uploads'
   end
 
   def extension_white_list

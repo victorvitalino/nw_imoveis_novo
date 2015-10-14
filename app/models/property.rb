@@ -1,4 +1,5 @@
 class Property < ActiveRecord::Base
+  has_many :property_images
   belongs_to :property_attribute, class_name: "Attribute"
 
   belongs_to :client
@@ -21,12 +22,8 @@ class Property < ActiveRecord::Base
   scope :coverage_all,        -> {active.where(coverage: true)}
   scope :rooms_shops,         -> {active.where(commercial: true)}
 
-  enum situation:     ['breve_lançamento', 'na_planta', 'em_construção', 'pronto']
-  enum type_property: ['aluguel', 'lançamento','venda']
-
-  validates :image_path, presence: true
-
-  mount_uploaders :image_path, ImageUploader
+  enum situation:     ['nenhuma', 'breve_lançamento', 'na_planta', 'em_construção', 'pronto']
+  enum type_property: ['lançamento','venda', 'aluguel']
 
   attr_accessor :detail_nav, :check_boxes
 

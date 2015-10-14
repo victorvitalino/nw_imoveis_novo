@@ -1,6 +1,107 @@
-%p#notice= notice
-
-
-= link_to 'Edit', edit_property_path(@property)
-\|
-= link_to 'Back', properties_path
+= simple_form_for @property do |f|
+  .row
+    .col-md-3
+      = f.association :client, label_method: :social_reason, disabled: true
+    .col-md-3
+      = f.association :project, disabled:true
+  %hr/
+  .row
+    .col-md-3
+      = f.input :situation, as: :select, collection: Property.situations.keys.to_a.map { |key| [key.humanize, key] }, include_blank: false, disabled: true
+    .col-md-3
+      = f.input :type_property, as: :select, collection: Property.type_properties.keys.to_a.map { |key| [key.humanize, key]}, include_blank: false, disabled: true
+    .col-md-3
+      = f.input :status, as: :select, include_blank: false, disabled: true
+  .row
+    .col-md-3
+      = f.input :iptu, disabled: true
+    .col-md-3
+      = f.input :expiration_date, as: :string, disabled: true, input_html: { class: 'date'}
+  %br/
+  %br/
+  %h4 Localização do Imóvel
+  %hr/
+  .row
+    .col-md-3
+      = f.input :cep, disabled: true
+    .col-md-3
+      = f.input :region, disabled: true
+    .col-md-3
+      = f.input :district, disabled: true
+  .row
+    .col-md-3
+      = f.input :group, disabled: true
+    .col-md-3
+      = f.input :block, disabled: true
+    .col-md-3
+      = f.input :number, disabled: true
+  .row
+    .col-md-9
+      = f.input :address, disabled: true
+  .row
+    .col-md-9
+      = f.input :complement, disabled: true
+  .row
+    .col-md-9
+      = f.input :reference_point, disabled: true
+  .row
+    .col-md-3
+      = f.input :address_link_visible, as: :select, include_blank: false, disabled: true
+    .col-md-3
+      = f.input :reference_point, as: :select, include_blank: false, disabled: true
+  %br/
+  %br/
+  %h4 Descrição do Imóvel
+  %hr/
+  .row
+    .col-md-9
+      = f.input :name, disabled: true
+  .row
+    .col-md-1
+      = f.input :rooms, disabled: true
+    .col-md-2
+      = f.input :unit, disabled: true
+    .col-md-2
+      = f.input :value, disabled: true
+    .col-md-2
+      = f.input :value_m2, disabled: true
+    .col-md-2
+      = f.input :area, disabled: true
+  .row
+    .col-md-1
+      = f.input :suit, disabled: true
+    .col-md-2
+      = f.input :parking_spaces, disabled: true
+    .col-md-2
+      = f.input :floor, disabled: true
+    .col-md-4
+      = f.input :sun_position, disabled: true
+  .row
+    .col-md-3
+      = f.input :link_tour, disabled: true
+    .col-md-2
+      = f.input :value_rent, disabled: true
+  %hr/
+  .row
+    .col-md-3
+      = f.association :construction_companies, as: :select, label_method: :social_reason, input_html: { class: "chosen-select", multiple: true, data: { placeholder: 'Selecione...'}}, disabled: true
+    .col-md-3
+      = f.association :sellers, as: :select, value: "oi", label_method: :social_reason,  input_html: { class: "chosen-select", multiple: true, data: { placeholder: 'Selecione...'}}, disabled: true
+  %hr/
+  .row
+    .col-md-9
+      = f.input :description, disabled: true
+  .row
+    .col-md-3
+      = f.input :commercial, as: :select, include_blank: false, disabled: true
+    .col-md-3
+      = f.input :elevator, as: :select, include_blank: false, disabled: true
+    .col-md-3
+      = f.input :coverage, as: :select, include_blank: false, disabled: true
+  %br/
+  %br/
+  %h4 Atributos
+  %hr/
+  .row
+    .col-md-2
+      = f.association :property_attribute, label: false, as: :check_boxes, disabled: true

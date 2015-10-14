@@ -5,7 +5,7 @@ class CreateProjects < ActiveRecord::Migration
       t.string :image_path
       t.string :name 
       t.string :description
-      t.boolean :status
+      t.boolean :status, default: true
       t.timestamps null: false
     end
   end
