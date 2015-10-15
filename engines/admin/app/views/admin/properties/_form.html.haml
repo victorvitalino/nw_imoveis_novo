@@ -1,10 +1,10 @@
 = simple_form_for @property do |f|
   .row
     .col-md-3
-      = f.association :client, label_method: :social_reason, prompt: 'selecione...'
+      = f.association :client, collection: Client.all.order(:social_reason).map { |key| [key.social_reason.to_s.upcase, key.id]}, prompt: 'selecione...'
       = f.hint link_to "gerenciar clientes", clients_path
     .col-md-3
-      = f.association :project, prompt: 'selecione...'
+      = f.association :project, collection: f.object.project.present? ? f.object.project.client.projects : {}, include_blank: "selecione..."
       = f.hint link_to "gerenciar empreendimentos", projects_path
   %hr/
   .row
@@ -18,7 +18,7 @@
     .col-md-3
       = f.input :iptu
     .col-md-3
-      = f.input :expiration_date, as: :string, input_html: { class: 'date'}
+      = f.input :expiration_date, as: :string, input_html: { class: 'date', value: (f.object.expiration_date) ? localize(f.object.expiration_date) : nil}
   %br/
   %br/
   %h4 Localização do Imóvel
@@ -88,9 +88,9 @@
   %hr/
   .row
     .col-md-3
-      = f.association :construction_companies, as: :select, label_method: :social_reason, input_html: { class: "chosen-select", multiple: true, data: { placeholder: 'Selecione...'}}
+      = f.association :construction_companies, as: :select, collection: Client.all.order(:social_reason).map { |key| [key.social_reason.to_s.upcase, key.id]}, input_html: { class: "chosen-select", multiple: true, data: { placeholder: 'Selecione...'}}
     .col-md-3
-      = f.association :sellers, as: :select, value: "oi", label_method: :social_reason,  input_html: { class: "chosen-select", multiple: true, data: { placeholder: 'Selecione...'}}
+      = f.association :sellers, as: :select, collection: Client.all.order(:social_reason).map { |key| [key.social_reason.to_s.upcase, key.id]},  input_html: { class: "chosen-select", multiple: true, data: { placeholder: 'Selecione...'}}
   %hr/
   .row
     .col-md-9
@@ -121,10 +121,10 @@
   $(document).ready(function() {
     $('#property_client_id').on('change', function() {
       var id = $(this).val()
-      var html = "carregando..."
+      var html = ""
 
       $.get("#{client_json_path}?client_id=" + id, function(data) {
-
+        console.log(data.length)
         if(data.length > 0) {
           for(var i = 0; i < data.length; i++) {
             html += "<option value="+data[i].id+">"+data[i].name+"</option>";
@@ -133,7 +133,7 @@
           html = "<option value>não existem empreendimentos</øption>";
         }
 
-        $("#property_project_id").val(html)
+        $("#property_project_id").html(html)
       });
     });
   });

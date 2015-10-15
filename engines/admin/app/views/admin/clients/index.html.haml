@@ -25,5 +25,5 @@
                 %td.col-md-2= client.email
                 %td.col-md-2= client.responsible_name
                 %td.col-md-2
-                  =link_to "editar", edit_client_path(client), class: 'btn btn-info btn-xs'
-                  =link_to "excluir", client_path(client), method: :delete, class: 'btn btn-danger btn-xs', data: { confirm: t(:confirm)}
+                  =link_to "", edit_client_path(client), class: 'btn btn-info btn-sm fa fa-pencil'
+                  =link_to "", client_path(client), method: :delete, class: 'btn btn-danger btn-sm fa fa-times', data: { confirm: t(:confirm)}

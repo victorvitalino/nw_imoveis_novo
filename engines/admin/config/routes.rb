@@ -12,6 +12,7 @@ Admin::Engine.routes.draw do
   resources :attributes, path: 'imovel_attributos'
   
   resources :properties, path: 'imovel' do 
+    patch 'update_images'
     resources :property_images, path: 'images'
   end
 

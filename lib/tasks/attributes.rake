@@ -1,3 +1,5 @@
+require 'csv'
+
 namespace :attributes do
   desc "migração attributos"
   task :migrate => :environment do
@@ -33,5 +35,22 @@ namespace :attributes do
       {status: true, name: "Varanda"},
       {status: true, name: "Mobiliado"}
     ])
+  end
+
+  desc "attributos do imóvel"
+  task :property => :environment do
+
+    CSV.foreach("lib/files/prop_attributes.csv", :col_sep => ",") do |row|
+      begin
+        @property = Property.find(row[1])
+        array = @property.property_attribute_id << row[0]
+        
+        if @property.update(property_attribute_id: array)
+          puts 'ok'
+        end
+      rescue Exception => e
+        puts e
+      end
+    end
   end
 end

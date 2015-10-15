@@ -6,7 +6,7 @@ module Admin
     before_action :set_nav
     # GET /properties
     def index
-      @properties = Property.all
+      @properties = Property.includes(:project).includes(:client).all
     end
 
     # GET /properties/1
@@ -20,6 +20,12 @@ module Admin
 
     # GET /properties/1/edit
     def edit
+    end
+
+    def update_images
+      @property = Property.find(params[:property_id])
+      @property.update(set_params_images)
+      redirect_to property_property_images_path(@property)
     end
 
     # POST /properties
@@ -72,7 +78,10 @@ module Admin
                                          :expiration_date, :name, image_path: [], construction_companies_id: [], sellers_id: [], property_attribute_id: [])
       end
 
-
+      def set_params_images
+        params.require(:property).permit!
+      end
+      
       def set_nav
         @nav = "property"
       end

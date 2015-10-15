@@ -4,9 +4,21 @@ module Admin
     before_action :set_property
 
     def index
-      @property_image = @property.property_images.new
+      @property_images = @property.property_images
     end
 
+    def new
+    end
+
+    def create
+    end
+
+    def destroy
+      @image = @property.property_images.find(params[:id])
+      @image.destroy
+      redirect_to property_property_images_path(@property)
+    end
+    
     private
 
     def set_property

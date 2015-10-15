@@ -12,8 +12,9 @@ gem 'devise'
 gem 'pundit', :git => 'https://github.com/geekninja/pundit.git', :branch => 'master'
 gem 'simple_form'
 gem 'haml-rails'
-gem 'fog', require: 'fog/aws'
-gem 'carrierwave'
+
+gem 'fog'
+gem 'carrierwave',  '~> 0.10.0'
 
 gem 'friendly_id'
 gem 'validates_cpf_cnpj'

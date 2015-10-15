@@ -77,12 +77,14 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
+
   CarrierWave.configure do|config|
     config.fog_credentials = {
      provider:              'AWS',
-     aws_access_key_id:     'AWSAccessKeyId=AKIAIMRS5F2Q7IJZLKOA',
-     aws_secret_access_key: 'AWSSecretKey=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',
-     region:                'us-west-2'
+     aws_access_key_id:     ENV["AMAZON_ID"],
+     aws_secret_access_key: ENV["AMAZON_SECRET_KEY"],
+     region:                'sa-east-1',
+     path_style: true
     }
     config.fog_directory = 'nwaqui'
     config.fog_public = 'false' #WTF?

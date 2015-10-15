@@ -18,7 +18,6 @@
         %ul.dropdown-menu.extended.logout
           %li
             %a{:href => "#{main_app.edit_user_registration_path}"}
-              %i.fa.fa-suitcase>
               Minha Conta
           %li
             = link_to "Sair", main_app.destroy_user_session_path, method: :delete

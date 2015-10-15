@@ -1,5 +1,7 @@
 class Property < ActiveRecord::Base
   has_many :property_images
+  accepts_nested_attributes_for :property_images, allow_destroy: true
+  
   belongs_to :property_attribute, class_name: "Attribute"
 
   belongs_to :client
@@ -31,7 +33,7 @@ class Property < ActiveRecord::Base
 
   validates :situation, presence: true
   validates :name, presence: true
-  validates :client, :project, presence: true
+  validates :project, presence: true
 
 
   def property_attributes; Attribute.where(id: self.property_attribute_id); end;
