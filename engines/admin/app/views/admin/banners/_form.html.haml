@@ -1,0 +1,18 @@
+= simple_form_for @banner do |f|
+  .row
+    .col-md-4
+      = f.input :name
+    .col-md-4
+      = f.input :location, as: :select, collection: Banner.locations.keys.to_a { |key| [key.humanize, key]}, include_blank: false
+    .col-md-4
+      = f.input :link
+    .col-md-4
+      = f.input :image_path, as: :file
+  .row
+    .col-md-2
+      = f.input :status, as: :select, include_blank: false
+  %hr/
+  .row
+    .col-md-8
+      = f.button :submit, class: 'btn btn-success'
+      = link_to "Voltar", banners_path, class: 'btn btn-default'
