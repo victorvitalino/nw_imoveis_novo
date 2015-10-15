@@ -25,32 +25,32 @@
   %hr/
   .row
     .col-md-3
-      = f.input :cep 
+      = f.input :cep
     .col-md-3
-      = f.input :region 
+      = f.input :region
     .col-md-3
-      = f.input :district 
+      = f.input :district
   .row
     .col-md-3
-      = f.input :group 
+      = f.input :group
     .col-md-3
-      = f.input :block 
+      = f.input :block
     .col-md-3
-      = f.input :number 
-  .row
-    .col-md-9
-      = f.input :address 
+      = f.input :number
   .row
     .col-md-9
-      = f.input :complement 
+      = f.input :address
   .row
     .col-md-9
-      = f.input :reference_point 
+      = f.input :complement
+  .row
+    .col-md-9
+      = f.input :reference_point
   .row
     .col-md-3
-      = f.input :address_link_visible, as: :select, include_blank: false 
+      = f.input :address_link_visible, as: :select, include_blank: false
     .col-md-3
-      = f.input :reference_point, as: :select, include_blank: false 
+      = f.input :reference_point, as: :select, include_blank: false
   %br/
   %br/
   %h4 Descrição do Imóvel
@@ -109,19 +109,20 @@
   .row
     .col-md-2
       = f.association :property_attribute, label: false, as: :check_boxes
+      
   %hr/
   .row
     .col-md-8
       = f.button :submit, class: 'btn btn-success'
       = link_to "Voltar", properties_path, class: 'btn btn-default'
 
-:javascript 
-  
+:javascript
+
   $(document).ready(function() {
     $('#property_client_id').on('change', function() {
       var id = $(this).val()
       var html = "carregando..."
-      
+
       $.get("#{client_json_path}?client_id=" + id, function(data) {
 
         if(data.length > 0) {
