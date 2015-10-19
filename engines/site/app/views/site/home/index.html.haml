@@ -1,18 +1,702 @@
-%section#home-section-imovel
-  .row
-    #menu-default.col-lg-12.col-md-12.col-sm-12.col-xs-12.lista-tipo-imovel
-      - Property.type_properties.each do |key, value|
-        .col-lg-4.col-md-4.col-sm-4.col-xs-4
-          .inner
-            .menu-text
-              %a{:href => "imoveis/#{key}"}
-                %img.optmobile.img-responsive{:src => "/images/icon-#{key}.png"}/
-  .row 
-    .col-lg-12.col-md-12.col-sm-12.col-xs-12
-      #imovel-menu-default
-        - Button.principal.order(:order).each do |button| 
-          .col-lg-3.col-md-3.col-sm-3.col-xs-4
-            .inner
-              .imovel-menu-text
-                %a{:href => "#"}
-                  = link_to image_tag(button.image_path, width: 110, height: 110, class: 'img-circle'), button.link.present? ? button.link : '#'
+.noo-wrapper
+  / START SLIDESHOW HOME
+  %section#slideshow-home.wrap.noo-slideshow.slideshow-home
+    .property-slider
+      #noo-slider-1.noo-slider.noo-property-slide-wrap
+        %ul.sliders
+          %li.slide-item.noo-property-slide
+            %img.attachment-property-slider{:alt => "", :src => "images/slideshow/bg-slide1.jpg"}/
+            .slide-caption
+              .slide-caption-info
+                %h3
+                  %a{:href => "property-details.html"} Fresno, CA93722
+                  %small 6001 W Alluvial Ave
+                .info-summary
+                  .size
+                    %span 2400 sqft
+                  .bathrooms
+                    %span 3
+                  .bedrooms
+                    %span 4
+                  .property-price
+                    %span
+                      %span.amount $309,000
+              .slide-caption-action
+                %a{:href => "property-details.html"} More Details
+          %li.slide-item.noo-property-slide
+            %img.attachment-property-slider{:alt => "", :src => "images/slideshow/bg-slide1.jpg"}/
+            .slide-caption
+              .slide-caption-info
+                %h3
+                  %a{:href => "property-details.html"} Oakland, NJ94605
+                  %small 8727 Thermal St
+                .info-summary
+                  .size
+                    %span 2,568 sqft
+                  .bathrooms
+                    %span 2
+                  .bedrooms
+                    %span 4
+                  .property-price
+                    %span
+                      %span.amount $335,000
+              .slide-caption-action
+                %a{:href => "property-details.html"} More Details
+          %li.slide-item.noo-property-slide
+            %img.attachment-property-slider{:alt => "", :src => "images/slideshow/bg-slide1.jpg"}/
+            .slide-caption
+              .slide-caption-info
+                %h3
+                  %a{:href => "property-details.html"} Visalia, NJ 93277
+                  %small 3211 S Parkwood Ct
+                .info-summary
+                  .size
+                    %span 1913 sqft
+                  .bathrooms
+                    %span 2
+                  .bedrooms
+                    %span 4
+                  .property-price
+                    %span
+                      %span.amount $154,500
+              .slide-caption-action
+                %a{:href => "property-details.html"} More Details
+        .clearfix
+        #noo-slider-1-pagination.slider-indicators.indicators-center-bottom
+        %a#noo-slider-1-prev.slider-control.prev-btn{:href => "#", :role => "button"}
+          %span.slider-icon-prev
+        %a#noo-slider-1-next.slider-control.next-btn{:href => "#", :role => "button"}
+          %span.slider-icon-next
+  / END SLIDESHOW HOME
+  / START SEARCH BOX
+  %section#search-box.wrap.search-box
+    .gsearch
+      .container
+        / START GSEARCH INFO
+        .gsearch-info
+          %h4.gsearch-info-title Find Your Place
+          .gsearch-info-content
+            Instantly find your desired place from your own idea of location, at any price
+            %br/
+            and other elements just by starting your search now
+        / END GSEARCH INFO
+        / START GSEARCH WRAP
+        .gsearch-wrap
+          %form.gsearchform{:method => "get", :role => "search"}
+            .gsearch-content
+              .gsearch-field
+                .form-group.glocation
+                  .label-select
+                    %select.form-control
+                      %option All Locations
+                      %option New Jersey
+                      %option New York
+                .form-group.gsub-location
+                  .label-select
+                    %select.form-control
+                      %option All Sub-locations
+                      %option Central New York
+                      %option GreenVille
+                      %option Long Island
+                      %option New York City
+                      %option West Side
+                .form-group.gstatus
+                  .label-select
+                    %select.form-control
+                      %option All Status
+                      %option Open house
+                      %option Rent
+                      %option Sale
+                      %option Sold
+                .form-group.gtype
+                  .label-select
+                    %select.form-control
+                      %option All Type
+                      %option Apartment
+                      %option Co-op
+                      %option Condo
+                      %option Single Family Home
+                .form-group.gbed
+                  .label-select
+                    %select.form-control
+                      %option No. of Bedrooms
+                      %option 1
+                      %option 2
+                      %option 3
+                      %option 4
+                      %option 5
+                .form-group.gbath
+                  .label-select
+                    %select.form-control
+                      %option No. of Bathrooms
+                      %option 1
+                      %option 2
+                      %option 3
+                      %option 4
+                .form-group.gprice
+                  %span.gprice-label Price
+                  .gslider-range.gprice-slider-range
+                  %span.gslider-range-value.gprice-slider-range-value-min
+                  %span.gslider-range-value.gprice-slider-range-value-max
+                .form-group.garea
+                  %span.garea-label Area
+                  .gslider-range.garea-slider-range
+                  %span.gslider-range-value.garea-slider-range-value-min
+                  %span.gslider-range-value.garea-slider-range-value-max
+              .gsearch-action
+                .gsubmit
+                  %a.btn.btn-deault{:href => "#"} Search Property
+        / END GSEARCH WRAP
+  / END SEARCH BOX
+  / START RECENT PROPERTIES
+  %section#recent-properties-slider.wrap.recent-properties.recent-properties-slider
+    .container
+      .recent-properties-inner
+        .section-title
+          %h3 Recent Properties
+        .recent-properties-content
+          .caroufredsel-wrap
+            %ul
+              %li
+                .property-row
+                  %article.hentry.has-featured
+                    .property-featured
+                      %a.content-thumb{:href => "property-details.html"}
+                        %img.attachment-property-thumb{:alt => "", :src => "images/property/property1.jpg"}/
+                      %span.property-category
+                        %a{:href => "type-single-family-home.html"} Single Family Home
+                      .property-detail
+                        .size
+                          %span 1913 sqft
+                        .bathrooms
+                          %span 2
+                        .bedrooms
+                          %span 4
+                    .property-wrap
+                      %h2.property-title
+                        %a{:href => "property-details.html", :title => "Visalia, NJ 93277"} Visalia, NJ 93277
+                      .property-excerpt
+                        %p This 4 bedroom home sits on an oversized lot at the end of a cul-de-sac...
+                    .property-summary
+                      .property-info
+                        .property-price
+                          %span
+                            %span.amount $154,500
+                        .property-action
+                          %a{:href => "property-details.html"} More Details
+                  %article.hentry.has-featured
+                    .property-featured
+                      %a.content-thumb{:href => "property-details.html"}
+                        %img.attachment-property-thumb{:alt => "", :src => "images/property/property1.jpg"}/
+                      %span.property-category
+                        %a{:href => "type-single-family-home.html"} Single Family Home
+                      .property-detail
+                        .size
+                          %span 1118 sqft
+                        .bathrooms
+                          %span 2
+                        .bedrooms
+                          %span 3
+                    .property-wrap
+                      %h2.property-title
+                        %a{:href => "property-details.html", :title => "Single Family Residential, NJ"} Single Family Residential, NJ
+                      .property-excerpt
+                        %p Classic 60's ranch living. House has hardwood floors and hard coat plaster walls and ceilings...
+                    .property-summary
+                      .property-info
+                        .property-price
+                          %span
+                            %span.amount $299,000
+                        .property-action
+                          %a{:href => "property-details.html"} More Details
+                .property-row
+                  %article.hentry.has-featured
+                    .property-featured
+                      %a.content-thumb{:href => "property-details.html"}
+                        %img.attachment-property-thumb{:alt => "", :src => "images/property/property1.jpg"}/
+                      %span.property-category
+                        %a{:href => "type-apartment.html"} Apartment
+                      .property-detail
+                        .size
+                          %span 1304 sqft
+                        .bathrooms
+                          %span 2
+                        .bedrooms
+                          %span 3
+                    .property-wrap
+                      %h2.property-title
+                        %a{:href => "property-details.html", :title => "Peter Cooper Village"} Peter Cooper Village
+                      .property-excerpt
+                        %p Peter Cooper Village/ Stuyvesant Town provides an unbeatable combination of city energy and community tranquility,...
+                    .property-summary
+                      .property-info
+                        .property-price
+                          %span
+                            %span.amount $5,109
+                        .property-action
+                          %a{:href => "property-details.html"} More Details
+                  %article.hentry.has-featured
+                    .property-featured
+                      %a.content-thumb{:href => "property-details.html"}
+                        %img.attachment-property-thumb{:alt => "", :src => "images/property/property1.jpg"}/
+                      %span.property-category
+                        %a{:href => "type-condo.html"} Condo
+                      .property-detail
+                        .size
+                          %span 1,856 sqft
+                        .bathrooms
+                          %span 2
+                        .bedrooms
+                          %span 2
+                    .property-wrap
+                      %h2.property-title
+                        %a{:href => "property-details.html", :title => "Ocala, FL34481"} Ocala, FL34481
+                      .property-excerpt
+                        %p Wonderful expanded end-unit Augusta featuring 2 bedrooms in split-bedroom plan, study/den/library off of cathedral-ceilinged HUGE...
+                    .property-summary
+                      .property-info
+                        .property-price
+                          %span
+                            %span.amount $95,000
+                        .property-action
+                          %a{:href => "property-details.html"} More Details
+              %li
+                .property-row
+                  %article.hentry.has-featured
+                    .property-featured
+                      %a.content-thumb{:href => "property-details.html"}
+                        %img.attachment-property-thumb{:alt => "", :src => "images/property/property1.jpg"}/
+                      %span.property-category
+                        %a{:href => "type-single-family-home.html"} Single Family Home
+                      .property-detail
+                        .size
+                          %span 123 sqft
+                        .bathrooms
+                          %span 1
+                        .bedrooms
+                          %span 1
+                    .property-wrap
+                      %h2.property-title
+                        %a{:href => "property-details.html", :title => "New York Upper West Side"} New York Upper West Side
+                      .property-excerpt
+                        %p Fantastic One Bedroom Facing East In This Amazing Trump Place Doorman Building. There Is A...
+                    .property-summary
+                      .property-info
+                        .property-price
+                          %span
+                            %span.amount $3,350
+                        .property-action
+                          %a{:href => "property-details.html"} More Details
+                  %article.hentry.has-featured
+                    .property-featured
+                      %a.content-thumb{:href => "property-details.html"}
+                        %img.attachment-property-thumb{:alt => "", :src => "images/property/property1.jpg"}/
+                      %span.property-category
+                        %a{:href => "type-apartment.html"} Apartment
+                      .property-detail
+                        .size
+                          %span 1752 sqft
+                        .bathrooms
+                          %span 2
+                        .bedrooms
+                          %span 2
+                    .property-wrap
+                      %h2.property-title
+                        %a{:href => "property-details.html", :title => "AVA High Line"} AVA High Line
+                      .property-excerpt
+                        %p Special pricing for immediate move-ins! Call for details! AVA is a first. Our apartments are...
+                    .property-summary
+                      .property-info
+                        .property-price
+                          %span
+                            %span.amount $3,410
+                        .property-action
+                          %a{:href => "property-details.html"} More Details
+          %a.caroufredsel-prev{:href => "#"}
+          %a.caroufredsel-next{:href => "#"}
+  / END RECENT PROPERTIES
+  / START FEATURED PROPERTIES
+  %section#recent-properties-featured.wrap.recent-properties.recent-properties-featured
+    .container
+      .recent-properties-inner
+        .recent-properties-title
+          %h3 Featured Properties
+        .recent-properties-content
+          .caroufredsel-wrap
+            %ul
+              %li
+                %article.hentry.has-featured
+                  .property-featured
+                    %a.content-thumb{:href => "property-details.html"}
+                      %img.attachment-property-image{:alt => "", :src => "images/property/featured-properties1.jpg"}/
+                    %span.property-category
+                      %a{:href => "type-single-family-home.html"} Single Family Home
+                  .property-wrap
+                    %h2.property-title
+                      %a{:href => "property-details.html", :title => "Visalia, NJ 93277"} Visalia, NJ 93277
+                    .property-excerpt
+                      %p This 4 bedroom home sits on an oversized lot at the end of a cul-de-sac in an established neighborhood. It is in need of work however would make a great...
+                    .property-summary
+                      .property-detail
+                        .size
+                          %span 1913 sqft
+                        .bathrooms
+                          %span 2
+                        .bedrooms
+                          %span 4
+                      .property-info
+                        .property-price
+                          %span
+                            %span.amount $154,500
+                        .property-action
+                          %a{:href => "property-details.html"}
+                            More Details
+                            %i.fa.fa-arrow-circle-o-right
+              %li
+                %article.hentry.has-featured
+                  .property-featured
+                    %a.content-thumb{:href => "property-details.html"}
+                      %img.attachment-property-image{:alt => "", :src => "images/property/featured-properties1.jpg"}/
+                    %span.property-category
+                      %a{:href => "type-single-family-home.html"} Single Family Home
+                  .property-wrap
+                    %h2.property-title
+                      %a{:href => "property-details.html", :title => "Single Family Residential, NJ"} Single Family Residential, NJ
+                    .property-excerpt
+                      %p Classic 60's ranch living. House has hardwood floors and hard coat plaster walls and ceilings in good condition. Intimate backyard for private gatherings. Full basement leaves plenty of room for...
+                    .property-summary
+                      .property-detail
+                        .size
+                          %span 1118 sqft
+                        .bathrooms
+                          %span 2
+                        .bedrooms
+                          %span 3
+                      .property-info
+                        .property-price
+                          %span
+                            %span.amount $299,000
+                        .property-action
+                          %a{:href => "property-details.html"}
+                            More Details
+                            %i.fa.fa-arrow-circle-o-right
+              %li
+                %article.hentry.has-featured
+                  .property-featured
+                    %a.content-thumb{:href => "property-details.html"}
+                      %img.attachment-property-image{:alt => "", :src => "images/property/featured-properties1.jpg"}/
+                    %span.property-category
+                      %a{:href => "type-apartment.html"} Apartment
+                  .property-wrap
+                    %h2.property-title
+                      %a{:href => "property-details.html", :title => "Peter Cooper Village"} Peter Cooper Village
+                    .property-excerpt
+                      %p Peter Cooper Village/ Stuyvesant Town provides an unbeatable combination of city energy and community tranquility, providing insulation from the city that surrounds it, yet situated next to Manhattan's most dynamic...
+                    .property-summary
+                      .property-detail
+                        .size
+                          %span 1304 sqft
+                        .bathrooms
+                          %span 2
+                        .bedrooms
+                          %span 3
+                      .property-info
+                        .property-price
+                          %span
+                            %span.amount $5,109
+                            \/month
+                        .property-action
+                          %a{:href => "property-details.html"}
+                            More Details
+                            %i.fa.fa-arrow-circle-o-right
+          %a.caroufredsel-prev{:href => "#"}
+          %a.caroufredsel-next{:href => "#"}
+  / END FEATURED PROPERTIES
+  / START OUR SERVICES
+  %section#our-sevices.wrap.our-sevices
+    .container
+      .parallax
+        .bg.parallax-bg
+        .overlay
+        .our-sevices-content
+          .row.clearfix
+            .col-xs-12.col-sm-4.our-sevices-col
+              %span.service-icon
+                %i.fa.fa-home
+              %hr.noo-gap/
+              .text-block
+                %h5 Hottest Property List
+                %p
+                  Wherever you are and you want to go, we provide you extremely hot and continuously
+                  %br>/
+                  updated property list.
+                %p
+                  %a.icon-right{:href => "#"}
+                    See latest list
+                    %i.fa.fa-arrow-circle-o-right
+            .col-xs-12.col-sm-4.our-sevices-col
+              %span.service-icon
+                %i.fa.fa-thumbs-o-up
+              %hr.noo-gap/
+              .text-block
+                %h5 Best Price In Market
+                %p
+                  Wherever you are and you want to go, we provide you extremely hot and continuously
+                  = succeed "updated" do
+                    %br/
+                %p
+                  %a.icon-right{:href => "#"}
+                    See latest list
+                    %i.fa.fa-arrow-circle-o-right
+            .col-xs-12.col-sm-4.our-sevices-col
+              %span.service-icon
+                %i.fa.fa-star
+              %hr.noo-gap/
+              .text-block
+                %h5 Guaranteed Service
+                %p
+                  Wherever you are and you want to go, we provide you extremely hot and continuously
+                  = succeed "updated" do
+                    %br/
+                %p
+                  %a.icon-right{:href => "#"}
+                    See latest list
+                    %i.fa.fa-arrow-circle-o-right
+  / END OUR SERVICES
+  / START RECENT AGENTS
+  %section#recent-agents-slider.wrap.recent-agents.recent-agents-slider
+    .container
+      .recent-agents-inner
+        .recent-agents-title
+          %h3 MEET OUR AGENTS
+        .recent-agents-content
+          .caroufredsel-wrap.row
+            %ul
+              %li.col-md-4.col-sm-6
+                / START AGENT 1
+                %article.hentry.has-featured
+                  .agent-featured
+                    %a.content-thumb{:href => "agents-detail.html"}
+                      %img{:alt => "", :src => "images/agent/agent1.jpg"}/
+                  .agent-wrap
+                    %h2.agent-title
+                      %a{:href => "agents-detail.html", :title => "Adam Scooter"} Adam Scooter
+                    .agent-excerpt
+                      %p When people are looking for a real estate professional to consult, studies show they care most about loyalty and accountability....
+                    .agent-social-wrap
+                      .social-list.agent-social
+                        %a{:href => "#", :target => "_blank", :title => "Facebook"}
+                          %i.fa.fa-facebook
+                        %a{:href => "#", :target => "_blank", :title => "Twitter"}
+                          %i.fa.fa-twitter
+                        %a{:href => "#", :target => "_blank", :title => "Google +"}
+                          %i.fa.fa-google-plus
+                        %a{:href => "#", :target => "_blank", :title => "Linkedin"}
+                          %i.fa.fa-linkedin
+                        %a{:href => "#", :target => "_blank", :title => "Pinterest"}
+                          %i.fa.fa-pinterest
+                / END AGENT 1
+              %li.col-md-4.col-sm-6
+                / START AGENT 2
+                %article.hentry.has-featured
+                  .agent-featured
+                    %a.content-thumb{:href => "agents-detail.html"}
+                      %img{:alt => "", :src => "images/agent/agent1.jpg"}/
+                  .agent-wrap
+                    %h2.agent-title
+                      %a{:href => "agents-detail.html", :title => "Thomas Adam Clayton"} Thomas Adam Clayton
+                    .agent-excerpt
+                      %p Recognized as the top selling broker in Lower Manhattan and among the best in New York City, Thomas Adam Clayton...
+                    .agent-social-wrap
+                      .social-list.agent-social
+                        %a{:href => "#", :target => "_blank", :title => "Facebook"}
+                          %i.fa.fa-facebook
+                        %a{:href => "#", :target => "_blank", :title => "Twitter"}
+                          %i.fa.fa-twitter
+                        %a{:href => "#", :target => "_blank", :title => "Google +"}
+                          %i.fa.fa-google-plus
+                        %a{:href => "#", :target => "_blank", :title => "Linkedin"}
+                          %i.fa.fa-linkedin
+                        %a{:href => "#", :target => "_blank", :title => "Pinterest"}
+                          %i.fa.fa-pinterest
+                / END AGENT 2
+              %li.col-md-4.col-sm-6
+                / START AGENT 3
+                %article.hentry.has-featured
+                  .agent-featured
+                    %a.content-thumb{:href => "agents-detail.html"}
+                      %img{:alt => "", :src => "images/agent/agent1.jpg"}/
+                  .agent-wrap
+                    %h2.agent-title
+                      %a{:href => "agents-detail.html", :title => "Stacy Barron"} Stacy Barron
+                    .agent-excerpt
+                      %p Stacy is a long time resident and successful broker in the Lincoln Center area. Never far from home, sheis intimately acquainted...
+                    .agent-social-wrap
+                      .social-list.agent-social
+                        %a{:href => "#", :target => "_blank", :title => "Facebook"}
+                          %i.fa.fa-facebook
+                        %a{:href => "#", :target => "_blank", :title => "Twitter"}
+                          %i.fa.fa-twitter
+                        %a{:href => "#", :target => "_blank", :title => "Google +"}
+                          %i.fa.fa-google-plus
+                        %a{:href => "#", :target => "_blank", :title => "Linkedin"}
+                          %i.fa.fa-linkedin
+                        %a{:href => "#", :target => "_blank", :title => "Pinterest"}
+                          %i.fa.fa-pinterest
+                / END AGENT 3
+              %li.col-md-4.col-sm-6
+                / START AGENT 4
+                %article.hentry.has-featured
+                  .agent-featured
+                    %a.content-thumb{:href => "agents-detail.html"}
+                      %img{:alt => "", :src => "images/agent/agent1.jpg"}/
+                  .agent-wrap
+                    %h2.agent-title
+                      %a{:href => "agents-detail.html", :title => "Michael Feng"} Michael Feng
+                    .agent-excerpt
+                      %p Michael Feng is a real estate agent, but his true goal is to be a resource for his clients. Since 2006,...
+                    .agent-social-wrap
+                      .social-list.agent-social
+                        %a{:href => "#", :target => "_blank", :title => "Facebook"}
+                          %i.fa.fa-facebook
+                        %a{:href => "#", :target => "_blank", :title => "Twitter"}
+                          %i.fa.fa-twitter
+                        %a{:href => "#", :target => "_blank", :title => "Google +"}
+                          %i.fa.fa-google-plus
+                        %a{:href => "#", :target => "_blank", :title => "Linkedin"}
+                          %i.fa.fa-linkedin
+                        %a{:href => "#", :target => "_blank", :title => "Pinterest"}
+                          %i.fa.fa-pinterest
+                / END AGENT 4
+              %li.col-md-4.col-sm-6
+                / START AGENT 5
+                %article.hentry.has-featured
+                  .agent-featured
+                    %a.content-thumb{:href => "agents-detail.html"}
+                      %img{:alt => "", :src => "images/agent/agent1.jpg"}/
+                  .agent-wrap
+                    %h2.agent-title
+                      %a{:href => "agents-detail.html", :title => "John Doe"} John Doe
+                    .agent-excerpt
+                      %p John Doe, the founding partner of Elegran, started the company in 2007 in a unique way. He did this without...
+                    .agent-social-wrap
+                      .social-list.agent-social
+                        %a{:href => "#", :target => "_blank", :title => "Facebook"}
+                          %i.fa.fa-facebook
+                        %a{:href => "#", :target => "_blank", :title => "Twitter"}
+                          %i.fa.fa-twitter
+                        %a{:href => "#", :target => "_blank", :title => "Google +"}
+                          %i.fa.fa-google-plus
+                        %a{:href => "#", :target => "_blank", :title => "Linkedin"}
+                          %i.fa.fa-linkedin
+                        %a{:href => "#", :target => "_blank", :title => "Pinterest"}
+                          %i.fa.fa-pinterest
+                / END AGENT 5
+          %a.caroufredsel-prev{:href => "javascript:void(0)"}
+          %a.caroufredsel-next{:href => "javascript:void(0)"}
+  / END RECENT AGENTS
+  / START CALL TO ACTION
+  %section#call-to-action.wrap.call-to-action
+    .container
+      .parallax
+        .bg.parallax-bg
+        .overlay
+        .call-to-action-content
+          .row.clearfix
+            .col-xs-12.col-sm-6.item-col
+              .text-block
+                %h3 ONLY IN JULY
+                %p Be the first to get our hottest unlisted property list!
+            .col-xs-12.col-sm-6.item-col
+              .call-to-action-btn
+                %a.btn{:href => "#", :role => "button"} GET IT NOW
+  / END CALL TO ACTION
+  / START TESTIMONIAL
+  %section#testimonial.wrap.testimonial
+    .container
+      .testimonial-inner
+        .section-title
+          %h3 Testimonial
+        .testimonial-content
+          #carousel-testimonial.carousel.slide
+            %ol.carousel-indicators
+              %li.active{"data-slide-to" => "0", "data-target" => "#carousel-testimonial"}
+              %li{"data-slide-to" => "1", "data-target" => "#carousel-testimonial"}
+              %li{"data-slide-to" => "2", "data-target" => "#carousel-testimonial"}
+              %li{"data-slide-to" => "3", "data-target" => "#carousel-testimonial"}
+            .carousel-inner
+              / START ITEM 1
+              .item.active
+                .slide-content
+                  .testimonial-desc “I found my current apartment on Citilights with extraordinary help from them and totally satisfied with the choice I made. All I had to do was to tell what I was looking for and I got back property suggestions nearly exact to my imagination. Among those, I finally chose mine now then completed procedure at ease. Highly recommend Citilights for your home search.”
+                  .our-customer-info
+                    .avatar
+                      %a{:href => "#"}
+                        %img{:alt => "", :src => "images/other/customer1.png"}/
+                    .custom-desc
+                      %h4 Dave Softel
+                      %p Happy Buyer of June
+              / END ITEM 1
+              / START ITEM 2
+              .item
+                .slide-content
+                  .testimonial-desc “I found my current apartment on Citilights with extraordinary help from them and totally satisfied with the choice I made. All I had to do was to tell what I was looking for and I got back property suggestions nearly exact to my imagination. Among those, I finally chose mine now then completed procedure at ease. Highly recommend Citilights for your home search.”
+                  .our-customer-info
+                    .avatar
+                      %a{:href => "#"}
+                        %img{:alt => "", :src => "images/other/customer1.png"}/
+                    .custom-desc
+                      %h4 Dave Softel
+                      %p Happy Buyer of June
+              / END ITEM 2
+              / START ITEM 3
+              .item
+                .slide-content
+                  .testimonial-desc “I found my current apartment on Citilights with extraordinary help from them and totally satisfied with the choice I made. All I had to do was to tell what I was looking for and I got back property suggestions nearly exact to my imagination. Among those, I finally chose mine now then completed procedure at ease. Highly recommend Citilights for your home search.”
+                  .our-customer-info
+                    .avatar
+                      %a{:href => "#"}
+                        %img{:alt => "", :src => "images/other/customer1.png"}/
+                    .custom-desc
+                      %h4 Dave Softel
+                      %p Happy Buyer of June
+              / END ITEM 3
+              / START ITEM 4
+              .item
+                .slide-content
+                  .testimonial-desc “I found my current apartment on Citilights with extraordinary help from them and totally satisfied with the choice I made. All I had to do was to tell what I was looking for and I got back property suggestions nearly exact to my imagination. Among those, I finally chose mine now then completed procedure at ease. Highly recommend Citilights for your home search.”
+                  .our-customer-info
+                    .avatar
+                      %a{:href => "#"}
+                        %img{:alt => "", :src => "images/other/customer1.png"}/
+                    .custom-desc
+                      %h4 Dave Softel
+                      %p Happy Buyer of June
+              / END ITEM 4
+  / END TESTIMONIAL
+  / START OUR PARTNERS
+  %section#our-partners.wrap.our-partners
+    .container
+      .our-partners-inner
+        .row
+          .col-sm-6.col-md-2.item-col
+            %a{:href => "http://themeforest.net/", :target => "_blank"}
+              %img.item-image{:alt => "", :src => "images/partner/partner1.png"}/
+          .col-sm-6.col-md-2.item-col
+            %a{:href => "http://codecanyon.net/", :target => "_blank"}
+              %img.item-image{:alt => "", :src => "images/partner/partner2.png"}/
+          .col-sm-6.col-md-2.item-col
+            %a{:href => "http://videohive.net/", :target => "_blank"}
+              %img.item-image{:alt => "", :src => "images/partner/partner3.png"}/
+          .col-sm-6.col-md-2.item-col
+            %a{:href => "http://audiojungle.net/", :target => "_blank"}
+              %img.item-image{:alt => "", :src => "images/partner/partner4.png"}/
+          .col-sm-6.col-md-2.item-col
+            %a{:href => "http://photodune.net/", :target => "_blank"}
+              %img.item-image{:alt => "", :src => "images/partner/partner5.png"}/
+          .col-sm-6.col-md-2.item-col
+            %a{:href => "http://activeden.net/", :target => "_blank"}
+              %img.item-image{:alt => "", :src => "images/partner/partner6.png"}/
+  / END OUR PARTNERS
+/ END NOO WRAPPER
+/ START FOOTER

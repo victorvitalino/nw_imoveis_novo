@@ -1,8 +1,144 @@
-%section#logo-detalhe.col-lg-12.col-md-12.col-sm-12.col-xs-12
-  .col-lg-3.col-md-3.col-sm-4.col-xs-12
-    %a{:href => "#{site.root_path}"}
-      %img{:src => "/images/logo-white.png"}/
-  #banner.col-lg-6.col-md-7.col-sm-6.col-xs-12
-  .col-lg-3.col-md-2.col-sm-2.hidden-xs
-    %a{:href => "javascript:history.go(-1)"}
-      %img#voltar.img-responsive.mobilevolta{:src => "/images/icon-volta-imovel.png", :width => "150"}/
+%header.noo-header
+  / START TOP HEADER
+  .top-header
+    .container
+      .top-header-inner
+        %ul.social-top
+          %li
+            %a{:href => "#", :target => "_blank", :title => "Facebook"}
+              %i.fa.fa-facebook
+          %li
+            %a{:href => "#", :target => "_blank", :title => "Twitter"}
+              %i.fa.fa-twitter
+          %li
+            %a{:href => "#", :target => "_blank", :title => "Pinterest"}
+              %i.fa.fa-pinterest
+          %li
+            %a{:href => "#", :target => "_blank", :title => "RSS"}
+              %i.fa.fa-rss
+        .top-header-content
+          .emailto.content-item
+            %a{:href => "mailto:info@citilights.com"}
+              %i.fa.fa-envelope-o>
+              \ Email:info@citilights.com
+          .register.content-item
+            %a{:href => "login-register.html"}
+              %i.fa.fa-key>
+              \ Register
+          .login.content-item
+            %a{:href => "login-register.html"}
+              %i.fa.fa-sign-in>
+          .header-search
+            %label{:for => "input-header-search"}
+              %i.fa.fa-search
+            %input#input-header-search{:placeholder => "Search", :type => "text"}/
+  / END TOP HEADER
+  / START MAIN NAVIGATION WRAP
+  .main-nav-wrap.container
+    / START NAVBAR TOGGLE & LOGO
+    .navbar-header
+      %button.navbar-toggle.collapsed{"data-target" => "#main-collapse", "data-toggle" => "collapse", :type => "button"}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      .logo
+        .logo-image
+          %a{:href => "index.html", :title => "NooTheme CitiLights"}
+    / END NAVBAR TOGGLE & LOGO
+    / START CALLING INFO
+    .calling-info
+      .calling-content
+        %i.fa.fa-mobile
+        .calling-desc
+          CALL  US  NOW
+          %br/
+          %span
+            %a{:href => "tel:(+01)-793-7938"} (+01)-793-7938
+    / END CALLING INFO
+    / START MAIN NAVIGATION
+    .main-navigation
+      %nav#main-collapse.collapse.navbar-collapse{:role => "navigation"}
+        %ul.nav.navbar-nav
+          %li.dropdown.active
+            %a{:href => "index.html"}
+              Home 
+              %span.caret
+            %ul.dropdown-menu
+              %li
+                %a{:href => "home-map-vertical.html"} Home Map Vertical
+              %li
+                %a{:href => "home-map-horizontal.html"} Home Map Horizontal
+          %li.dropdown
+            %a{:href => "#"}
+              Properties 
+              %span.caret
+            %ul.dropdown-menu
+              %li.dropdown-submenu
+                %a{:href => "#"} List
+                %ul.dropdown-menu
+                  %li
+                    %a{:href => "list-with-sidebar.html"} With Sidebar
+                  %li
+                    %a{:href => "list-no-sidebar.html"} No Sidebar
+              %li.dropdown-submenu
+                %a{:href => "#"} Grid
+                %ul.dropdown-menu
+                  %li
+                    %a{:href => "grid-with-sidebar.html"} With Sidebar
+                  %li
+                    %a{:href => "grid-no-sidebar.html"} No Sidebar
+              %li
+                %a{:href => "property-details.html"} Property details
+          %li.dropdown
+            %a{:href => "#"}
+              Features 
+              %span.caret
+            %ul.dropdown-menu.dropdown-menu-right
+              %li.dropdown-submenu
+                %a{:href => "#"} Blog
+                %ul.dropdown-menu.dropdown-menu-right
+                  %li
+                    %a{:href => "blog.html"} Blog
+                  %li
+                    %a{:href => "default-blog-left-sidebar.html"} Default Blog Left Sidebar
+                  %li
+                    %a{:href => "default-blog-right-sidebar.html"} Default Blog Right Sidebar
+              %li.dropdown-submenu
+                %a{:href => "#"} Shortcodes
+                %ul.dropdown-menu.dropdown-menu-right
+                  %li
+                    %a{:href => "shortcodes.html"} Shortcodes
+                  %li
+                    %a{:href => "citilights-shortcode.html"} Citilights Shortcode
+                  %li
+                    %a{:href => "pricing-table.html"} Pricing Table
+          %li.dropdown
+            %a{:href => "#"}
+              Agents 
+              %span.caret
+            %ul.dropdown-menu
+              %li
+                %a{:href => "agents-listing.html"} Agents Listing
+              %li
+                %a{:href => "agents-detail.html"} Agents Detail
+          %li.dropdown
+            %a{:href => "#"}
+              Submit 
+              %span.caret
+            %ul.dropdown-menu.dropdown-menu-right
+              %li
+                %a{:href => "my-profile.html"} My Profile
+              %li
+                %a{:href => "my-properties.html"} My Properties
+              %li
+                %a{:href => "submit-proprety.html"} Submit Proprety
+          %li.dropdown
+            %a{:href => "contact.html"}
+              Contact 
+              %span.caret
+            %ul.dropdown-menu.dropdown-menu-right
+              %li
+                %a{:href => "contact1.html"} Contact 1
+    / END MAIN NAVIGATION
+  / END MAIN NAVIGATION WRAP

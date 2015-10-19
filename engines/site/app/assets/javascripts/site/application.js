@@ -1,5 +1,12 @@
 //= require jquery
 //= require jquery_ujs
-//= require nw/js/bootstrap.min
-//= require nw/js/flexyslider
+//= require nw/js/bootstrap.min 
+//= require nw/js/jquery.parallax-1.1.3
+//= require nw/js/SmoothScroll
+//= require nw/js/jquery.carouFredSel-6.2.1-packed
+//= require nw/js/jquery.touchSwipe.min
+//= require nw/js/imagesloaded.pkgd.min
+//= require nw/js/jquery.nouislider.all.min
+//= require nw/js/property-slider
+//= require nw/js/script
 //= require site/custom

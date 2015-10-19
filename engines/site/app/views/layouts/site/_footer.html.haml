@@ -1,0 +1,97 @@
+%footer.footer
+  / START FOOTER NAVIGATION
+  .footer-nav
+    .container
+      .row
+        / START FOOTER ABOUT US
+        .col-xs-12.col-sm-6.col-md-3.footer-nav-col
+          .ft-about-us
+            %h4.ft-col-title CitiLights
+            .text-block
+              %p CitiLights brings wide range of choice, steadily updated property list and market trend for you to figure out your right decision.
+              %p You are now at right place for your real estate research.
+        / END ABOUT US
+        / START FOOTER FEATURED PROPERTIES
+        .col-xs-12.col-sm-6.col-md-3.footer-nav-col
+          .ft-featured-properties
+            %h4.ft-col-title Featued Property
+            .featured-property
+              %ul
+                %li
+                  .featured-image
+                    %a{:href => "property-details.html"}
+                      %img{:alt => "", :src => "images/property/property1.jpg"}/
+                  .featured-decs
+                    %span.featured-status
+                      %a{:href => "#"}
+                    %h4.featured-title
+                      %a{:href => "property-details.html", :title => "Fresno, CA93722"} Fresno, CA93722
+                %li
+                  .featured-image
+                    %a{:href => "property-details.html"}
+                      %img{:alt => "", :src => "images/property/property1.jpg"}/
+                  .featured-decs
+                    %span.featured-status
+                      %a{:href => "#"} For Rent
+                    %h4.featured-title
+                      %a{:href => "property-details.html", :title => "AVA High Line"} AVA High Line
+        / END FOOTER FEATURED PROPERTIES
+        / START FOOTER USEFUL LINKS
+        .col-xs-12.col-sm-6.col-md-3.footer-nav-col
+          .ft-useful-links
+            %h4.ft-col-title Useful links
+            %nav.useful-links-menu{:role => "navigation"}
+              %ul
+                %li.menu-item
+                  %a{:href => "#"} Terms of Use
+                %li.menu-item
+                  %a{:href => "#"} Privacy Policy
+                %li.menu-item
+                  %a{:href => "#"} Contact Support
+                %li.menu-item
+                  %a{:href => "#"} Knowledgebase
+                %li.menu-item
+                  %a{:href => "#"} Careers
+                %li.menu-item
+                  %a{:href => "#"} FAQs
+        / END FOOTERUSEFUL LINKS
+        / START FOOTER CONTACT INFO
+        .col-xs-12.col-sm-6.col-md-3.footer-nav-col
+          .ft-contact-info
+            %h4.ft-col-title Contact info
+            %ul.detail-contact-info
+              %li
+                %i.fa.fa-map-marker>
+                 376 Baker Street, New York
+              %li
+                %i.fa.fa-phone>
+                 (+01)-486-2857
+              %li
+                %i.fa.fa-envelope-o>
+                 
+                %a{:href => "mailto:info@citilights.com"} info@citilights.com
+        / END FOOTER CONTACT INFO
+  / END FOOTER NAVIGATION
+  / START COPYRIGHT
+  .copyright
+    .container
+      .row
+        .col-xs-12.col-sm-6.text-block
+          © 2014 CitiLights. All Rights Reserved.
+          %br/
+          %span
+            Designed by
+            = succeed "." do
+              %a{:href => "http://www.nootheme.com/", :target => "_blank", :title => "Visit Nootheme.com!"} NooTheme.com
+          %br/
+        .col-xs-12.col-sm-6.logo-block
+          .logo-image
+            %a{:href => "index.html"}
+              %img{:alt => "CitiLights", :src => "images/logo/logo-footer.png"}/
+    / START BACK TO TOP
+    #back-to-top.back-to-top
+      %i.fa.fa-angle-up
+    / END BACK TO TOP
+  / END COPYRIGHT
+/ END FOOTER
+/ END SITE

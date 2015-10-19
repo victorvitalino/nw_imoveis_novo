@@ -1,0 +1,18 @@
+%section#home-section-imovel
+  .row
+    #menu-default.col-lg-12.col-md-12.col-sm-12.col-xs-12.lista-tipo-imovel
+      - Property.type_properties.each do |key, value|
+        .col-lg-4.col-md-4.col-sm-4.col-xs-4
+          .inner
+            .menu-text
+              %a{:href => "imoveis/#{key}"}
+                %img.optmobile.img-responsive{:src => "/images/icon-#{key}.png"}/
+  .row 
+    .col-lg-12.col-md-12.col-sm-12.col-xs-12
+      #imovel-menu-default
+        - Button.principal.order(:order).each do |button| 
+          .col-lg-3.col-md-3.col-sm-3.col-xs-4
+            .inner
+              .imovel-menu-text
+                %a{:href => "#"}
+                  = link_to image_tag(button.image_path, width: 110, height: 110, class: 'img-circle'), button.link.present? ? button.link : '#'

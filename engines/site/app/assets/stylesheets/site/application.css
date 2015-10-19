@@ -1,7 +1,12 @@
 /*
  *= require nw/css/bootstrap.min
+ *= require nw/css/bootstrap-theme.min
+ *= require nw/css/font-awesome.min
+ *= require nw/css/jquery.nouislider.min
  *= require nw/css/style
- *= require nw/css/flexyslider
- *= require font/css/font-awesome.min
+ *= require nw/css/shortcode
+ *= require nw/css/home
+ *= require nw/css/citilights-shortcode
+ *= require nw/css/color/color1
  *= require site/custom
  */
