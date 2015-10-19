@@ -451,7 +451,7 @@ ul.social-top > li a i {
 	height: 70px;
 	width: 163px;
 	display: block;
-	background: url("../../../images/logo/logo.png") no-repeat left center;
+	/*background: url("../../../images/logo/logo.png") no-repeat left center;*/
 	-webkit-background-size: contain;
 	-moz-background-size: contain;
 	-o-background-size: contain;
@@ -1198,7 +1198,7 @@ ul.social-top > li a i {
 }
 
 .dark-style .navbar-header .logo .logo-image a {
-	background-image: url("../../../images/logo/logo-dark-style.png");
+	/*background-image: url("../../../images/logo/logo-dark-style.png");*/
 }
 
 .dark-style .noo-wrapper,
