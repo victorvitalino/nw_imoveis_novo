@@ -6,20 +6,15 @@
           %b= @property.name 
           %br/
           %small Imagens
+          = link_to "Adicionar imagem", admin.new_property_property_image_path(property_id: @property.id), class: 'btn btn-primary pull-right'
 .row
-  .col-md-12
-    %section.panel
-      %header.panel-heading
-        = simple_form_for [:property, @property_image] do |f|
-          = f.input :image_path, as: :file
-.row
-  - @property.property_images.each do |image|
-    .col-md-3
+  - @property_images.each do |image|
+    .col-md-4
       .panel.panel-default
         .panel-body
-          = image_tag image.image_path, width: 280
-        .panel-footer
-          .row
-            .col-md-12{style: 'text-align: center'}
-              = link_to "Editar", "#", remote: true, class: 'btn btn-info btn-xs'
-              = link_to "Remover", "#", remote: true, class: 'btn btn-danger btn-xs'
+          .col-md-12
+            = image_tag image.image_path, width: 380, height: 250
+            %br/
+            %br/
+            = link_to "Remover Imagem", admin.property_property_image_path(id: image, property_id: @property.id) , method: :delete, data: { confirm: "Teme certeza que deseja remover esta imagem?" }, class: 'btn btn-primary bt-sm pull-left'
+        

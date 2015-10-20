@@ -21,5 +21,5 @@
                 %td.col-md-1= image_tag project.image_path, width: 35, heigth: 35, class: 'img-circle' if project.image_path?
                 %td.col-md-1= project.status ? "<span class='label label-success'>ativo</span>".html_safe : "<span class='label label-danger'>inativo</span>".html_safe
                 %td.col-md-2
-                  =link_to "editar", edit_project_path(project), class: 'btn btn-info btn-xs'
-                  =link_to "excluir", project_path(project), method: :delete, class: 'btn btn-danger btn-xs', data: { confirm: t(:confirm)}
+                  =link_to "", edit_project_path(project), class: 'btn btn-info btn-sm fa fa-pencil'
+                  =link_to "", project_path(project), method: :delete, class: 'btn btn-danger btn-sm fa fa-times', data: { confirm: t(:confirm)}

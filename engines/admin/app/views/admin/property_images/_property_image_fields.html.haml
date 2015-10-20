@@ -1,0 +1,7 @@
+%fieldset
+  = image_tag f.object.image_path, width: 250, height: 200 if f.object.image_path?
+  = f.input :image_path, label: "Upload de imagem"
+  = f.input :_destroy, as: :hidden
+  = link_to "remover", '#', class: "remove_fields btn btn-danger btn-sm"
+%br/
+%br/

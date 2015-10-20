@@ -11,7 +11,6 @@
               %th Código
               %th Empreendimento
               %th Cliente
-              %th Bairro
               %th Tipo de imóvel
               %th Status
               %th Ações
@@ -20,9 +19,10 @@
               %tr
                 %td.col-md-1= property.code
                 %td.col-md-4= property.project.client.social_reason if property.project.present? && property.project.client.present?
-                %td.col-md-4= property.project.name if property.project.present?
+                %td.col-md-3= property.project.name if property.project.present?
+                %td.col-md-2= property.type_property
                 %td= property.status ? "<span class='label label-success'>ativo</span>".html_safe : "<span class='label label-danger'>inativo</span>".html_safe
-                %td.col-md-2
+                %td.col-md-3
                   =link_to "", property_property_images_path(property), class: 'btn btn-success btn-sm fa fa-picture-o', title: "Imagens"
                   =link_to "", property, class: 'btn btn-warning btn-sm fa fa-eye', title: "Visualizar"
                   =link_to "", edit_property_path(property), class: 'btn btn-info btn-sm fa fa-pencil', title: "Editar"

@@ -315,7 +315,7 @@ PLATFORMS
 DEPENDENCIES
   admin!
   byebug
-  carrierwave
+  carrierwave (~> 0.10.0)
   customer!
   devise
   email_validator

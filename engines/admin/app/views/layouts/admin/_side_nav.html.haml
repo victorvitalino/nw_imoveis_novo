@@ -35,16 +35,16 @@
             %span Publicidade
           %ul.sub
             %li
-              %a{:href => "#{buttons_path}"} Botões
+              %a{:href => "#{admin.buttons_path}"} Botões
             %li
-              %a{:href => "#{banners_path}"} Banners            
+              %a{:href => "#{admin.banners_path}"} Banners            
         %li.sub-menu
           %a{:href => "javascript:;", class: "#{(@nav == 'user') ? 'active' : ''}"}
             %i.fa.fa-th
             %span Usuários
           %ul.sub{style: "#{(@nav == 'user') ? 'display: block;' : ''}"}
             %li
-              %a{:href => "#{users_path}"} Listagem de Usuários
+              %a{:href => "#{admin.users_path}"} Listagem de Usuários
             %li
-              %a{:href => "#{new_user_path}"} Novo Usuário
+              %a{:href => "#{admin.new_user_path}"} Novo Usuário
             

@@ -1,0 +1,10 @@
+= simple_form_for @property, url: admin.property_update_images_path(property_id: @property) do |f|
+  .row
+    = f.simple_fields_for :property_images do |builder|
+      .col-md-12
+        = render 'property_image_fields', f: builder
+  = link_to_add_fields "Adicionar Imagem", f, :property_images
+  %hr/
+  .row
+    .col-md-12
+      = f.submit "Atualizar Imagens", class: 'btn btn-success'
