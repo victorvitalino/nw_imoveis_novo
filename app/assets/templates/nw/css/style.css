@@ -1892,7 +1892,7 @@ ul.social-top > li a i {
 }
 
 .read-more {
-	color: #bdb254;
+	color: #ffffff;
 	display: inline-block;
 	margin: 0;
 	font-weight: 700;
@@ -1908,7 +1908,7 @@ ul.social-top > li a i {
 .read-more.active,
 .open > .dropdown-toggle.read-more {
 	color: #fff;
-	border-color: #bdb254;
+	border-color: #ffffff;
 }
 
 .content-featured img {
@@ -1975,7 +1975,7 @@ ul.social-top > li a i {
 
 .hentry.format-quote > .content-wrap:hover a,
 .hentry.format-link > .content-wrap:hover a {
-	color: #bdb254;
+	color: #ffffff;
 }
 
 .hentry.format-quote a,
@@ -1992,7 +1992,7 @@ ul.social-top > li a i {
 
 .hentry.format-quote > .content-wrap:hover cite,
 .hentry.format-link > .content-wrap:hover cite {
-	color: #bdb254;
+	color: #ffffff;
 }
 
 .content-sub-title {
@@ -2689,7 +2689,7 @@ li.comment {
   -webkit-transition: .3s linear;
   -o-transition: .3s linear;
   transition: .3s linear;
-  color: #bdb254;
+  color: #ffffff;
   -webkit-transition: all .4s ease;
   -o-transition: all .4s ease;
   transition: all .4s ease;
@@ -3152,7 +3152,7 @@ li.comment {
   font-size: 18px;
   text-shadow:none;
   font-weight: 600;
-  color: #bdb254;
+  color: #ffffff;
   -webkit-transition: border-color color .2s ease;
   -o-transition: border-color color .2s ease;
   transition: border-color color .2s ease;
@@ -3170,7 +3170,7 @@ margin: 0 auto;
 
 .cta_buy_theme .text-block a:hover {
   color: #fff;
-  border-color: #bdb254;
+  border-color: #ffffff;
 }
 
 
@@ -3242,7 +3242,7 @@ label {
 }
 
 .btn-secondary {
-  color: #bdb254;
+  color: #ffffff;
   font-size: 16px;
 }
 
@@ -3334,7 +3334,7 @@ label {
   }
 
   .my-properties.list .property-info .property-action a {
-    color: #bdb254;
+    color: #ffffff;
     padding: 10px 15px;
     display: block;
     text-transform: uppercase;
@@ -3350,7 +3350,7 @@ label {
 
   .my-properties.list .property-info .property-action a:hover, .properties.list .property-info .property-action a:focus, .properties.list .property-info .property-action a:active, .properties.list .property-info .property-action a.active, .open>.dropdown-toggle.properties.list .property-info .property-action a {
     color: #fff;
-    border-color: #bdb254;
+    border-color: #ffffff;
 	}
 
   .my-properties .hentry .property-info > div.property-price {
@@ -3417,7 +3417,7 @@ label {
 
 .my-properties .hentry .property-info .property-action a:hover, .my-properties .hentry .property-info .property-action a:focus, .properties .hentry .property-info .property-action a:active, .properties .hentry .property-info .property-action a.active, .open>.dropdown-toggle.properties .hentry .property-info .property-action a {
   color: #fff;
-  border-color: #bdb254;
+  border-color: #ffffff;
 }
 
 
@@ -3623,7 +3623,7 @@ ul.wysihtml5-toolbar a:hover {
 }
 
 .contact-desc .submit, .contact-desc-1 .submit {
-  color: #bdb254;
+  color: #ffffff;
   padding: 5px 16px;
   margin-top: 0;
   width: 100%;
@@ -3812,7 +3812,7 @@ ul.wysihtml5-toolbar a:hover {
   text-transform: uppercase;
   font-weight: bold;
   font-size: 24px;
-  color: #bdb254;
+  color: #ffffff;
   margin-top: 0;
   margin-bottom: 20px;
   padding: 8px 16px;

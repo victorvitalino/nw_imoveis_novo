@@ -30,7 +30,7 @@
 		top: 50%;
 		background: none repeat scroll 0 0 transparent;
 		display: inline-block;
-		
+
 		height: 141px;
 		margin-top: -83px;
 		width: 71px;
@@ -171,7 +171,7 @@
 }
 
 .noo-slider .caroufredsel_wrapper .sliders .slide-item.noo-property-slide .slide-caption .slide-caption-action a {
-	color: #bdb254;
+	color: #ffffff;
 	font-size: 18px;
 	position: relative;
 	text-align: center;
@@ -197,7 +197,7 @@
 
 .noo-slider .caroufredsel_wrapper .sliders .slide-item.noo-property-slide .slide-caption .slide-caption-action a:hover {
 	color: #fff;
-	border-color: #bdb254;
+	border-color: #ffffff;
 }
 
 
@@ -537,7 +537,7 @@
 /* 6. OUR PARTNERS
 /* --------------------------------------------------------------------- */
 .our-partners {
-	background: url("../../../images/other/our-partners-bg.png") repeat-x left top;
+	/*background: url("../../../images/other/our-partners-bg.png") repeat-x left top;*/
 	padding: 50px 0;
 }
 

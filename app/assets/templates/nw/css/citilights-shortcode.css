@@ -606,7 +606,7 @@
 	}
 
 	.page-fullwidth .properties.list .property-fullwidth-action.property-action a {
-		color: #bdb254;
+		color: #ffffff;
 		display: block;
 		font-size: 24px;
 		font-weight: bold;
@@ -922,7 +922,7 @@
 }
 
 .recent-properties .recent-properties-content .property-row .hentry .property-summary .property-info .property-action a {
-	color: #bdb254;
+	color: #fff;
 	padding: 10px 15px;
 	display: block;
 	text-transform: uppercase;
@@ -943,7 +943,7 @@
 
 .recent-properties .recent-properties-content .property-row .hentry .property-summary .property-info .property-action a:hover {
 	color: #fff;
-	border-color: #bdb254;
+	border-color: #ffffff;
 }
 
 .recent-properties .recent-properties-content .property-row .hentry .property-wrap:before {
@@ -1217,7 +1217,7 @@
 }
 
 .recent-properties.recent-properties-featured .property-info .property-action a {
-	color: #bdb254;
+	color: #ffffff;
 	padding: 18px 15px;
 	display: block;
 	text-transform: uppercase;
@@ -1247,7 +1247,7 @@
 
 .recent-properties.recent-properties-featured .property-info .property-action a:hover {
 	color: #fff;
-	border-color: #bdb254;
+	border-color: #ffffff;
 }
 
 @media screen and (max-width: 479px) {
@@ -2104,7 +2104,7 @@
 .gsearch .gsearch-wrap .gsearch-content .gsearch-action .gsubmit .btn {
 	width: 100%;
 	font-size: 24px;
-	color: #bdb254;
+	color: #ffffff;
 	text-transform: uppercase;
 	font-weight: normal;
 	white-space: normal;
