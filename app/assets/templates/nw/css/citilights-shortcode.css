@@ -601,7 +601,7 @@
 	.page-fullwidth .properties.list .property-fullwidth-action.property-action {
 		display: table-cell !important;
 		width: 88px;
-		height: 100%;
+		height: 50%;
 		vertical-align: top;
 	}
 
@@ -610,17 +610,24 @@
 		display: block;
 		font-size: 24px;
 		font-weight: bold;
-		height: 220px;
-		padding: 80px 30px;
+		height: 110px;
+		padding: 20px 30px;
 		position: relative;
 		text-align: center;
 		text-transform: uppercase;
 		width: 170px;
-		-webkit-border-radius: 0 4px 4px 0;
-		-moz-border-radius: 0 4px 4px 0;
-		-o-border-radius: 0 4px 4px 0;
-		-ms-border-radius: 0 4px 4px 0;
-		border-radius: 0 4px 4px 0;
+		-webkit-border-radius: 0 4px 0px 0;
+		-moz-border-radius: 0 4px 0px 0;
+		-o-border-radius: 0 4px 0px 0;
+		-ms-border-radius: 0 4px 0px 0;
+		border-radius: 0 4px 0px 0;
+	}
+	.property-invese-link-mod a{
+		-webkit-border-radius: 0 0 4px 0!important;
+		-moz-border-radius: 0 0 4px 0!important;
+		-o-border-radius: 0 0 4px 0!important;
+		-ms-border-radius: 0 0 4px 0!important;
+		border-radius: 0 0 4px 0!important;
 	}
 
 	.page-fullwidth .properties.list .property-fullwidth-action.property-action a:hover {

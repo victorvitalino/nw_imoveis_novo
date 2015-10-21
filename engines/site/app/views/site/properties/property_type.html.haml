@@ -1,11 +1,561 @@
-%section#home-section-imovel
-  .row
-    #menu-default.col-lg-12.col-md-12.col-sm-12.col-xs-12.lista-tipo-imovel
-      - Property.detail_navs.each do |key, value|
-        .col-lg-4.col-md-4.col-sm-4.col-xs-4
-          .tipo-imovel
-            .menu-text
-              %a{:href => "#{property_detail_type_properties_path(property_detail_type: params[:property_type],detail_type: key)}"}
-                %img.img-responsive{:src => "/images/#{key}.png"}/
-  .col-lg-12.col-md-12.col-sm-12.col-xs-12
-    #imovel-menu-default
+.noo-wrapper
+  / START MAP HORIZONTAL
+  %section#search_map_horizontal.wrap.noo_advanced_search_property.horizontal
+    .noo-map
+      #gmap
+      .gmap-search
+        %input#gmap_search_input{:autocomplete => "on", :placeholder => "Pesquisar", :type => "text"}/
+      .gmap-control
+        %a.gmap-mylocation{:href => "#"}
+          %i.fa.fa-map-marker>
+          Minha Localização
+        %a.gmap-full{:href => "#"}
+          %i.fa.fa-expand
+        %a.gmap-prev{:href => "#"}
+          %i.fa.fa-angle-left
+        %a.gmap-next{:href => "#"}
+          %i.fa.fa-angle-right
+      .gmap-zoom
+        %a.zoom-in{:href => "#"}
+          %i.fa.fa-plus
+        %a.zoom-out{:href => "#"}
+          %i.fa.fa-minus
+      .gmap-loading
+        Carregando Mapa
+        .gmap-loader
+          .rect1
+          .rect2
+          .rect3
+          .rect4
+          .rect5
+      = render 'layouts/site/search_map'
+  / END MAP HORIZONTAL
+
+  / START NOO MAINBODY
+  .container.noo-mainbody
+    .noo-mainbody-inner
+      .row.clearfix
+        / START MAIN CONTENT
+        .noo-content.col-xs-12
+          .recent-properties
+            .properties.list
+              / START PROPERTIES HEADER
+              .properties-header
+                %h1.page-title Imóveis - Lançamento (Loop de tipo)
+              / END PROPERTIES HEADER
+              / START PROPERTIES CONTENT
+              .properties-content
+                %article.hentry
+                  .property-featured
+                    %span.featured
+                      %i.fa.fa-star
+                    %a.content-thumb{:href => "property-details.html"}
+                      %img{:alt => "", :src => "../images/property/property1.jpg"}/
+                    %span.property-label PLANTA
+                    %span.property-category
+                      %a{:href => "#"} Apartmento
+                  .property-wrap
+                    %h2.property-title
+                      %a{:href => "property-details.html", :title => "Exemplo de Endereço"} Exemplo de Endereço
+                    .property-excerpt
+                      %p Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      %p.property-fullwidth-excerpt Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vitae nibh at tortor maximus ultrices.
+                    .property-summary
+                      .property-detail
+                        .size
+                          %span 1913 M²
+                        .bathrooms
+                          %span 2
+                        .bedrooms
+                          %span 4
+                      .property-info
+                        .property-price
+                          %span
+                            %span.amount R$154,500
+                        .property-action
+                          .property-links
+                            %a{:href => "property-details.html"} Mais Detalhes
+                      .property-info.property-fullwidth-info
+                        .property-price
+                          %span
+                            %span.amount R$154,500
+                        .size
+                          %span 1913 M²
+                        .bathrooms
+                          %span 2
+                        .bedrooms
+                          %span 4
+                  .property-action.property-fullwidth-action
+                    .property-links
+                      %a{:href => "property-details.html"} Mais Detalhes
+                    .property-links.property-invese-link-mod
+                      %a{:href => "property-details.html"}
+                        %img{:alt => "", :src => "../images/icon/icon-360.png"}/
+                %article.hentry
+                  .property-featured
+                    %a.content-thumb{:href => "property-details.html"}
+                      %img{:alt => "", :src => "../images/property/property1.jpg"}/
+                    %span.property-label PLANTA
+                    %span.property-category
+                      %a{:href => "#"} Apartmento
+                  .property-wrap
+                    %h2.property-title
+                      %a{:href => "property-details.html", :title => "Exemplo de Endereço"} Exemplo de Endereço
+                    .property-excerpt
+                      %p Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      %p.property-fullwidth-excerpt Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vitae nibh at tortor maximus ultrices.
+                    .property-summary
+                      .property-detail
+                        .size
+                          %span 762 M²
+                        .bathrooms
+                          %span 3
+                        .bedrooms
+                          %span 3
+                      .property-info
+                        .property-price
+                          %span
+                            %span.amount R$3,515
+                        .property-action
+                          %a{:href => "property-details.html"} Mais Detalhes
+                      .property-info.property-fullwidth-info
+                        .property-price
+                          %span
+                            %span.amount R$3,515
+                            \/mês
+                        .size
+                          %span 762 M²
+                        .bathrooms
+                          %span 3
+                        .bedrooms
+                          %span 4
+                  .property-action.property-fullwidth-action
+                    .property-links
+                      %a{:href => "property-details.html"} Mais Detalhes
+                    .property-links.property-invese-link-mod
+                      %a{:href => "property-details.html"}
+                        %img{:alt => "", :src => "../images/icon/icon-360.png"}/
+                %article.hentry
+                  .property-featured
+                    %a.content-thumb{:href => "property-details.html"}
+                      %img{:alt => "", :src => "../images/property/property1.jpg"}/
+                    %span.property-category
+                      %a{:href => "#"} Apartmento
+                  .property-wrap
+                    %h2.property-title
+                      %a{:href => "property-details.html", :title => "Exemplo de Endereço"} Exemplo de Endereço
+                    .property-excerpt
+                      %p Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      %p.property-fullwidth-excerpt Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vitae nibh at tortor maximus ultrices.
+                    .property-summary
+                      .property-detail
+                        .size
+                          %span 1118 M²
+                        .bathrooms
+                          %span 2
+                        .bedrooms
+                          %span 3
+                      .property-info
+                        .property-price
+                          %span
+                            %span.amount R$299,000
+                        .property-action
+                          %a{:href => "property-details.html"} Mais Detalhes
+                      .property-info.property-fullwidth-info
+                        .property-price
+                          %span
+                            %span.amount R$299,000
+                        .size
+                          %span 1118 M²
+                        .bathrooms
+                          %span 2
+                        .bedrooms
+                          %span 3
+                  .property-action.property-fullwidth-action
+                    .property-links
+                      %a{:href => "property-details.html"} Mais Detalhes
+                    .property-links.property-invese-link-mod
+                      %a{:href => "property-details.html"}
+                        %img{:alt => "", :src => "../images/icon/icon-360.png"}/
+                %article.hentry
+                  .property-featured
+                    %span.featured
+                      %i.fa.fa-star
+                    %a.content-thumb{:href => "property-details.html"}
+                      %img{:alt => "", :src => "../images/property/property1.jpg"}/
+                    %span.property-label.Aluguel Aluguel
+                    %span.property-category
+                      %a{:href => "#"} Apartmento
+                  .property-wrap
+                    %h2.property-title
+                      %a{:href => "property-details.html", :title => "Exemplo de Endereço"} Exemplo de Endereço
+                    .property-excerpt
+                      %p Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      %p.property-fullwidth-excerpt Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vitae nibh at tortor maximus ultrices.
+                    .property-summary
+                      .property-detail
+                        .size
+                          %span 1304 M²
+                        .bathrooms
+                          %span 2
+                        .bedrooms
+                          %span 3
+                      .property-info
+                        .property-price
+                          %span
+                            %span.amount R$5,109
+                        .property-action
+                          %a{:href => "property-details.html"} Mais Detalhes
+                      .property-info.property-fullwidth-info
+                        .property-price
+                          %span
+                            %span.amount R$5,109
+                            \/mês
+                        .size
+                          %span 1304 M²
+                        .bathrooms
+                          %span 2
+                        .bedrooms
+                          %span 3
+                  .property-action.property-fullwidth-action
+                    .property-links
+                      %a{:href => "property-details.html"} Mais Detalhes
+                    .property-links.property-invese-link-mod
+                      %a{:href => "property-details.html"}
+                        %img{:alt => "", :src => "../images/icon/icon-360.png"}/
+                %article.hentry
+                  .property-featured
+                    %span.featured
+                      %i.fa.fa-star
+                    %a.content-thumb{:href => "property-details.html"}
+                      %img{:alt => "", :src => "../images/property/property1.jpg"}/
+                    %span.property-category
+                      %a{:href => "#"} Apartmento
+                  .property-wrap
+                    %h2.property-title
+                      %a{:href => "property-details.html", :title => "Exemplo de Endereço"} Exemplo de Endereço
+                    .property-excerpt
+                      %p Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      %p.property-fullwidth-excerpt Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vitae nibh at tortor maximus ultrices.
+                    .property-summary
+                      .property-detail
+                        .size
+                          %span 1,856 M²
+                        .bathrooms
+                          %span 2
+                        .bedrooms
+                          %span 2
+                      .property-info
+                        .property-price
+                          %span
+                            %span.amount R$95,000
+                        .property-action
+                          %a{:href => "property-details.html"} Mais Detalhes
+                      .property-info.property-fullwidth-info
+                        .property-price
+                          %span
+                            %span.amount R$95,000
+                        .size
+                          %span 1,856 M²
+                        .bathrooms
+                          %span 2
+                        .bedrooms
+                          %span 2
+                  .property-action.property-fullwidth-action
+                    .property-links
+                      %a{:href => "property-details.html"} Mais Detalhes
+                    .property-links.property-invese-link-mod
+                      %a{:href => "property-details.html"}
+                        %img{:alt => "", :src => "../images/icon/icon-360.png"}/
+                %article.hentry
+                  .property-featured
+                    %a.content-thumb{:href => "property-details.html"}
+                      %img{:alt => "", :src => "../images/property/property1.jpg"}/
+                    %span.property-label PLANTA
+                    %span.property-category
+                      %a{:href => "#"} Apartmento
+                  .property-wrap
+                    %h2.property-title
+                      %a{:href => "property-details.html", :title => "Exemplo de Endereço"} Exemplo de Endereço
+                    .property-excerpt
+                      %p Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      %p.property-fullwidth-excerpt Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vitae nibh at tortor maximus ultrices.
+                    .property-summary
+                      .property-detail
+                        .size
+                          %span 2,568 M²
+                        .bathrooms
+                          %span 2
+                        .bedrooms
+                          %span 4
+                      .property-info
+                        .property-price
+                          %span
+                            %span.amount R$335,000
+                        .property-action
+                          %a{:href => "property-details.html"} Mais Detalhes
+                      .property-info.property-fullwidth-info
+                        .property-price
+                          %span
+                            %span.amount R$335,000
+                            \/mês
+                        .size
+                          %span 2,568 M²
+                        .bathrooms
+                          %span 2
+                        .bedrooms
+                          %span 4
+                  .property-action.property-fullwidth-action
+                    .property-links
+                      %a{:href => "property-details.html"} Mais Detalhes
+                    .property-links.property-invese-link-mod
+                      %a{:href => "property-details.html"}
+                        %img{:alt => "", :src => "../images/icon/icon-360.png"}/
+                %article.hentry
+                  .property-featured
+                    %a.content-thumb{:href => "property-details.html"}
+                      %img{:alt => "", :src => "../images/property/property1.jpg"}/
+                    %span.property-category
+                      %a{:href => "#"} Apartmento
+                  .property-wrap
+                    %h2.property-title
+                      %a{:href => "property-details.html", :title => "Exemplo de Endereço"} Exemplo de Endereço
+                    .property-excerpt
+                      %p Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      %p.property-fullwidth-excerpt Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vitae nibh at tortor maximus ultrices.
+                    .property-summary
+                      .property-detail
+                        .size
+                          %span 1752 M²
+                        .bathrooms
+                          %span 2
+                        .bedrooms
+                          %span 2
+                      .property-info
+                        .property-price
+                          %span
+                            %span.amount R$3,410
+                            \/mês
+                        .property-action
+                          %a{:href => "property-details.html"} Mais Detalhes
+                      .property-info.property-fullwidth-info
+                        .property-price
+                          %span
+                            %span.amount R$3,410
+                            \/mês
+                        .size
+                          %span 1752 M²
+                        .bathrooms
+                          %span 2
+                        .bedrooms
+                          %span 2
+                  .property-action.property-fullwidth-action
+                    .property-links
+                      %a{:href => "property-details.html"} Mais Detalhes
+                    .property-links.property-invese-link-mod
+                      %a{:href => "property-details.html"}
+                        %img{:alt => "", :src => "../images/icon/icon-360.png"}/
+                %article.hentry
+                  .property-featured
+                    %a.content-thumb{:href => "property-details.html"}
+                      %img{:alt => "", :src => "../images/property/property1.jpg"}/
+                    %span.property-category
+                      %a{:href => "#"} Apartmento
+                  .property-wrap
+                    %h2.property-title
+                      %a{:href => "property-details.html", :title => "Exemplo de Endereço"} Exemplo de Endereço
+                    .property-excerpt
+                      %p Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      %p.property-fullwidth-excerpt Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vitae nibh at tortor maximus ultrices.
+                    .property-summary
+                      .property-detail
+                        .size
+                          %span 531 M²
+                        .bathrooms
+                          %span 3
+                        .bedrooms
+                          %span 5
+                      .property-info
+                        .property-price
+                          %span
+                            %span.amount R$4,200
+                            \/mês
+                        .property-action
+                          %a{:href => "property-details.html"} Mais Detalhes
+                      .property-info.property-fullwidth-info
+                        .property-price
+                          %span
+                            %span.amount R$4,200
+                            \/mês
+                        .size
+                          %span 531 M²
+                        .bathrooms
+                          %span 3
+                        .bedrooms
+                          %span 5
+                  .property-action.property-fullwidth-action
+                    .property-links
+                      %a{:href => "property-details.html"} Mais Detalhes
+                    .property-links.property-invese-link-mod
+                      %a{:href => "property-details.html"}
+                        %img{:alt => "", :src => "../images/icon/icon-360.png"}/
+                %article.hentry
+                  .property-featured
+                    %span.featured
+                      %i.fa.fa-star
+                    %a.content-thumb{:href => "property-details.html"}
+                      %img{:alt => "", :src => "../images/property/property1.jpg"}/
+                    %span.property-category
+                      %a{:href => "#"} Apartmento
+                  .property-wrap
+                    %h2.property-title
+                      %a{:href => "property-details.html", :title => "Exemplo de Endereço"} Exemplo de Endereço
+                    .property-excerpt
+                      %p Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      %p.property-fullwidth-excerpt Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vitae nibh at tortor maximus ultrices.
+                    .property-summary
+                      .property-detail
+                        .size
+                          %span 1516 M²
+                        .bathrooms
+                          %span 3
+                        .bedrooms
+                          %span 3
+                      .property-info
+                        .property-price
+                          %span
+                            %span.amount R$449,999
+                            \/mês
+                        .property-action
+                          %a{:href => "property-details.html"} Mais Detalhes
+                      .property-info.property-fullwidth-info
+                        .property-price
+                          %span
+                            %span.amount R$449,999
+                        .size
+                          %span 1516 M²
+                        .bathrooms
+                          %span 3
+                        .bedrooms
+                          %span 3
+                  .property-action.property-fullwidth-action
+                    .property-links
+                      %a{:href => "property-details.html"} Mais Detalhes
+                    .property-links.property-invese-link-mod
+                      %a{:href => "property-details.html"}
+                        %img{:alt => "", :src => "../images/icon/icon-360.png"}/
+                %article.hentry
+                  .property-featured
+                    %a.content-thumb{:href => "property-details.html"}
+                      %img{:alt => "", :src => "../images/property/property1.jpg"}/
+                    %span.property-category
+                      %a{:href => "#"} Apartmento
+                  .property-wrap
+                    %h2.property-title
+                      %a{:href => "property-details.html", :title => "Exemplo de Endereço"} Exemplo de Endereço
+                    .property-excerpt
+                      %p Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      %p.property-fullwidth-excerpt Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vitae nibh at tortor maximus ultrices.
+                    .property-summary
+                      .property-detail
+                        .size
+                          %span 1516 M²
+                        .bathrooms
+                          %span 3
+                        .bedrooms
+                          %span 3
+                      .property-info
+                        .property-price
+                          %span
+                            %span.amount R$449,999
+                            \/mês
+                        .property-action
+                          %a{:href => "property-details.html"} Mais Detalhes
+                      .property-info.property-fullwidth-info
+                        .property-price
+                          %span
+                            %span.amount R$389,000
+                        .size
+                          %span 550 M²
+                        .bathrooms
+                          %span 1
+                        .bedrooms
+                          %span 2
+                  .property-action.property-fullwidth-action
+                    .property-links
+                      %a{:href => "property-details.html"} Mais Detalhes
+                    .property-links.property-invese-link-mod
+                      %a{:href => "property-details.html"}
+                        %img{:alt => "", :src => "../images/icon/icon-360.png"}/
+                %article.hentry
+                  .property-featured
+                    %span.featured
+                      %i.fa.fa-star
+                    %a.content-thumb{:href => "property-details.html"}
+                      %img{:alt => "", :src => "../images/property/property1.jpg"}/
+                    %span.property-label PLANTA
+                    %span.property-category
+                      %a{:href => "#"} Apartmento
+                  .property-wrap
+                    %h2.property-title
+                      %a{:href => "property-details.html", :title => "Exemplo de Endereço"} Exemplo de Endereço
+                    .property-excerpt
+                      %p Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      %p.property-fullwidth-excerpt Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vitae nibh at tortor maximus ultrices.
+                    .property-summary
+                      .property-detail
+                        .size
+                          %span 1516 M²
+                        .bathrooms
+                          %span 3
+                        .bedrooms
+                          %span 3
+                      .property-info
+                        .property-price
+                          %span
+                            %span.amount R$449,999
+                            \/mês
+                        .property-action
+                          %a{:href => "property-details.html"} Mais Detalhes
+                      .property-info.property-fullwidth-info
+                        .property-price
+                          %span
+                            %span.amount R$439,000
+                        .size
+                          %span 536 M²
+                        .bathrooms
+                          %span 2
+                        .bedrooms
+                          %span 4
+                  .property-action.property-fullwidth-action
+                    .property-links
+                      %a{:href => "property-details.html"} Mais Detalhes
+                    .property-links.property-invese-link-mod
+                      %a{:href => "property-details.html"}
+                        %img{:alt => "", :src => "../images/icon/icon-360.png"}/
+                .clearfix
+                / START PAGINATION NAVIGATION
+                %nav.pagination-nav
+                  %ul.pagination.list-center
+                    %li
+                      %a.prev.page-numbers{:href => "#"}
+                        %i.fa.fa-angle-left
+                    %li
+                      %span.page-numbers.current 1
+                    %li
+                      %a.page-numbers{:href => "#"} 2
+                    %li
+                      %span.page-dots
+                        %i.fa.fa-ellipsis-h
+                    %li
+                      %a.page-numbers{:href => "#"} 7
+                    %li
+                      %a.page-numbers{:href => "#"} 8
+                    %li
+                      %a.next.page-numbers{:href => "#"}
+                        %i.fa.fa-angle-right
+                / END PAGINATION NAVIGATION
+              / END PROPERTIES CONTENT
+        / END MAIN CONTENT
+  / END NOO MAINBODY
+/ END NOO WRAPPER

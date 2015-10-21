@@ -1,0 +1,31 @@
+  / START MAP HORIZONTAL
+  %section#search_map_horizontal.wrap.noo_advanced_search_property.horizontal
+    .noo-map
+      #gmap
+      .gmap-search
+        %input#gmap_search_input{:autocomplete => "off", :placeholder => "Search your map", :type => "text"}/
+      .gmap-control
+        %a.gmap-mylocation{:href => "#"}
+          %i.fa.fa-map-marker>
+          Minha Localização
+        %a.gmap-full{:href => "#"}
+          %i.fa.fa-expand
+        %a.gmap-prev{:href => "#"}
+          %i.fa.fa-angle-left
+        %a.gmap-next{:href => "#"}
+          %i.fa.fa-angle-right
+      .gmap-zoom
+        %a.zoom-in{:href => "#"}
+          %i.fa.fa-plus
+        %a.zoom-out{:href => "#"}
+          %i.fa.fa-minus
+      .gmap-loading
+        Carregar Mapa
+        .gmap-loader
+          .rect1
+          .rect2
+          .rect3
+          .rect4
+          .rect5
+        = render 'layouts/site/search'
+  / END MAP HORIZONTAL

@@ -1,4 +1,4 @@
-var nooGoogleMap = {"latitude":"40.714398","longitude":"-74.005279"};
+var nooGoogleMap = {"latitude":"-15.794731","longitude":"-47.882881"};
 var map;
 var infowindow;
 var marker;
@@ -10,9 +10,9 @@ jQuery('#noo_property_google_map_search_input').bind('keypress keydown keyup', f
 
 if ($("#noo_property_google_map").length > 0){
   function map_picker_initialize() {
-  	
+
     var markers = [];
-    var myPlace    = new google.maps.LatLng(nooGoogleMap.latitude,nooGoogleMap.longitude); 
+    var myPlace    = new google.maps.LatLng(nooGoogleMap.latitude,nooGoogleMap.longitude);
     map = new google.maps.Map(document.getElementById('noo_property_google_map'), {
       flat:false,
       noClear:false,
@@ -63,13 +63,13 @@ if ($("#noo_property_google_map").length > 0){
       var bounds = map.getBounds();
       searchBox.setBounds(bounds);
     });
-    
+
     var property_location = myPlace;
     marker = new google.maps.Marker({
   	    position: property_location,
   	    map: map
     });
-    //	
+    //
   	infowindow = new google.maps.InfoWindow({
   		content: '<div style="width:250px">Latitude: ' + property_location.lat() + '<br>Longitude: ' + property_location.lng() + '</div>',
   		maxWidth: 300
@@ -86,7 +86,7 @@ if ($("#noo_property_google_map").length > 0){
 function placeMarker(location){
 	infowindow.close();
 	marker.setPosition(location);
-	infowindow.setContent('<div style="width:250px">Latitude: ' + location.lat() + '<br>Longitude: ' + location.lng()+'</div>');	
+	infowindow.setContent('<div style="width:250px">Latitude: ' + location.lat() + '<br>Longitude: ' + location.lng()+'</div>');
 	infowindow.open(map,marker);
 	document.getElementById("_noo_property_gmap_latitude").value=location.lat();
 	document.getElementById("_noo_property_gmap_longitude").value=location.lng();

@@ -1,30 +1,599 @@
-%section#lista-imoveis
-  - @properties.each do |property|
-    .lista-imoveis-item.col-lg-12.col-md-12.col-sm-12.col-xs-12
-      .col-lg-2.col-md-2.col-sm-6.col-xs-12.lista-imoveis-item-logo1
-        %img.img-responsive{:src => "#{property.project.client.logo_path if property.project.present?}"}/
-      .col-lg-2.col-md-2.col-sm-6.col-xs-12.lista-imoveis-item-logo2
-        %img.img-responsive{:src => "#{property.project.image_path if property.project.present?}"}/
-      .col-lg-1.col-md-1.col-sm-4.col-xs-4.lista-imoveis-item-quartos.icone-none-mobile
-        %img.img-responsive{:src => "#{logo_helper(property)}"}/
-      .col-lg-5.col-md-5.col-sm-12.col-xs-12.lista-imoveis-item-info
-        %span.lista-imoveis-item-end
-          %strong= property.group
-          = property.block
-          = property.number
-        %br/
-        %span.lista-imoveis-item-valor
-          %strong Valor: R$
-          = property.value
-        %br/
-        %span.lista-imoveis-item-area
-          %strong Área:
-          = property.area
-      .col-lg-1.col-md-1.col-sm-4.col-xs-4.lista-imoveis-item-quartos.icone-show-mobile
-        %img.img-responsive{:src => "#{logo_helper(property)}"}/
-      .col-lg-1.col-md-1.col-sm-4.col-xs-4.lista-imoveis-item-detalhes
-        %a{:href => "#{site.show_properties_path(property)}"}
-          %img.img-responsive{:src => "/images/lista-detalhes.png"}/
-      .col-lg-1.col-md-1.col-sm-4.col-xs-4.lista-imoveis-item-tour
-        %a{:href => "#{property.link_tour}", :target => "_blank"}
-          %img.img-responsive{:src => "/images/icon-360.png"}/
+.noo-wrapper
+  / START MAP HORIZONTAL
+  %section#search_map_horizontal.wrap.noo_advanced_search_property.horizontal
+    .noo-map
+      #gmap
+      .gmap-search
+        %input#gmap_search_input{:autocomplete => "off", :placeholder => "Search your map", :type => "text"}/
+      .gmap-control
+        %a.gmap-mylocation{:href => "#"}
+          %i.fa.fa-map-marker>
+          My Location
+        %a.gmap-full{:href => "#"}
+          %i.fa.fa-expand
+        %a.gmap-prev{:href => "#"}
+          %i.fa.fa-angle-left
+        %a.gmap-next{:href => "#"}
+          %i.fa.fa-angle-right
+      .gmap-zoom
+        %a.zoom-in{:href => "#"}
+          %i.fa.fa-plus
+        %a.zoom-out{:href => "#"}
+          %i.fa.fa-minus
+      .gmap-loading
+        Loading Maps
+        .gmap-loader
+          .rect1
+          .rect2
+          .rect3
+          .rect4
+          .rect5
+      .gsearch
+        .container
+          .gsearch-wrap
+            %h3.gsearch-title
+              %i.fa.fa-search
+              %span SEARCH FOR PROPERTY
+            %form.gsearchform{:method => "get", :role => "search"}
+              .gsearch-content
+                .gsearch-field
+                  .form-group.glocation
+                    .label-select
+                      %select.form-control
+                        %option All Locations
+                        %option New Jersey
+                        %option New York
+                  .form-group.gsub-location
+                    .label-select
+                      %select.form-control
+                        %option All Sub-locations
+                        %option Central New York
+                        %option GreenVille
+                        %option Long Island
+                        %option New York City
+                        %option West Side
+                  .form-group.gstatus
+                    .label-select
+                      %select.form-control
+                        %option All Status
+                        %option Open house
+                        %option Rent
+                        %option Sale
+                        %option Sold
+                  .form-group.gtype
+                    .label-select
+                      %select.form-control
+                        %option All Type
+                        %option Apartment
+                        %option Co-op
+                        %option Condo
+                        %option Single Family Home
+                  .form-group.gbed
+                    .label-select
+                      %select.form-control
+                        %option No. of Bedrooms
+                        %option 1
+                        %option 2
+                        %option 3
+                        %option 4
+                        %option 5
+                  .form-group.gbath
+                    .label-select
+                      %select.form-control
+                        %option No. of Bathrooms
+                        %option 1
+                        %option 2
+                        %option 3
+                        %option 4
+                  .form-group.gprice
+                    %span.gprice-label Price
+                    .gslider-range.gprice-slider-range
+                    %span.gslider-range-value.gprice-slider-range-value-min
+                    %span.gslider-range-value.gprice-slider-range-value-max
+                  .form-group.garea
+                    %span.garea-label Area
+                    .gslider-range.garea-slider-range
+                    %span.gslider-range-value.garea-slider-range-value-min
+                    %span.gslider-range-value.garea-slider-range-value-max
+                .gsearch-action
+                  .gsubmit
+                    %a.btn.btn-deault{:href => "#"} Search Property
+  / END MAP HORIZONTAL
+  / START NOO MAINBODY
+  .container.noo-mainbody
+    .noo-mainbody-inner
+      .row.clearfix
+        / START MAIN CONTENT
+        .noo-content.col-xs-12
+          .recent-properties
+            .properties.list
+              / START PROPERTIES HEADER
+              .properties-header
+                %h1.page-title Properties
+                .properties-toolbar
+                  %a{"data-placement" => "bottom", "data-toggle" => "tooltip", :href => "grid-no-sidebar.html", :title => "Grid"}
+                    %i.fa.fa-th-large
+                  %a.selected{"data-placement" => "bottom", "data-toggle" => "tooltip", :href => "list-no-sidebar.html", :title => "List"}
+                    %i.fa.fa-list
+                  %form.properties-ordering{:method => "get"}
+                    .properties-ordering-label Sorted by
+                    .form-group.properties-ordering-select
+                      .label-select
+                        %select.form-control
+                          %option Date
+                          %option Bath
+                          %option Bed
+                          %option Area
+                          %option Name
+              / END PROPERTIES HEADER
+              / START PROPERTIES CONTENT
+              .properties-content
+                %article.hentry
+                  .property-featured
+                    %span.featured
+                      %i.fa.fa-star
+                    %a.content-thumb{:href => "property-details.html"}
+                      %img{:alt => "", :src => "images/property/property1.jpg"}/
+                    %span.property-label Hot
+                    %span.property-category
+                      %a{:href => "#"} Single Family Home
+                  .property-wrap
+                    %h2.property-title
+                      %a{:href => "property-details.html", :title => "Visalia, NJ 93277"} Visalia, NJ 93277
+                    .property-excerpt
+                      %p This 4 bedroom home sits on an oversized lot at the end of a cul-de-sac...
+                      %p.property-fullwidth-excerpt This 4 bedroom home sits on an oversized lot at the end of a cul-de-sac in an established neighborhood. It is in need of work...
+                    .property-summary
+                      .property-detail
+                        .size
+                          %span 1913 sqft
+                        .bathrooms
+                          %span 2
+                        .bedrooms
+                          %span 4
+                      .property-info
+                        .property-price
+                          %span
+                            %span.amount $154,500
+                        .property-action
+                          %a{:href => "property-details.html"} More Details
+                      .property-info.property-fullwidth-info
+                        .property-price
+                          %span
+                            %span.amount $154,500
+                        .size
+                          %span 1913 sqft
+                        .bathrooms
+                          %span 2
+                        .bedrooms
+                          %span 4
+                  .property-action.property-fullwidth-action
+                    %a{:href => "property-details.html"} More Details
+                %article.hentry
+                  .property-featured
+                    %a.content-thumb{:href => "property-details.html"}
+                      %img{:alt => "", :src => "images/property/property1.jpg"}/
+                    %span.property-label Hot
+                    %span.property-category
+                      %a{:href => "#"} Apartment
+                  .property-wrap
+                    %h2.property-title
+                      %a{:href => "property-details.html", :title => "The Helux"} The Helux
+                    .property-excerpt
+                      %p Located on 43rd Street between 10th and 11th Avenue in the hot Midtown West neighborhood...
+                      %p.property-fullwidth-excerpt Located on 43rd Street between 10th and 11th Avenue in the hot Midtown West neighborhood of Hell?s Kitchen is The Helux. These no-fee apartments feature...
+                    .property-summary
+                      .property-detail
+                        .size
+                          %span 762 sqft
+                        .bathrooms
+                          %span 3
+                        .bedrooms
+                          %span 3
+                      .property-info
+                        .property-price
+                          %span
+                            %span.amount $3,515
+                        .property-action
+                          %a{:href => "property-details.html"} More Details
+                      .property-info.property-fullwidth-info
+                        .property-price
+                          %span
+                            %span.amount $3,515
+                            \/month
+                        .size
+                          %span 762 sqft
+                        .bathrooms
+                          %span 3
+                        .bedrooms
+                          %span 4
+                  .property-action.property-fullwidth-action
+                    %a{:href => "property-details.html"} More Details
+                %article.hentry
+                  .property-featured
+                    %a.content-thumb{:href => "property-details.html"}
+                      %img{:alt => "", :src => "images/property/property1.jpg"}/
+                    %span.property-category
+                      %a{:href => "#"} Single Family Home
+                  .property-wrap
+                    %h2.property-title
+                      %a{:href => "property-details.html", :title => "Single Family Residential, NJ"} Single Family Residential, NJ
+                    .property-excerpt
+                      %p Classic 60's ranch living. House has hardwood floors and hard coat plaster walls and ceilings...
+                      %p.property-fullwidth-excerpt Classic 60's ranch living. House has hardwood floors and hard coat plaster walls and ceilings in good condition. Intimate backyard for private gatherings. Full basement...
+                    .property-summary
+                      .property-detail
+                        .size
+                          %span 1118 sqft
+                        .bathrooms
+                          %span 2
+                        .bedrooms
+                          %span 3
+                      .property-info
+                        .property-price
+                          %span
+                            %span.amount $299,000
+                        .property-action
+                          %a{:href => "property-details.html"} More Details
+                      .property-info.property-fullwidth-info
+                        .property-price
+                          %span
+                            %span.amount $299,000
+                        .size
+                          %span 1118 sqft
+                        .bathrooms
+                          %span 2
+                        .bedrooms
+                          %span 3
+                  .property-action.property-fullwidth-action
+                    %a{:href => "property-details.html"} More Details
+                %article.hentry
+                  .property-featured
+                    %span.featured
+                      %i.fa.fa-star
+                    %a.content-thumb{:href => "property-details.html"}
+                      %img{:alt => "", :src => "images/property/property1.jpg"}/
+                    %span.property-label.sold Sold
+                    %span.property-category
+                      %a{:href => "#"} Apartment
+                  .property-wrap
+                    %h2.property-title
+                      %a{:href => "property-details.html", :title => "Peter Cooper Village"} Peter Cooper Village
+                    .property-excerpt
+                      %p Peter Cooper Village/ Stuyvesant Town provides an unbeatable combination of city energy and community tranquility,...
+                      %p.property-fullwidth-excerpt Peter Cooper Village/ Stuyvesant Town provides an unbeatable combination of city energy and community tranquility, providing insulation from the city that surrounds it, yet situated...
+                    .property-summary
+                      .property-detail
+                        .size
+                          %span 1304 sqft
+                        .bathrooms
+                          %span 2
+                        .bedrooms
+                          %span 3
+                      .property-info
+                        .property-price
+                          %span
+                            %span.amount $5,109
+                        .property-action
+                          %a{:href => "property-details.html"} More Details
+                      .property-info.property-fullwidth-info
+                        .property-price
+                          %span
+                            %span.amount $5,109
+                            \/month
+                        .size
+                          %span 1304 sqft
+                        .bathrooms
+                          %span 2
+                        .bedrooms
+                          %span 3
+                  .property-action.property-fullwidth-action
+                    %a{:href => "property-details.html"} More Details
+                %article.hentry
+                  .property-featured
+                    %span.featured
+                      %i.fa.fa-star
+                    %a.content-thumb{:href => "property-details.html"}
+                      %img{:alt => "", :src => "images/property/property1.jpg"}/
+                    %span.property-category
+                      %a{:href => "#"} Condo
+                  .property-wrap
+                    %h2.property-title
+                      %a{:href => "property-details.html", :title => "Ocala, FL34481"} Ocala, FL34481
+                    .property-excerpt
+                      %p Wonderful expanded end-unit Augusta featuring 2 bedrooms in split-bedroom plan, study/den/library off of cathedral-ceilinged HUGE...
+                      %p.property-fullwidth-excerpt Wonderful expanded end-unit Augusta featuring 2 bedrooms in split-bedroom plan, study/den/library off of cathedral-ceilinged HUGE living room, large dining area off of U-shaped updated kitchen,...
+                    .property-summary
+                      .property-detail
+                        .size
+                          %span 1,856 sqft
+                        .bathrooms
+                          %span 2
+                        .bedrooms
+                          %span 2
+                      .property-info
+                        .property-price
+                          %span
+                            %span.amount $95,000
+                        .property-action
+                          %a{:href => "property-details.html"} More Details
+                      .property-info.property-fullwidth-info
+                        .property-price
+                          %span
+                            %span.amount $95,000
+                        .size
+                          %span 1,856 sqft
+                        .bathrooms
+                          %span 2
+                        .bedrooms
+                          %span 2
+                  .property-action.property-fullwidth-action
+                    %a{:href => "property-details.html"} More Details
+                %article.hentry
+                  .property-featured
+                    %a.content-thumb{:href => "property-details.html"}
+                      %img{:alt => "", :src => "images/property/property1.jpg"}/
+                    %span.property-label Hot
+                    %span.property-category
+                      %a{:href => "#"} Single Family Home
+                  .property-wrap
+                    %h2.property-title
+                      %a{:href => "property-details.html", :title => "Oakland, NJ94605"} Oakland, NJ94605
+                    .property-excerpt
+                      %p When the sellers bought this home in 2001 they delighted in the big things: the...
+                      %p.property-fullwidth-excerpt When the sellers bought this home in 2001 they delighted in the big things: the first level “great room”, lower level “family room”, wide Bay ...
+                    .property-summary
+                      .property-detail
+                        .size
+                          %span 2,568 sqft
+                        .bathrooms
+                          %span 2
+                        .bedrooms
+                          %span 4
+                      .property-info
+                        .property-price
+                          %span
+                            %span.amount $335,000
+                        .property-action
+                          %a{:href => "property-details.html"} More Details
+                      .property-info.property-fullwidth-info
+                        .property-price
+                          %span
+                            %span.amount $335,000
+                            \/month
+                        .size
+                          %span 2,568 sqft
+                        .bathrooms
+                          %span 2
+                        .bedrooms
+                          %span 4
+                  .property-action.property-fullwidth-action
+                    %a{:href => "property-details.html"} More Details
+                %article.hentry
+                  .property-featured
+                    %a.content-thumb{:href => "property-details.html"}
+                      %img{:alt => "", :src => "images/property/property1.jpg"}/
+                    %span.property-category
+                      %a{:href => "#"} Apartment
+                  .property-wrap
+                    %h2.property-title
+                      %a{:href => "property-details.html", :title => "AVA High Line"} AVA High Line
+                    .property-excerpt
+                      %p Special pricing for immediate move-ins! Call for details! AVA is a first. Our apartments are...
+                      %p.property-fullwidth-excerpt Special pricing for immediate move-ins! Call for details! AVA is a first. Our apartments are energized by New York City, personalized by you. Yep. Take...
+                    .property-summary
+                      .property-detail
+                        .size
+                          %span 1752 sqft
+                        .bathrooms
+                          %span 2
+                        .bedrooms
+                          %span 2
+                      .property-info
+                        .property-price
+                          %span
+                            %span.amount $3,410
+                            \/month
+                        .property-action
+                          %a{:href => "property-details.html"} More Details
+                      .property-info.property-fullwidth-info
+                        .property-price
+                          %span
+                            %span.amount $3,410
+                            \/month
+                        .size
+                          %span 1752 sqft
+                        .bathrooms
+                          %span 2
+                        .bedrooms
+                          %span 2
+                  .property-action.property-fullwidth-action
+                    %a{:href => "property-details.html"} More Details
+                %article.hentry
+                  .property-featured
+                    %a.content-thumb{:href => "property-details.html"}
+                      %img{:alt => "", :src => "images/property/property1.jpg"}/
+                    %span.property-category
+                      %a{:href => "#"} Apartment
+                  .property-wrap
+                    %h2.property-title
+                      %a{:href => "property-details.html", :title => "Aire"} Aire
+                    .property-excerpt
+                      %p Situated in the highly sought-after neighborhood surrounding Lincoln Center, AIRE offers breathtaking vistas of the...
+                      %p.property-fullwidth-excerpt Situated in the highly sought-after neighborhood surrounding Lincoln Center, AIRE offers breathtaking vistas of the city skyline, Central Park and the Hudson River. Apartment features...
+                    .property-summary
+                      .property-detail
+                        .size
+                          %span 531 sqft
+                        .bathrooms
+                          %span 3
+                        .bedrooms
+                          %span 5
+                      .property-info
+                        .property-price
+                          %span
+                            %span.amount $4,200
+                            \/month
+                        .property-action
+                          %a{:href => "property-details.html"} More Details
+                      .property-info.property-fullwidth-info
+                        .property-price
+                          %span
+                            %span.amount $4,200
+                            \/month
+                        .size
+                          %span 531 sqft
+                        .bathrooms
+                          %span 3
+                        .bedrooms
+                          %span 5
+                  .property-action.property-fullwidth-action
+                    %a{:href => "property-details.html"} More Details
+                %article.hentry
+                  .property-featured
+                    %span.featured
+                      %i.fa.fa-star
+                    %a.content-thumb{:href => "property-details.html"}
+                      %img{:alt => "", :src => "images/property/property1.jpg"}/
+                    %span.property-category
+                      %a{:href => "#"} Condo
+                  .property-wrap
+                    %h2.property-title
+                      %a{:href => "property-details.html", :title => "635 Staley Ave, Hayward, NJ"} 635 Staley Ave, Hayward, NJ
+                    .property-excerpt
+                      %p Corner unit! Gorgeous 3 BD / 3 BA townhome in a beautiful community. Pride of...
+                      %p.property-fullwidth-excerpt Corner unit! Gorgeous 3 BD / 3 BA townhome in a beautiful community. Pride of ownership abounds with this 3 story home with tons of...
+                    .property-summary
+                      .property-detail
+                        .size
+                          %span 1516 sqft
+                        .bathrooms
+                          %span 3
+                        .bedrooms
+                          %span 3
+                      .property-info
+                        .property-price
+                          %span
+                            %span.amount $449,999
+                            \/month
+                        .property-action
+                          %a{:href => "property-details.html"} More Details
+                      .property-info.property-fullwidth-info
+                        .property-price
+                          %span
+                            %span.amount $449,999
+                        .size
+                          %span 1516 sqft
+                        .bathrooms
+                          %span 3
+                        .bedrooms
+                          %span 3
+                  .property-action.property-fullwidth-action
+                    %a{:href => "property-details.html"} More Details
+                %article.hentry
+                  .property-featured
+                    %a.content-thumb{:href => "property-details.html"}
+                      %img{:alt => "", :src => "images/property/property1.jpg"}/
+                    %span.property-category
+                      %a{:href => "#"} Condo
+                  .property-wrap
+                    %h2.property-title
+                      %a{:href => "property-details.html", :title => "225 E 36th St #20D"} 225 E 36th St #20D
+                    .property-excerpt
+                      %p Turn Key sleep alcove studio in triple mint condition. Located on high floor with great...
+                      %p.property-fullwidth-excerpt Turn Key sleep alcove studio in triple mint condition. Located on high floor with great unobstructed Southern Expo. This is the perfect home for the...
+                    .property-summary
+                      .property-detail
+                        .size
+                          %span 1516 sqft
+                        .bathrooms
+                          %span 3
+                        .bedrooms
+                          %span 3
+                      .property-info
+                        .property-price
+                          %span
+                            %span.amount $449,999
+                            \/month
+                        .property-action
+                          %a{:href => "property-details.html"} More Details
+                      .property-info.property-fullwidth-info
+                        .property-price
+                          %span
+                            %span.amount $389,000
+                        .size
+                          %span 550 sqft
+                        .bathrooms
+                          %span 1
+                        .bedrooms
+                          %span 2
+                  .property-action.property-fullwidth-action
+                    %a{:href => "property-details.html"} More Details
+                %article.hentry
+                  .property-featured
+                    %span.featured
+                      %i.fa.fa-star
+                    %a.content-thumb{:href => "property-details.html"}
+                      %img{:alt => "", :src => "images/property/property1.jpg"}/
+                    %span.property-label Hot
+                    %span.property-category
+                      %a{:href => "#"} Co-op
+                  .property-wrap
+                    %h2.property-title
+                      %a{:href => "property-details.html", :title => "101 W 115th St #2B"} 101 W 115th St #2B
+                    .property-excerpt
+                      %p This beautiful pre-war Co-op building situated in the heart of Harlem is 4 blocks from...
+                      %p.property-fullwidth-excerpt This beautiful pre-war Co-op building situated in the heart of Harlem is 4 blocks from Central Park and around the corner from the express 2/3...
+                    .property-summary
+                      .property-detail
+                        .size
+                          %span 1516 sqft
+                        .bathrooms
+                          %span 3
+                        .bedrooms
+                          %span 3
+                      .property-info
+                        .property-price
+                          %span
+                            %span.amount $449,999
+                            \/month
+                        .property-action
+                          %a{:href => "property-details.html"} More Details
+                      .property-info.property-fullwidth-info
+                        .property-price
+                          %span
+                            %span.amount $439,000
+                        .size
+                          %span 536 sqft
+                        .bathrooms
+                          %span 2
+                        .bedrooms
+                          %span 4
+                  .property-action.property-fullwidth-action
+                    %a{:href => "property-details.html"} More Details
+                .clearfix
+                / START PAGINATION NAVIGATION
+                %nav.pagination-nav
+                  %ul.pagination.list-center
+                    %li
+                      %a.prev.page-numbers{:href => "#"}
+                        %i.fa.fa-angle-left
+                    %li
+                      %span.page-numbers.current 1
+                    %li
+                      %a.page-numbers{:href => "#"} 2
+                    %li
+                      %span.page-dots
+                        %i.fa.fa-ellipsis-h
+                    %li
+                      %a.page-numbers{:href => "#"} 7
+                    %li
+                      %a.page-numbers{:href => "#"} 8
+                    %li
+                      %a.next.page-numbers{:href => "#"}
+                        %i.fa.fa-angle-right
+                / END PAGINATION NAVIGATION
+              / END PROPERTIES CONTENT
+        / END MAIN CONTENT
+  / END NOO MAINBODY
+/ END NOO WRAPPER

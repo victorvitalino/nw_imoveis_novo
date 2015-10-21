@@ -49,7 +49,7 @@ function noo_number_format(number, decimals, dec_point, thousands_sep) {
 					navSelector: "div.navigation",
 					itemSelector: "div.post",
 					dataType: 'html',
-					finishedMsg: "<em>Congratulations, you've reached the end of the internet.</em>",
+					finishedMsg: "<em>Parabéns</em>",
 					loading:{
 						speed:'fast',
 						start: undefined
@@ -65,7 +65,7 @@ function noo_number_format(number, decimals, dec_point, thousands_sep) {
 					}
 		};
 		var options = $.extend(defaults, options);
-		
+
 		return this.each(function(){
 			var self = this;
 			var $this = $(this),
@@ -73,11 +73,11 @@ function noo_number_format(number, decimals, dec_point, thousands_sep) {
 				action = $this.find('.loadmore-action'),
 				btn = action.find(".btn-loadmore"),
 				loading = action.find('.loadmore-loading');
-			
+
 			options.contentWrapper = options.contentWrapper || wrapper;
-			
-			
-				
+
+
+
 			var _determinepath = function(path){
 				if (path.match(/^(.*?)\b2\b(.*?$)/)) {
 	                path = path.match(/^(.*?)\b2\b(.*?$)/).slice(1);
@@ -100,14 +100,14 @@ function noo_number_format(number, decimals, dec_point, thousands_sep) {
 			}
 			var path = $(options.nextSelector).attr('href');
 			path = _determinepath(path);
-			
+
 			// callback loading
 			options.callback = function(data, url) {
 	            if (callback) {
 	                callback.call($(options.contentSelector)[0], data, options, url);
 	            }
 	        };
-	        
+
 	        options.loading.start = options.loading.start || function() {
 				 	btn.hide();
 	                $(options.navSelector).hide();
@@ -115,11 +115,11 @@ function noo_number_format(number, decimals, dec_point, thousands_sep) {
 	                	loadAjax(options);
 	                }, self));
 	         };
-			
+
 			var loadAjax = function(options){
 				var callback=options.callback,
 					desturl,frag,box,children,data;
-				
+
 				options.state.currPage++;
 				// Manually control maximum page
 	            if ( options.maxPage !== undefined && options.state.currPage > options.maxPage ){
@@ -132,7 +132,7 @@ function noo_number_format(number, decimals, dec_point, thousands_sep) {
 	            	page:options.state.currPage,
 	            	agent_id:options.agentID
 	            },function(res){
-	            	
+
 	            	 if(res.content != '' && res.content !=null && res.content != undefined){
 	            		$(options.contentWrapper).append(res.content);
 	                    loading.hide();
@@ -146,8 +146,8 @@ function noo_number_format(number, decimals, dec_point, thousands_sep) {
 	            	 }
 	            },'json');
 			}
-			
-			
+
+
 			btn.on('click',function(e){
 				 e.stopPropagation();
 				 e.preventDefault();
@@ -177,15 +177,15 @@ function noo_number_format(number, decimals, dec_point, thousands_sep) {
 		return $format.replace('%1$s',nooGmapL10n.currency).replace('%2$s',price);
 	}
 
-	
+
 	function search_initialize(){
 			mapSearchBox = $('.noo-map');
-			
+
 		var mapBox = mapSearchBox.find('#gmap'),
 			latitude = nooGmapL10n.latitude,
 			longitude = nooGmapL10n.longitude;
 		if(mapSearchBox.length && mapBox.length){
-			var myPlace    = new google.maps.LatLng(latitude,longitude); 
+			var myPlace    = new google.maps.LatLng(latitude,longitude);
 			var myOptions = {
 				    flat:false,
 				    noClear:false,
@@ -220,7 +220,7 @@ function noo_number_format(number, decimals, dec_point, thousands_sep) {
 			google.maps.event.addListener(map, 'tilesloaded', function() {
 				mapSearchBox.find('.gmap-loading').hide();
 			});
-			
+
 			var input = document.getElementById('gmap_search_input');
 			map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
 			var searchBox = new google.maps.places.SearchBox(input);
@@ -244,22 +244,22 @@ function noo_number_format(number, decimals, dec_point, thousands_sep) {
 			    map.fitBounds(bounds);
 			    map.setZoom(parseInt(nooGmapL10n.zoom));
 		    });
-			
+
 			var infoboxOptions = {
                     content: document.createElement("div"),
                     disableAutoPan: true,
                     maxWidth: 500,
                     boxClass:"myinfobox",
-                    zIndex: null,			
+                    zIndex: null,
                     closeBoxMargin: "-13px 0px 0px 0px",
                     closeBoxURL: "",
                     infoBoxClearance: new google.maps.Size(1, 1),
                     isHidden: false,
                     pane: "floatPane",
-                    enableEventPropagation: false                   
-              };               
+                    enableEventPropagation: false
+              };
 			 infoBox = new InfoBox(infoboxOptions);
-			
+
 			//create markers
 			 // var markers = $.parseJSON(nooGmapL10n.markers);
 			 var markers = nooGmapL10n.markers;
@@ -304,16 +304,16 @@ function noo_number_format(number, decimals, dec_point, thousands_sep) {
 							 	</div> \
 						 	</div>';
 						 infoBox.setContent(infoContent);
-					     infoBox.open(map,this);    
-					     map.setCenter(this.position); 
+					     infoBox.open(map,this);
+					     map.setCenter(this.position);
 					     map.panBy(50,-120);
 					});
 				 }
 			 }
-			 
+
 			 //MarkerClustererPlus
 			var clusterStyles = [{
-					textColor: '#ffffff',    
+					textColor: '#ffffff',
 					opt_textColor: '#ffffff',
 					// url: nooGmapL10n.theme_uri+'/assets/images/cloud.png',
 					url:'images/icon/cloud.png',
@@ -324,15 +324,15 @@ function noo_number_format(number, decimals, dec_point, thousands_sep) {
 			];
 			mcluster = new MarkerClusterer(map, gmarkers,{
 				gridSize: 50,
-				ignoreHidden:true, 
+				ignoreHidden:true,
 				styles: clusterStyles
 			});
 			mcluster.setIgnoreHidden(true);
-			 
-				 
+
+
 			//zoom in action
 			if(mapSearchBox.find('.zoom-in').length){
-				google.maps.event.addDomListener(mapSearchBox.find('.zoom-in').get(0), 'click', function (e) {      
+				google.maps.event.addDomListener(mapSearchBox.find('.zoom-in').get(0), 'click', function (e) {
 					   e.stopPropagation();
 					   e.preventDefault();
 				       var current= parseInt( map.getZoom(),10);
@@ -341,13 +341,13 @@ function noo_number_format(number, decimals, dec_point, thousands_sep) {
 				           current=20;
 				       }
 				       map.setZoom(current);
-				});  
-				
+				});
+
 			}
-			
+
 			// zoom out action
 			if(mapSearchBox.find('.zoom-out').length){
-				google.maps.event.addDomListener(mapSearchBox.find('.zoom-out').get(0), 'click', function (e) {      
+				google.maps.event.addDomListener(mapSearchBox.find('.zoom-out').get(0), 'click', function (e) {
 					   e.stopPropagation();
 					   e.preventDefault();
 					   var current= parseInt( map.getZoom(),10);
@@ -356,35 +356,35 @@ function noo_number_format(number, decimals, dec_point, thousands_sep) {
 				           current=0;
 				       }
 				       map.setZoom(current);
-				});  
-				
+				});
+
 			}
 		}
 	}
-	
+
 	google.maps.event.addDomListener(window, 'load', search_initialize);
-	
+
 	function mylocationCallback(pos){
 		  var shape = {
 		       coord: [1, 1, 1, 38, 38, 59, 59 , 1],
 		       type: 'poly'
-		   }; 
+		   };
 		   if( map.getZoom() != 15 ){
 		        map.setZoom(15);
 		   }
 		   var myLocation =  new google.maps.LatLng( pos.coords.latitude, pos.coords.longitude);
-		   map.setCenter(myLocation);   
+		   map.setCenter(myLocation);
 		   var marker = new google.maps.Marker({
 	             position: myLocation,
 	             map: map,
 	             // icon: nooGmapL10n.theme_uri+'/assets/images/my-marker.png',
-	             icon: 'images/icon/my-marker.png',
+	             icon: '../images/icon/my-marker.png',
 	             shape: shape,
 	             zIndex: 9999,
 	             infoWindowIndex : 9999,
 	             radius: 1000
 	            });
-	    
+
 	     var circleOptions = {
 		      strokeColor: '#75b08a',
 		      strokeOpacity: 0.6,
@@ -396,12 +396,12 @@ function noo_number_format(number, decimals, dec_point, thousands_sep) {
 		      radius: 1000
 	    };
 	    var cityCircle = new google.maps.Circle(circleOptions);
-	    
+
 	}
 	function mylocationError(){
 		 alert(nooGmapL10n.no_geolocation_pos);
 	}
-	
+
 	$(document).on('click','.gmap-mylocation',function(e){
 		e.stopPropagation();
 		e.preventDefault();
@@ -412,7 +412,7 @@ function noo_number_format(number, decimals, dec_point, thousands_sep) {
 	        alert(nooGmapL10n.no_geolocation_msg);
 	    }
 	});
-	
+
 	$(document).on('click','.gmap-full',function(e){
 		e.stopPropagation();
 		e.preventDefault();
@@ -425,55 +425,55 @@ function noo_number_format(number, decimals, dec_point, thousands_sep) {
 		}
 		google.maps.event.trigger(map, "resize");
 	});
-	
+
 	$(document).on('click','.gmap-prev',function(e){
 		e.stopPropagation();
 	    e.preventDefault();
-	    gmarker_index -- ;  
+	    gmarker_index -- ;
 	    if (gmarker_index < 1){
 	    	gmarker_index = gmarkers.length;
 	    }
 	    while(gmarkers[gmarker_index - 1].visible === false){
-	    	gmarker_index--; 
+	    	gmarker_index--;
 	        if (gmarker_index > gmarkers.length){
 	        	gmarker_index = 1;
 	        }
 	    }
-	    
+
 	    if( map.getZoom() <15 ){
 	        map.setZoom(15);
 	    }
 	    google.maps.event.trigger(gmarkers[gmarker_index - 1], 'click');
 	});
-	
+
 	$(document).on('click','.gmap-next',function(e){
 		e.stopPropagation();
 	    e.preventDefault();
-	    gmarker_index ++;  
+	    gmarker_index ++;
 	    if (gmarker_index > gmarkers.length){
 	    	gmarker_index = 1;
 	    }
 	    while(gmarkers[gmarker_index - 1].visible === false){
-	    	gmarker_index++; 
+	    	gmarker_index++;
 	        if (gmarker_index > gmarkers.length){
 	        	gmarker_index = 1;
 	        }
 	    }
-	    
+
 	    if( map.getZoom() < 15 ){
 	        map.setZoom(15);
 	    }
 	    google.maps.event.trigger(gmarkers[gmarker_index - 1], 'click');
 	});
-	
+
 	function single_initialize(){
 		var mapBox = $('.property-map-box'),
 			searchMarker,
 			latitude = mapBox.data('latitude'),
 			longitude = mapBox.data('longitude');
 		if(mapBox.length){
-			
-			var myPlace    = new google.maps.LatLng(latitude,longitude); 
+
+			var myPlace    = new google.maps.LatLng(latitude,longitude);
 			var map = new google.maps.Map(mapBox.get(0), {
 				    flat:false,
 				    noClear:false,
@@ -496,11 +496,11 @@ function noo_number_format(number, decimals, dec_point, thousands_sep) {
 
 			var searchBox = new google.maps.places.SearchBox(
 				    /** @type {HTMLInputElement} */(input));
-			
+
 			google.maps.event.addListener(searchBox, 'places_changed', function() {
 				if(searchMarker != null)
 					searchMarker.setMap(null);
-				
+
 				var geocoder = new google.maps.Geocoder();
 				var getAddress = function(Latlng) {
 				    geocoder.geocode({'latLng': Latlng}, function(results, status) {
@@ -534,7 +534,7 @@ function noo_number_format(number, decimals, dec_point, thousands_sep) {
 				    	      destination:end,
 				    	      travelMode: google.maps.TravelMode.DRIVING
 					    };
-					    	
+
 					    directionsService.route(request, function(response, status) {
 					        if (status == google.maps.DirectionsStatus.OK) {
 					          directionsDisplay.setDirections(response);
@@ -544,13 +544,13 @@ function noo_number_format(number, decimals, dec_point, thousands_sep) {
 						alert("Geocode was not successful for the following reason: " + status);
 					}
 				});
-				
-			   
+
+
 			});
 		}
 	}
 	google.maps.event.addDomListener(window, 'load', single_initialize);
-	
+
 // 	function search_filter(){
 // 		$('.noo_advanced_search_property').each(function(){
 // 			var $this = $(this);
@@ -565,49 +565,49 @@ function noo_number_format(number, decimals, dec_point, thousands_sep) {
 // 					max_price 		= $this.find('input.gprice_max').val(),
 // 					min_area 		= $this.find('input.garea_min').val(),
 // 					max_area 		= $this.find('input.garea_max').val();
-				
+
 // 				 if(  typeof infoBox!=='undefined' && infoBox !== null ){
-// 			        infoBox.close(); 
+// 			        infoBox.close();
 // 			     }
 // 				 var bounds = new google.maps.LatLngBounds();
 // 			     if(typeof mcluster !== 'undefined')
 // 			    	 mcluster.setIgnoreHidden(true);
 // 				 if(gmarkers.length){
-// 					  for (var i=0; i < gmarkers.length; i++) {  
+// 					  for (var i=0; i < gmarkers.length; i++) {
 // 						  var gmarker = gmarkers[i];
 // 						  if(gmarker.location.toString() != location.toString() &&  location.toString() !=''){
 // 							  //console.log(gmarker);
 // 						  }else{
-							 
-							  
+
+
 // 						  }
 // 						  if(gmarker.location !== location && location !='' ){
-// 							  gmarker.setVisible(false);      
+// 							  gmarker.setVisible(false);
 // 						  }else if(gmarker.sub_location !== sub_location && sub_location !='' ){
-// 							  gmarker.setVisible(false);  
+// 							  gmarker.setVisible(false);
 // 						  }else if(gmarker.status !== status && status !='' ){
-// 							  gmarker.setVisible(false);  
+// 							  gmarker.setVisible(false);
 // 						  }else if(gmarker.category !== category && category !='' ){
-// 							  gmarker.setVisible(false);  
+// 							  gmarker.setVisible(false);
 // 						  }else if(gmarker.bedrooms !== bedrooms && bedrooms !='' ){
-// 							  gmarker.setVisible(false);  
+// 							  gmarker.setVisible(false);
 // 						  }else if(gmarker.bathrooms !== bathrooms && bathrooms !='' ){
-// 							  gmarker.setVisible(false);  
+// 							  gmarker.setVisible(false);
 // 						  }else if(parseFloat(gmarker.price) < parseFloat(min_price) && parseFloat(min_price) > 0 ){
-// 							  gmarker.setVisible(false);  
+// 							  gmarker.setVisible(false);
 // 						  }else if(parseFloat(gmarker.price) > parseFloat(max_price) && parseFloat(max_price) > 0 ){
-// 							  gmarker.setVisible(false);  
+// 							  gmarker.setVisible(false);
 // 						  }else if(parseInt(gmarker.area) < parseInt(min_area) && parseInt(min_area) > 0 ){
-// 							  gmarker.setVisible(false);  
+// 							  gmarker.setVisible(false);
 // 						  }else if(parseInt(gmarker.area) > parseInt(max_area) && parseInt(max_area) > 0 ){
-// 							  gmarker.setVisible(false);  
+// 							  gmarker.setVisible(false);
 // 						  }else{
 // 							  gmarker.setVisible(true);
-// 		                      bounds.extend( gmarker.getPosition() ); 
+// 		                      bounds.extend( gmarker.getPosition() );
 // 						  }
 // 					  }
 // 					  if(typeof mcluster !== 'undefined')
-// 						  mcluster.repaint();        
+// 						  mcluster.repaint();
 // 				 }
 // 				 map.setZoom(10);
 // 				 if( !bounds.isEmpty() ){
@@ -616,7 +616,7 @@ function noo_number_format(number, decimals, dec_point, thousands_sep) {
 // 			 };
 // 		});
 // 	}
-	
+
 // 	$( document ).ready( function () {
 // 		if($('.gsearch').length){
 // 			$('.gsearch').find('.dropdown-menu > li > a').on('click',function(e){
@@ -627,7 +627,7 @@ function noo_number_format(number, decimals, dec_point, thousands_sep) {
 // 			    	dropdown.children('input').val(val);
 // 			    	dropdown.children('input').trigger('change');
 // 			    	dropdown.children('[data-toggle="dropdown"]').text($(this).text());
-			    	
+
 // 			    	dropdown.children('[data-toggle="dropdown"]').dropdown('toggle');
 // 			});
 // 			if($('.noo-map').length){
@@ -638,7 +638,7 @@ function noo_number_format(number, decimals, dec_point, thousands_sep) {
 // 						});
 // 					}
 // 				});
-				
+
 // 			}
 // 		}
 // 		if($('.gprice').length){
@@ -647,7 +647,7 @@ function noo_number_format(number, decimals, dec_point, thousands_sep) {
 // 				max_price = gsearch_price.find('.gprice_max').data('max'),
 // 				current_min_price,/* = gsearch_price.find('#gprice_min').val()*/
 // 				current_max_price,/* = gsearch_price.find('#gprice_max').val()*/
-// //				
+// //
 // 				current_min_price = parseInt( min_price, 10 );
 // 				current_max_price = parseInt( max_price, 10 );
 // 			 gsearch_price.find( ".gprice-slider-range" ).slider({
@@ -673,14 +673,14 @@ function noo_number_format(number, decimals, dec_point, thousands_sep) {
 // 				 }
 // 			 });
 // 		}
-		
+
 // 		if($('.garea').length){
 // 			var gsearch_area = $('.garea'),
 // 				min_area = gsearch_area.find('.garea_min').data('min'),
 // 				max_area = gsearch_area.find('.garea_max').data('max'),
 // 				current_min_area,
 // 				current_max_area;
-			
+
 // 				current_min_area = parseInt( min_area, 10 );
 // 				current_max_area = parseInt( max_area, 10 );
 // 			gsearch_area.find( ".garea-slider-range" ).slider({
@@ -706,6 +706,6 @@ function noo_number_format(number, decimals, dec_point, thousands_sep) {
 // 				 }
 // 			 });
 // 		}
-// 	}); 
-	
+// 	});
+
 })(jQuery);
