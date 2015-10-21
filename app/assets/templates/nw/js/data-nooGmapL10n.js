@@ -2,7 +2,7 @@ var nooGmapL10n = {
   "latitude": "-15.794731",
   "longitude": "-47.882881",
   "maxZoom_MarkerClusterer": "5",
-  "zoom": "12",
+  "zoom": "14",
   "area_unit": "M²",
   "thousands_sep": ",",
   "decimal_sep": ".",
@@ -16,7 +16,7 @@ var nooGmapL10n = {
   "markers": [{
     "latitude": "-15.805055",
     "longitude": "-47.888975",
-    "image": "<img src='images/property/property1.jpg' class='attachment-property-infobox' alt='' />",
+    "image": "<img src='/images/property/property1.jpg' class='attachment-property-infobox' alt='' />",
     "title": "Imóvel Exemplo",
     "area": "1913 M²",
     "bedrooms": 4,
@@ -28,11 +28,11 @@ var nooGmapL10n = {
     "sub_location": "bairro",
     "status": "planta",
     "category": "apartamento",
-    "icon": "images/icon/marker-icon.png"
+    "icon": "/images/icon/marker-icon.png"
   }, {
     "latitude": "-15.794814",
     "longitude": "-47.863054",
-    "image": "<img src='images/property/property1.jpg' class='attachment-property-infobox' alt='' />",
+    "image": "<img src='/images/property/property1.jpg' class='attachment-property-infobox' alt='' />",
     "title": "Imóvel Exemplo",
     "area": "1118 M²",
     "bedrooms": 3,
@@ -44,11 +44,11 @@ var nooGmapL10n = {
     "sub_location": "bairro",
     "status": "planta",
     "category": "apartamento",
-    "icon": "images/icon/marker-icon.png"
+    "icon": "/images/icon/marker-icon.png"
   }, {
     "latitude": "-15.805715",
     "longitude": "-47.877989",
-    "image": "<img src='images/property/property1.jpg' class='attachment-property-infobox' alt='' />",
+    "image": "<img src='/images/property/property1.jpg' class='attachment-property-infobox' alt='' />",
     "title": "Imóvel Exemplo",
     "area": "1304 M²",
     "bedrooms": 3,
@@ -59,11 +59,11 @@ var nooGmapL10n = {
     "sub_location": "bairro",
     "status": "lançamento",
     "category": "apartamento",
-    "icon": "images/icon/marker-icon-apartment.png"
+    "icon": "/images/icon/marker-icon-apartment.png"
   }, {
     "latitude": "-15.784655",
     "longitude": "-47.898502",
-    "image": "<img src='images/property/property1.jpg' class='attachment-property-infobox' alt='' />",
+    "image": "<img src='/images/property/property1.jpg' class='attachment-property-infobox' alt='' />",
     "title": "Imóvel Exemplo",
     "area": "1,856 M²",
     "bedrooms": 2,
@@ -75,11 +75,11 @@ var nooGmapL10n = {
     "sub_location": "bairro",
     "status": "planta",
     "category": "apartamento",
-    "icon": "images/icon/marker-icon-condo.png"
+    "icon": "/images/icon/marker-icon-condo.png"
   }, {
     "latitude": "-15.788950",
     "longitude": "-47.863483",
-    "image": "<img src='images/property/property1.jpg' class='attachment-property-infobox' alt='' />",
+    "image": "<img src='/images/property/property1.jpg' class='attachment-property-infobox' alt='' />",
     "title": "Imóvel Exemplo",
     "area": "123 M²",
     "bedrooms": 1,
@@ -91,11 +91,11 @@ var nooGmapL10n = {
     "sub_location": "bairro",
     "status": "lançamento",
     "category": "apartamento",
-    "icon": "images/icon/marker-icon.png"
+    "icon": "/images/icon/marker-icon.png"
   }, {
     "latitude": "-15.812405",
     "longitude": "-47.897387",
-    "image": "<img src='images/property/property1.jpg' class='attachment-property-infobox' alt='' />",
+    "image": "<img src='/images/property/property1.jpg' class='attachment-property-infobox' alt='' />",
     "title": "Imóvel Exemplo",
     "area": "1752 M²",
     "bedrooms": 2,
@@ -107,11 +107,11 @@ var nooGmapL10n = {
     "sub_location": "central-new-york-2",
     "status": "planta",
     "category": "apartamento",
-    "icon": "images/icon/marker-icon-apartment.png"
+    "icon": "/images/icon/marker-icon-apartment.png"
   }, {
     "latitude": "-15.813313",
     "longitude": "-47.912836",
-    "image": "<img src='images/property/property1.jpg' class='attachment-property-infobox' alt='' />",
+    "image": "<img src='/images/property/property1.jpg' class='attachment-property-infobox' alt='' />",
     "title": "Imóvel Exemplo",
     "area": "531 M²",
     "bedrooms": 5,
@@ -123,11 +123,11 @@ var nooGmapL10n = {
     "sub_location": "central-new-york-2",
     "status": "lançamento",
     "category": "apartamento",
-    "icon": "images/icon/marker-icon-apartment.png"
+    "icon": "/images/icon/marker-icon-apartment.png"
   }, {
     "latitude": "-15.816451",
     "longitude": "-47.902365",
-    "image": "<img src='images/property/property1.jpg' class='attachment-property-infobox' alt='' />",
+    "image": "<img src='/images/property/property1.jpg' class='attachment-property-infobox' alt='' />",
     "title": "Imóvel Exemplo",
     "area": "536 M²",
     "bedrooms": 4,
@@ -139,7 +139,7 @@ var nooGmapL10n = {
     "sub_location": "central-new-york-2",
     "status": "Aluguel",
     "category": "apartamento",
-    "icon": "images/icon/marker-icon-coop.png"
+    "icon": "/images/icon/marker-icon-coop.png"
   }],
   "ajax_finishedMsg": "Todos os locais carregados"
 };

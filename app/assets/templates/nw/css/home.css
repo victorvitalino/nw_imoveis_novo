@@ -38,12 +38,12 @@
 	}
 
 	.noo-property-slide-wrap.noo-slider .prev-btn {
-		background: url("../../../images/icon/prev-icon.png") no-repeat scroll 0 0 transparent;
+		background: url("/images/icon/prev-icon.png") no-repeat scroll 0 0 transparent;
 		left: 30px;
 	}
 
 	.noo-property-slide-wrap.noo-slider .next-btn {
-		background: url("../../../images/icon/next-icon.png") no-repeat scroll 0 0 transparent;
+		background: url("/images/icon/next-icon.png") no-repeat scroll 0 0 transparent;
 		right: 30px !important;
 	}
 
@@ -142,15 +142,15 @@
 }
 
 .noo-slider .caroufredsel_wrapper .sliders .slide-item.noo-property-slide .slide-caption .slide-caption-info .info-summary>div.size span {
-	background: url("../../../images/icon/size-icon-2.png") no-repeat scroll 0 center transparent;
+	background: url("/images/icon/size-icon-2.png") no-repeat scroll 0 center transparent;
 }
 
 .noo-slider .caroufredsel_wrapper .sliders .slide-item.noo-property-slide .slide-caption .slide-caption-info .info-summary>div.bathrooms span {
-	background: url("../../../images/icon/bathroom-icon-2.png") no-repeat scroll 0 center transparent;
+	background: url("/images/icon/bathroom-icon-2.png") no-repeat scroll 0 center transparent;
 }
 
 .noo-slider .caroufredsel_wrapper .sliders .slide-item.noo-property-slide .slide-caption .slide-caption-info .info-summary>div.bedrooms span {
-	background: url("../../../images/icon/bedroom-icon-2.png") no-repeat scroll 0 center transparent;
+	background: url("/images/icon/bedroom-icon-2.png") no-repeat scroll 0 center transparent;
 }
 
 .noo-slider .caroufredsel_wrapper .sliders .slide-item.noo-property-slide .slide-caption .slide-caption-action {
@@ -207,7 +207,7 @@
 /* --------------------------------------------------------------------- */
 .search-box {
 	position: relative;
-	background: url("../../../images/background/search-box-bg.jpg") repeat-x;
+	background: url("/images/background/search-box-bg.jpg") repeat-x;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
@@ -259,7 +259,7 @@
 	right: 0;
 	width: 100%;
 	height: 100%;
-	background: url("../../../images/background/our-services-bg.jpg") 50% 0 repeat-y fixed;
+	background: url("/images/background/our-services-bg.jpg") 50% 0 repeat-y fixed;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-ms-background-size: cover;
@@ -361,7 +361,7 @@
 	right: 0;
 	width: 100%;
 	height: 100%;
-	background: url("../../../images/background/call-to-action-bg.jpg") repeat-y fixed;
+	background: url("/images/background/call-to-action-bg.jpg") repeat-y fixed;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-ms-background-size: cover;
@@ -537,7 +537,7 @@
 /* 6. OUR PARTNERS
 /* --------------------------------------------------------------------- */
 .our-partners {
-	/*background: url("../../../images/other/our-partners-bg.png") repeat-x left top;*/
+	/*background: url("/images/other/our-partners-bg.png") repeat-x left top;*/
 	padding: 50px 0;
 }
 

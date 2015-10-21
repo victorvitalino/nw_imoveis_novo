@@ -316,7 +316,7 @@ function noo_number_format(number, decimals, dec_point, thousands_sep) {
 					textColor: '#ffffff',
 					opt_textColor: '#ffffff',
 					// url: nooGmapL10n.theme_uri+'/assets/images/cloud.png',
-					url:'images/icon/cloud.png',
+					url:'/images/icon/cloud.png',
 					height: 72,
 					width: 72,
 					textSize:15
@@ -378,7 +378,7 @@ function noo_number_format(number, decimals, dec_point, thousands_sep) {
 	             position: myLocation,
 	             map: map,
 	             // icon: nooGmapL10n.theme_uri+'/assets/images/my-marker.png',
-	             icon: '../images/icon/my-marker.png',
+	             icon: '/images/icon/my-marker.png',
 	             shape: shape,
 	             zIndex: 9999,
 	             infoWindowIndex : 9999,
@@ -486,7 +486,7 @@ function noo_number_format(number, decimals, dec_point, thousands_sep) {
 			});
 			var marker = new google.maps.Marker({
 				// icon: nooGmapL10n.theme_uri + '/assets/images/marker-icon.png',
-				icon:  './images/icon/marker-icon.png',
+				icon:  '/images/icon/marker-icon.png',
 			    position: myPlace,
 			    map: map
 		    });

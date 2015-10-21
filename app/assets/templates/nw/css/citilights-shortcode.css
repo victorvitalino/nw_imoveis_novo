@@ -292,15 +292,15 @@
 }
 
 .properties .hentry .property-detail > div.size span {
-	background: url("../../../images/icon/size-icon.png") no-repeat scroll 0 center transparent;
+	background: url("/images/icon/size-icon.png") no-repeat scroll 0 center transparent;
 }
 
 .properties .hentry .property-detail > div.bathrooms span {
-	background: url("../../../images/icon/bathroom-icon.png") no-repeat scroll 0 center transparent;
+	background: url("/images/icon/bathroom-icon.png") no-repeat scroll 0 center transparent;
 }
 
 .properties .hentry .property-detail > div.bedrooms span {
-	background: url("../../../images/icon/bedroom-icon.png") no-repeat scroll 0 center transparent;
+	background: url("/images/icon/bedroom-icon.png") no-repeat scroll 0 center transparent;
 }
 
 .properties .hentry .property-info {
@@ -581,19 +581,19 @@
 	}
 
 	.page-fullwidth .properties.list .property-fullwidth-info.property-info>div.size span {
-		background: url("../../../images/icon/size-icon.png") no-repeat scroll 0 center transparent;
+		background: url("/images/icon/size-icon.png") no-repeat scroll 0 center transparent;
 		font-weight: 300;
 		padding-left: 32px;
 	}
 
 	.page-fullwidth .properties.list .property-fullwidth-info.property-info>div.bathrooms span {
-		background: url("../../../images/icon/bathroom-icon.png") no-repeat scroll 0 center transparent;
+		background: url("/images/icon/bathroom-icon.png") no-repeat scroll 0 center transparent;
 		font-weight: 300;
 		padding-left: 32px;
 	}
 
 	.page-fullwidth .properties.list .property-fullwidth-info.property-info>div.bedrooms span {
-		background: url("../../../images/icon/bedroom-icon.png") no-repeat scroll 0 center transparent;
+		background: url("/images/icon/bedroom-icon.png") no-repeat scroll 0 center transparent;
 		font-weight: 300;
 		padding-left: 32px;
 	}
@@ -848,15 +848,15 @@
 }
 
 .recent-properties .recent-properties-content .property-row .hentry .property-detail > div.size span {
-	background: url("../../../images/icon/size-icon.png") no-repeat scroll 0 center transparent;
+	background: url("/images/icon/size-icon.png") no-repeat scroll 0 center transparent;
 }
 
 .recent-properties .recent-properties-content .property-row .hentry .property-detail > div.bathrooms span {
-	background: url("../../../images/icon/bathroom-icon.png") no-repeat scroll 0 center transparent;
+	background: url("/images/icon/bathroom-icon.png") no-repeat scroll 0 center transparent;
 }
 
 .recent-properties .recent-properties-content .property-row .hentry .property-detail > div.bedrooms span {
-	background: url("../../../images/icon/bedroom-icon.png") no-repeat scroll 0 center transparent;
+	background: url("/images/icon/bedroom-icon.png") no-repeat scroll 0 center transparent;
 }
 
 .recent-properties .recent-properties-content .property-row .hentry .property-wrap, .recent-properties .recent-properties-content .property-row .hentry .property-featured {
@@ -1169,15 +1169,15 @@
 }
 
 .recent-properties.recent-properties-featured .property-detail > div.size span {
-	background: url("../../../images/icon/size-icon.png") no-repeat scroll 0 center transparent;
+	background: url("/images/icon/size-icon.png") no-repeat scroll 0 center transparent;
 }
 
 .recent-properties.recent-properties-featured .property-detail > div.bathrooms span {
-	background: url("../../../images/icon/bathroom-icon.png") no-repeat scroll 0 center transparent;
+	background: url("/images/icon/bathroom-icon.png") no-repeat scroll 0 center transparent;
 }
 
 .recent-properties.recent-properties-featured .property-detail > div.bedrooms span {
-	background: url("../../../images/icon/bedroom-icon.png") no-repeat scroll 0 center transparent;
+	background: url("/images/icon/bedroom-icon.png") no-repeat scroll 0 center transparent;
 }
 
 .recent-properties.recent-properties-featured .property-info {
@@ -1269,7 +1269,7 @@
 /* 7. RECENT AGENTS SLIDER
 /* --------------------------------------------------------------------- */
 .home .recent-agents {
-	background: url("../../../images/background/our-agents-bg.png") repeat left top;
+	background: url("/images/background/our-agents-bg.png") repeat left top;
 	padding: 80px 0;
 }
 
@@ -1410,7 +1410,7 @@
 /* --------------------------------------------------------------------- */
 .noo-map {
 	position: relative;
-	background: url("../../../images/background/bg-map.jpg") repeat-x scroll 0 top transparent;
+	background: url("/images/background/bg-map.jpg") repeat-x scroll 0 top transparent;
 	background-size: cover;
 }
 
@@ -1747,15 +1747,15 @@
 }
 
 .noo-map .gmap-infobox .info-detail > div.size span {
-	background: url("../../../images/icon/size-icon.png") no-repeat scroll 0 center transparent;
+	background: url("/images/icon/size-icon.png") no-repeat scroll 0 center transparent;
 }
 
 .noo-map .gmap-infobox .info-detail > div.bedrooms span {
-	background: url("../../../images/icon/bedroom-icon.png") no-repeat scroll 0 center transparent;
+	background: url("/images/icon/bedroom-icon.png") no-repeat scroll 0 center transparent;
 }
 
 .noo-map .gmap-infobox .info-detail > div.bathrooms span {
-	background: url("../../../images/icon/bathroom-icon.png") no-repeat scroll 0 center transparent;
+	background: url("/images/icon/bathroom-icon.png") no-repeat scroll 0 center transparent;
 }
 
 .noo-map .gmap-infobox .info-more {
@@ -1883,7 +1883,7 @@
 }
 
 .gsearch .gsearch-wrap .gsearch-content {
-	background: url("../../../images/other/search-box-line.png") repeat-x left bottom;
+	background: url("/images/other/search-box-line.png") repeat-x left bottom;
 	display: block;
 }
 
