@@ -19,6 +19,8 @@
       = f.input :iptu
     .col-md-3
       = f.input :expiration_date, as: :string, input_html: { class: 'date', value: (f.object.expiration_date) ? localize(f.object.expiration_date) : nil}
+    .col-md-3
+      = f.input :featured, as: :select, include_blank: false
   %br/
   %br/
   %h4 Localização do Imóvel
@@ -107,7 +109,7 @@
   .row
     .col-md-2
       = f.association :property_attribute, label: false, as: :check_boxes
-      
+
   %hr/
   .row
     .col-md-8

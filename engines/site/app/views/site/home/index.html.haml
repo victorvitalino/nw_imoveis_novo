@@ -7,44 +7,9 @@
         %h3 Patrocinados
       .our-partners-inner
         .row
+        - Button.principal.order(:order).each do |button|
           .col-sm-6.col-md-2.item-col
-            %a{:href => "#", :target => "_blank"}
-              %img.item-image{:alt => "", :src => "/images/partner/logo_VIA.png"}/
-          .col-sm-6.col-md-2.item-col
-            %a{:href => "#", :target => "_blank"}
-              %img.item-image{:alt => "", :src => "/images/partner/logo_VIA.png"}/
-          .col-sm-6.col-md-2.item-col
-            %a{:href => "#", :target => "_blank"}
-              %img.item-image{:alt => "", :src => "/images/partner/logo_VIA.png"}/
-          .col-sm-6.col-md-2.item-col
-            %a{:href => "#", :target => "_blank"}
-              %img.item-image{:alt => "", :src => "/images/partner/logo_VIA.png"}/
-          .col-sm-6.col-md-2.item-col
-            %a{:href => "#", :target => "_blank"}
-              %img.item-image{:alt => "", :src => "/images/partner/logo_VIA.png"}/
-          .col-sm-6.col-md-2.item-col
-            %a{:href => "#", :target => "_blank"}
-              %img.item-image{:alt => "", :src => "/images/partner/logo_VIA.png"}/
-      .our-partners-inner
-        .row
-          .col-sm-6.col-md-2.item-col
-            %a{:href => "#", :target => "_blank"}
-              %img.item-image{:alt => "", :src => "/images/partner/logo_VIA.png"}/
-          .col-sm-6.col-md-2.item-col
-            %a{:href => "#", :target => "_blank"}
-              %img.item-image{:alt => "", :src => "/images/partner/logo_VIA.png"}/
-          .col-sm-6.col-md-2.item-col
-            %a{:href => "#", :target => "_blank"}
-              %img.item-image{:alt => "", :src => "/images/partner/logo_VIA.png"}/
-          .col-sm-6.col-md-2.item-col
-            %a{:href => "#", :target => "_blank"}
-              %img.item-image{:alt => "", :src => "/images/partner/logo_VIA.png"}/
-          .col-sm-6.col-md-2.item-col
-            %a{:href => "#", :target => "_blank"}
-              %img.item-image{:alt => "", :src => "/images/partner/logo_VIA.png"}/
-          .col-sm-6.col-md-2.item-col
-            %a{:href => "#", :target => "_blank"}
-              %img.item-image{:alt => "", :src => "/images/partner/logo_VIA.png"}/
+            = link_to image_tag(button.image_path, class: 'img-item'), button.link.present? ? button.link : '#'
   %section#recent-properties-slider.wrap.recent-properties.recent-properties-slider
     .container
       .recent-properties-inner
@@ -52,309 +17,65 @@
           %h3 Imóveis Destaques
         .recent-properties-content
           .caroufredsel-wrap
+            - @properties = Property.where(featured: true).limit(8).order(:created_at)
             %ul
               %li
                 .property-row
-                  %article.hentry.has-featured
-                    .property-featured
-                      %a.content-thumb{:href => "property-details.html"}
-                        %img.attachment-property-thumb{:alt => "", :src => "/images/property/property1.jpg"}/
-                      %span.property-category
-                        %a{:href => "type-single-family-home.html"} Exemplo de Imóvel
-                      .property-detail
-                        .size
-                          %span 1913 M²
-                        .bathrooms
-                          %span 2
-                        .bedrooms
-                          %span 4
-                    .property-wrap
-                      %h2.property-title
-                        %a{:href => "property-details.html", :title => "Exemplo de Imóvel"} Exemplo de Endereço
-                      .property-excerpt
-                        %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus congue est nisi
-                    .property-summary
-                      .property-info
-                        .property-price
-                          %span
-                            %span.amount R$154,500
-                        .property-action
-                          %a{:href => "property-details.html"} Mais Detalhes
-                  %article.hentry.has-featured
-                    .property-featured
-                      %a.content-thumb{:href => "property-details.html"}
-                        %img.attachment-property-thumb{:alt => "", :src => "/images/property/property1.jpg"}/
-                      %span.property-category
-                        %a{:href => "type-single-family-home.html"} Exemplo de Imóvel
-                      .property-detail
-                        .size
-                          %span 1913 M²
-                        .bathrooms
-                          %span 2
-                        .bedrooms
-                          %span 4
-                    .property-wrap
-                      %h2.property-title
-                        %a{:href => "property-details.html", :title => "Exemplo de Imóvel"} Exemplo de Endereço
-                      .property-excerpt
-                        %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus congue est nisi
-                    .property-summary
-                      .property-info
-                        .property-price
-                          %span
-                            %span.amount R$154,500
-                        .property-action
-                          %a{:href => "property-details.html"} Mais Detalhes
+                  - @properties[0..1].each do |featured|
+                    %article.hentry.has-featured
+                      .property-featured
+                        %a.content-thumb{:href => "property-details.html"}
+                          %img.attachment-property-thumb{:alt => "", :src => "/images/property/property1.jpg"}/
+                        %span.property-category
+                          %a{:href => "type-single-family-home.html"} Exemplos de Imóvel
+                        .property-detail
+                          .size
+                            %span 1913 M²
+                          .bathrooms
+                            %span 2
+                          .bedrooms
+                            %span 4
+                      .property-wrap
+                        %h2.property-title
+                          %a{:href => "property-details.html", :title => "Exemplo de Imóvel"} Exemplo de EndereçoS
+                        .property-excerpt
+                          %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus congue est nisi
+                      .property-summary
+                        .property-info
+                          .property-price
+                            %span
+                              %span.amount R$154,500
+                          .property-action
+                            %a{:href => "property-details.html"} Mais Detalhes
                 .property-row
-                  %article.hentry.has-featured
-                    .property-featured
-                      %a.content-thumb{:href => "property-details.html"}
-                        %img.attachment-property-thumb{:alt => "", :src => "/images/property/property1.jpg"}/
-                      %span.property-category
-                        %a{:href => "type-single-family-home.html"} Exemplo de Imóvel
-                      .property-detail
-                        .size
-                          %span 1913 M²
-                        .bathrooms
-                          %span 2
-                        .bedrooms
-                          %span 4
-                    .property-wrap
-                      %h2.property-title
-                        %a{:href => "property-details.html", :title => "Exemplo de Imóvel"} Exemplo de Endereço
-                      .property-excerpt
-                        %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus congue est nisi
-                    .property-summary
-                      .property-info
-                        .property-price
-                          %span
-                            %span.amount R$154,500
-                        .property-action
-                          %a{:href => "property-details.html"} Mais Detalhes
-                  %article.hentry.has-featured
-                    .property-featured
-                      %a.content-thumb{:href => "property-details.html"}
-                        %img.attachment-property-thumb{:alt => "", :src => "/images/property/property1.jpg"}/
-                      %span.property-category
-                        %a{:href => "type-single-family-home.html"} Exemplo de Imóvel
-                      .property-detail
-                        .size
-                          %span 1913 M²
-                        .bathrooms
-                          %span 2
-                        .bedrooms
-                          %span 4
-                    .property-wrap
-                      %h2.property-title
-                        %a{:href => "property-details.html", :title => "Exemplo de Imóvel"} Exemplo de Endereço
-                      .property-excerpt
-                        %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus congue est nisi
-                    .property-summary
-                      .property-info
-                        .property-price
-                          %span
-                            %span.amount R$154,500
-                        .property-action
-                          %a{:href => "property-details.html"} Mais Detalhes
-              %li
-                .property-row
-                  %article.hentry.has-featured
-                    .property-featured
-                      %a.content-thumb{:href => "property-details.html"}
-                        %img.attachment-property-thumb{:alt => "", :src => "/images/property/property1.jpg"}/
-                      %span.property-category
-                        %a{:href => "type-single-family-home.html"} Exemplo de Imóvel
-                      .property-detail
-                        .size
-                          %span 1913 M²
-                        .bathrooms
-                          %span 2
-                        .bedrooms
-                          %span 4
-                    .property-wrap
-                      %h2.property-title
-                        %a{:href => "property-details.html", :title => "Exemplo de Imóvel"} Exemplo de Endereço
-                      .property-excerpt
-                        %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus congue est nisi
-                    .property-summary
-                      .property-info
-                        .property-price
-                          %span
-                            %span.amount R$154,500
-                        .property-action
-                          %a{:href => "property-details.html"} Mais Detalhes
-                  %article.hentry.has-featured
-                    .property-featured
-                      %a.content-thumb{:href => "property-details.html"}
-                        %img.attachment-property-thumb{:alt => "", :src => "/images/property/property1.jpg"}/
-                      %span.property-category
-                        %a{:href => "type-single-family-home.html"} Exemplo de Imóvel
-                      .property-detail
-                        .size
-                          %span 1913 M²
-                        .bathrooms
-                          %span 2
-                        .bedrooms
-                          %span 4
-                    .property-wrap
-                      %h2.property-title
-                        %a{:href => "property-details.html", :title => "Exemplo de Imóvel"} Exemplo de Endereço
-                      .property-excerpt
-                        %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus congue est nisi
-                    .property-summary
-                      .property-info
-                        .property-price
-                          %span
-                            %span.amount R$154,500
-                        .property-action
-                          %a{:href => "property-details.html"} Mais Detalhes
-                .property-row
-                  %article.hentry.has-featured
-                    .property-featured
-                      %a.content-thumb{:href => "property-details.html"}
-                        %img.attachment-property-thumb{:alt => "", :src => "/images/property/property1.jpg"}/
-                      %span.property-category
-                        %a{:href => "type-single-family-home.html"} Exemplo de Imóvel
-                      .property-detail
-                        .size
-                          %span 1913 M²
-                        .bathrooms
-                          %span 2
-                        .bedrooms
-                          %span 4
-                    .property-wrap
-                      %h2.property-title
-                        %a{:href => "property-details.html", :title => "Exemplo de Imóvel"} Exemplo de Endereço
-                      .property-excerpt
-                        %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus congue est nisi
-                    .property-summary
-                      .property-info
-                        .property-price
-                          %span
-                            %span.amount R$154,500
-                        .property-action
-                          %a{:href => "property-details.html"} Mais Detalhes
-                  %article.hentry.has-featured
-                    .property-featured
-                      %a.content-thumb{:href => "property-details.html"}
-                        %img.attachment-property-thumb{:alt => "", :src => "/images/property/property1.jpg"}/
-                      %span.property-category
-                        %a{:href => "type-single-family-home.html"} Exemplo de Imóvel
-                      .property-detail
-                        .size
-                          %span 1913 M²
-                        .bathrooms
-                          %span 2
-                        .bedrooms
-                          %span 4
-                    .property-wrap
-                      %h2.property-title
-                        %a{:href => "property-details.html", :title => "Exemplo de Imóvel"} Exemplo de Endereço
-                      .property-excerpt
-                        %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus congue est nisi
-                    .property-summary
-                      .property-info
-                        .property-price
-                          %span
-                            %span.amount R$154,500
-                        .property-action
-                          %a{:href => "property-details.html"} Mais Detalhes
-          %a.caroufredsel-prev{:href => "#"}
-          %a.caroufredsel-next{:href => "#"}
-  %section#recent-properties-featured.wrap.recent-properties.recent-properties-featured
-    .container
-      .recent-properties-inner
-        .recent-properties-title
-          %h3 Imóveis Destaque
-        .recent-properties-content
-          .caroufredsel-wrap
-            %ul
-              %li
-                %article.hentry.has-featured
-                  .property-featured
-                    %a.content-thumb{:href => "property-details.html"}
-                      %img.attachment-property-image{:alt => "", :src => "/images/property/featured-properties1.jpg"}/
-                    %span.property-category
-                      %a{:href => "#"} Imóvel Exemplo
-                  .property-wrap
-                    %h2.property-title
-                      %a{:href => "property-details.html", :title => "Exemplo de Endereço"} Exemplo de Endereço
-                    .property-excerpt
-                      %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus congue est nisi, non tristique eros scelerisque vitae. Ut sed dolor ornare, ullamcorper eros sit amet, accumsan risus.
-                    .property-summary
-                      .property-detail
-                        .size
-                          %span 1913 M²
-                        .bathrooms
-                          %span 2
-                        .bedrooms
-                          %span 4
-                      .property-info
-                        .property-price
-                          %span
-                            %span.amount R$154,500
-                        .property-action
-                          %a{:href => "property-details.html"}
-                            Mais Detalhes
-                            %i.fa.fa-arrow-circle-o-right
-              %li
-                %article.hentry.has-featured
-                  .property-featured
-                    %a.content-thumb{:href => "property-details.html"}
-                      %img.attachment-property-image{:alt => "", :src => "/images/property/featured-properties1.jpg"}/
-                    %span.property-category
-                      %a{:href => "#"} Imóvel Exemplo
-                  .property-wrap
-                    %h2.property-title
-                      %a{:href => "property-details.html", :title => "Exemplo de Endereço"} Exemplo de Endereço
-                    .property-excerpt
-                      %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus congue est nisi, non tristique eros scelerisque vitae. Ut sed dolor ornare, ullamcorper eros sit amet, accumsan risus.
-                    .property-summary
-                      .property-detail
-                        .size
-                          %span 1913 M²
-                        .bathrooms
-                          %span 2
-                        .bedrooms
-                          %span 4
-                      .property-info
-                        .property-price
-                          %span
-                            %span.amount R$154,500
-                        .property-action
-                          %a{:href => "property-details.html"}
-                            Mais Detalhes
-                            %i.fa.fa-arrow-circle-o-right
-              %li
-                %article.hentry.has-featured
-                  .property-featured
-                    %a.content-thumb{:href => "property-details.html"}
-                      %img.attachment-property-image{:alt => "", :src => "/images/property/featured-properties1.jpg"}/
-                    %span.property-category
-                      %a{:href => "#"} Imóvel Exemplo
-                  .property-wrap
-                    %h2.property-title
-                      %a{:href => "property-details.html", :title => "Exemplo de Endereço"} Exemplo de Endereço
-                    .property-excerpt
-                      %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus congue est nisi, non tristique eros scelerisque vitae. Ut sed dolor ornare, ullamcorper eros sit amet, accumsan risus.
-                    .property-summary
-                      .property-detail
-                        .size
-                          %span 1913 M²
-                        .bathrooms
-                          %span 2
-                        .bedrooms
-                          %span 4
-                      .property-info
-                        .property-price
-                          %span
-                            %span.amount R$154,500
-                        .property-action
-                          %a{:href => "property-details.html"}
-                            Mais Detalhes
-                            %i.fa.fa-arrow-circle-o-right
-          %a.caroufredsel-prev{:href => "#"}
-          %a.caroufredsel-next{:href => "#"}
+                  - @properties[2..3].each do |featured|
+                    %article.hentry.has-featured
+                      .property-featured
+                        %a.content-thumb{:href => "property-details.html"}
+                          %img.attachment-property-thumb{:alt => "", :src => "/images/property/property1.jpg"}/
+                        %span.property-category
+                          %a{:href => "type-single-family-home.html"} Exemplo de Imóvel
+                        .property-detail
+                          .size
+                            %span 1913 M²
+                          .bathrooms
+                            %span 2
+                          .bedrooms
+                            %span 4
+                      .property-wrap
+                        %h2.property-title
+                          %a{:href => "property-details.html", :title => "Exemplo de Imóvel"} Exemplo de EndereçoS
+                        .property-excerpt
+                          %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus congue est nisi
+                      .property-summary
+                        .property-info
+                          .property-price
+                            %span
+                              %span.amount R$154,500
+                          .property-action
+                            %a{:href => "property-details.html"} Mais Detalhes
+            %a.caroufredsel-prev{:href => "#"}
+            %a.caroufredsel-next{:href => "#"}
   %section#our-sevices.wrap.our-sevices
     .container
       .parallax
