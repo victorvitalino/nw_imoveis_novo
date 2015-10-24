@@ -24,56 +24,76 @@
                   - @properties[0..1].each do |featured|
                     %article.hentry.has-featured
                       .property-featured
-                        %a.content-thumb{:href => "property-details.html"}
+                        %a.content-thumb{:href => "#{site.show_properties_path(featured)}"}
                           %img.attachment-property-thumb{:alt => "", :src => "/images/property/property1.jpg"}/
                         %span.property-category
-                          %a{:href => "type-single-family-home.html"} Exemplos de Imóvel
+                          %a{:href => "#{site.show_properties_path(featured)}"}
+                            = featured.name
                         .property-detail
                           .size
-                            %span 1913 M²
-                          .bathrooms
-                            %span 2
+                            %span
+                              = featured.area
+                              M²
                           .bedrooms
-                            %span 4
+                            %span
+                              = featured.rooms
+                          .bathrooms
+                            %span
+                              = featured.suit
                       .property-wrap
                         %h2.property-title
-                          %a{:href => "property-details.html", :title => "Exemplo de Imóvel"} Exemplo de EndereçoS
+                          %a{:href => "#{site.show_properties_path(featured)}", :title => "#{featured.name}"}
+                            = featured.group
+                            = featured.number
+                            = featured.block
                         .property-excerpt
-                          %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus congue est nisi
+                          %p
+                            = featured.description
                       .property-summary
                         .property-info
                           .property-price
                             %span
-                              %span.amount R$154,500
+                              %span.amount
+                                = number_to_currency featured.value
                           .property-action
-                            %a{:href => "property-details.html"} Mais Detalhes
+                            %a{:href => "#{site.show_properties_path(featured)}"} Mais Detalhes
                 .property-row
                   - @properties[2..3].each do |featured|
                     %article.hentry.has-featured
                       .property-featured
-                        %a.content-thumb{:href => "property-details.html"}
+                        %a.content-thumb{:href => "#{site.show_properties_path(featured)}"}
                           %img.attachment-property-thumb{:alt => "", :src => "/images/property/property1.jpg"}/
                         %span.property-category
-                          %a{:href => "type-single-family-home.html"} Exemplo de Imóvel
+                          %a{:href => "#{site.show_properties_path(featured)}"}
+                            = featured.name
                         .property-detail
                           .size
-                            %span 1913 M²
-                          .bathrooms
-                            %span 2
+                            %span
+                              = featured.area
+                              M²
                           .bedrooms
-                            %span 4
+                            %span
+                              = featured.rooms
+                          .bathrooms
+                            %span
+                              = featured.suit
                       .property-wrap
                         %h2.property-title
-                          %a{:href => "property-details.html", :title => "Exemplo de Imóvel"} Exemplo de EndereçoS
+                          %a{:href => "#{site.show_properties_path(featured)}", :title => "#{featured.name}"}
+                            = featured.group
+                            = featured.number
+                            = featured.block
                         .property-excerpt
-                          %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus congue est nisi
+                          %p
+                            = featured.description
                       .property-summary
                         .property-info
                           .property-price
                             %span
-                              %span.amount R$154,500
+                              %span.amount
+                                = number_to_currency featured.value
                           .property-action
-                            %a{:href => "property-details.html"} Mais Detalhes
+                            %a{:href => "#{site.show_properties_path(featured)}"} Mais Detalhes
             %a.caroufredsel-prev{:href => "#"}
             %a.caroufredsel-next{:href => "#"}
   %section#our-sevices.wrap.our-sevices
