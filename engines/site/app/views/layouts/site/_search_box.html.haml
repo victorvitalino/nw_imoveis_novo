@@ -1,5 +1,5 @@
 .gsearch-wrap
-  = simple_form_for properties_path, method: :get do |f|
+  = simple_form_for properties_path, url: properties_path, method: :get do |f|
     .gsearch-content
       .gsearch-field
         .form-group.ggroup
@@ -52,4 +52,4 @@
         -#   %span.gslider-range-value.garea-slider-range-value-max
       .gsearch-action
         .gsubmit
-          %input.btn.btn-deault{type: 'submit'}
+          %input.btn.btn-deault{type: 'submit', value: 'Procurar Imóvel'}
