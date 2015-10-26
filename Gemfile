@@ -20,6 +20,7 @@ gem 'friendly_id'
 gem 'validates_cpf_cnpj'
 gem 'validates_timeliness'
 gem 'email_validator'
+gem 'has_scope'
 
 group :development, :test do
   gem 'sqlite3'

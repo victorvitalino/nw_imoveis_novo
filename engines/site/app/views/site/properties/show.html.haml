@@ -8,30 +8,34 @@
           / START ARTICLE PROPERTY
           %article.property
             %h1.property-title
-              Exemplo de Imóvel
-              %small Endereço do Imóvel
-            %ul.social-list.property-share.clearfix
-              %li
-                %a{:href => "#", :target => "_blank", :title => "Facebook"}
-                  %i.fa.fa-facebook
-              %li
-                %a{:href => "#", :target => "_blank", :title => "Twitter"}
-                  %i.fa.fa-twitter
-              %li
-                %a{:href => "#", :target => "_blank", :title => "Google +"}
-                  %i.fa.fa-google-plus
+              = @property.name
+              %small
+                = @property.group
+                = @property.number
+                = @property.block
+                = @property.region
+            -# %ul.social-list.property-share.clearfix
+            -#   %li
+            -#     %a{:href => "#", :target => "_blank", :title => "Facebook"}
+            -#       %i.fa.fa-facebook
+            -#   %li
+            -#     %a{:href => "#", :target => "_blank", :title => "Twitter"}
+            -#       %i.fa.fa-twitter
+            -#   %li
+            -#     %a{:href => "#", :target => "_blank", :title => "Google +"}
+            -#       %i.fa.fa-google-plus
             .property-featured.clearfix
               .images
                 .caroufredsel-wrap
                   %ul
                     - @property.property_images.each do |image|
-                      %li
+                      %li.image-carrosel
                         %img.img-responsive{:src => "#{image.image_path}"}/
               .thumbnails
                 .thumbnails-wrap
                   %ul
                     - @property.property_images.each do |image|
-                      %li
+                      %li.thumb
                         %img.img-responsive{:src => "#{image.image_path}"}/
                 %a.caroufredsel-prev{:href => "#"}
                 %a.caroufredsel-next{:href => "#"}
@@ -75,7 +79,7 @@
                           = @property.suit
                         %span.col-xs-6.col-md-5.detail-field-label Andar
                         %span.col-xs-6.col-md-7.detail-field-value
-                          = "#{@property.floor}º"
+                          = (@property.floor == "0") ? "0" : "#{@property.floor}º"
                 .col-md-8
                   .property-desc
                     %h4.property-detail-title Descrição do Imóvel
@@ -99,12 +103,12 @@
                 .col-sm-6.col-md-2.item-col
                   %img.img-responsive.img-100{:src => "#{constructor.logo_path}"}/
 
-            .property-map
-              %h4.property-map-title Localização do Imóvel
-              .property-map-content
-                .property-map-search
-                  %input#property_map_search_input{:autocomplete => "off", :placeholder => "Pesquisar", :type => "text"}/
-                #property-map-7292.property-map-box{"data-latitude" => "-15.794731", "data-longitude" => "-47.882881"}
+            -# .property-map
+            -#   %h4.property-map-title Localização do Imóvel
+            -#   .property-map-content
+            -#     .property-map-search
+            -#       %input#property_map_search_input{:autocomplete => "off", :placeholder => "Pesquisar", :type => "text"}/
+            -#     #property-map-7292.property-map-box{"data-latitude" => "-15.794731", "data-longitude" => "-47.882881"}
           / END ARTICLE PROPERTY
           / START AGENT PROPERTY
           .agent-property
@@ -127,20 +131,20 @@
                       %div
                         %i.fa.fa-envelope-square>
                         = @property.project.client.email
-                    .agent-desc
-                      %ul.social-list.agent-social.clearfix
-                        %li
-                          %a{:href => "#", :target => "_blank", :title => "Facebook"}
-                            %i.fa.fa-facebook
-                        %li
-                          %a{:href => "#", :target => "_blank", :title => "Twitter"}
-                            %i.fa.fa-twitter
-                        %li
-                          %a{:href => "#", :target => "_blank", :title => "Google +"}
-                            %i.fa.fa-google-plus
-                      .agent-action
-                        %a{:href => "#"}
-                          = @property.project.client.username
+                    -# .agent-desc
+                    -#   %ul.social-list.agent-social.clearfix
+                    -#     %li
+                    -#       %a{:href => "#", :target => "_blank", :title => "Facebook"}
+                    -#         %i.fa.fa-facebook
+                    -#     %li
+                    -#       %a{:href => "#", :target => "_blank", :title => "Twitter"}
+                    -#         %i.fa.fa-twitter
+                    -#     %li
+                    -#       %a{:href => "#", :target => "_blank", :title => "Google +"}
+                    -#         %i.fa.fa-google-plus
+                    -#   .agent-action
+                    -#     %a{:href => "#"}
+                    -#       = @property.project.client.username
               .conact-agent
                 %form#conactagentform{:method => "post", :role => "form"}
                   .form-group
@@ -151,58 +155,56 @@
                     %textarea.form-control{:name => "message", :placeholder => "Mensagem *"}
                   .form-action
                     %button.btn.btn-default{:type => "submit"} Enviar Mensagem
-          / START AGENT PROPERTY
-          / START SIMILAR PROPERTY
-          .similar-property
-            .similar-property-title
-              %h3 Mais por Via Engenharia
-            .similar-property-content
-              .properties.grid.clearfix
-                .properties-content
-                  %article.hentry
-                    .property-featured
-                      %a.content-thumb{:href => "#"}
-                        %img{:alt => "", :src => "/images/property/property1.jpg"}/
-                    .property-wrap
-                      %h2.property-title
-                        %a{:href => "#", :title => "Exemplo de endereço"} Exemplo de Endereço
-                      .property-summary
-                        .property-detail
-                          .size
-                            %span 1304 M²
-                          .bathrooms
-                            %span 2
-                          .bedrooms
-                            %span 3
-                        .property-info
-                          .property-price
-                            %span
-                              %span.amount R$5,109
-                              \/mês
-                          .property-action
-                            %a{:href => "#"} Mais Detalhes
-                  %article.hentry
-                    .property-featured
-                      %a.content-thumb{:href => "#/"}
-                        %img{:alt => "", :src => "/images/property/property1.jpg"}/
-                    .property-wrap
-                      %h2.property-title
-                        %a{:href => "#", :title => "Exemplo de endereço"} Exemplo de Endereço
-                      .property-summary
-                        .property-detail
-                          .size
-                            %span 531 M²
-                          .bathrooms
-                            %span 3
-                          .bedrooms
-                            %span 5
-                        .property-info
-                          .property-price
-                            %span
-                              %span.amount R$4,200
-                              \/mês
-                          .property-action
-                            %a{:href => "#"} Mais Detalhes
+          -# .similar-property
+          -#   .similar-property-title
+          -#     %h3 Mais por Via Engenharia
+          -#   .similar-property-content
+          -#     .properties.grid.clearfix
+          -#       .properties-content
+          -#         %article.hentry
+          -#           .property-featured
+          -#             %a.content-thumb{:href => "#"}
+          -#               %img{:alt => "", :src => "/images/property/property1.jpg"}/
+          -#           .property-wrap
+          -#             %h2.property-title
+          -#               %a{:href => "#", :title => "Exemplo de endereço"} Exemplo de Endereço
+          -#             .property-summary
+          -#               .property-detail
+          -#                 .size
+          -#                   %span 1304 M²
+          -#                 .bathrooms
+          -#                   %span 2
+          -#                 .bedrooms
+          -#                   %span 3
+          -#               .property-info
+          -#                 .property-price
+          -#                   %span
+          -#                     %span.amount R$5,109
+          -#                     \/mês
+          -#                 .property-action
+          -#                   %a{:href => "#"} Mais Detalhes
+          -#         %article.hentry
+          -#           .property-featured
+          -#             %a.content-thumb{:href => "#/"}
+          -#               %img{:alt => "", :src => "/images/property/property1.jpg"}/
+          -#           .property-wrap
+          -#             %h2.property-title
+          -#               %a{:href => "#", :title => "Exemplo de endereço"} Exemplo de Endereço
+          -#             .property-summary
+          -#               .property-detail
+          -#                 .size
+          -#                   %span 531 M²
+          -#                 .bathrooms
+          -#                   %span 3
+          -#                 .bedrooms
+          -#                   %span 5
+          -#               .property-info
+          -#                 .property-price
+          -#                   %span
+          -#                     %span.amount R$4,200
+          -#                     \/mês
+          -#                 .property-action
+          -#                   %a{:href => "#"} Mais Detalhes
           / END SIMILAR PROPERTY
         / END MAIN CONTENT
         / START SIDEBAR
@@ -219,33 +221,21 @@
               %h3.title-block-sidebar Imóveis Recentes
               .featured-property
                 %ul
-                  %li
-                    .featured-image
-                      %a{:href => "property-details.html"}
-                        %img{:alt => "", :src => "/images/property/property1.jpg"}/
-                    .featured-decs
-                      %span.featured-status
-                        %a{:href => "#"} Lançamento
-                      %h4.featured-title
-                        %a{:href => "property-details.html", :title => "Exemplo de endereço"} Exemplo de Endereço
-                  %li
-                    .featured-image
-                      %a{:href => "property-details.html"}
-                        %img{:alt => "", :src => "/images/property/property1.jpg"}/
-                    .featured-decs
-                      %span.featured-status
-                        %a{:href => "#"} Aluguel
-                      %h4.featured-title
-                        %a{:href => "property-details.html", :title => "Exemplo de endereço"} Exemplo de Endereço
-                  %li
-                    .featured-image
-                      %a{:href => "property-details.html"}
-                        %img{:alt => "", :src => "/images/property/property1.jpg"}/
-                    .featured-decs
-                      %span.featured-status
-                        %a{:href => "#"} Aluguel
-                      %h4.featured-title
-                        %a{:href => "property-details.html", :title => "Exemplo de endereço"} Exemplo de Endereço
+                  - @properties = Property.where(featured: true).limit(6).order(:created_at)
+                  - @properties.each do |featured|
+                    %li
+                      .featured-image
+                        %a{:href => "#{property_path(featured)}"}
+                          %img{:alt => "", :class => "thumb-featured",:src => "#{featured.thumb? ? featured.thumb : '/images/property/property1.jpg'}"}/
+                      .featured-decs
+                        %span.featured-status
+                          = featured.situation.humanize
+                        %h4.featured-title
+                          %a{:href => "#{property_path(featured)}", :title => "Exemplo de endereço"}
+                            = featured.group
+                            = featured.number
+                            = featured.block
+                            = featured.region
             / END RECENT PROPERTY
         / END SIDEBAR
   / END NOO MAINBODY

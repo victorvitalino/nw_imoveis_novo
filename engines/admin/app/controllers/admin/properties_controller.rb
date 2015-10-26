@@ -69,7 +69,7 @@ module Admin
 
       # Only allow a trusted parameter "white list" through.
       def property_params
-        params.require(:property).permit(:situation, :featured, :type_property, :status, :iptu,
+        params.require(:property).permit(:situation, :thumb, :featured, :type_property, :status, :iptu,
                                          :client_id, :project_id, :cep, :region, :district, :group,
                                          :block, :number, :address, :complement, :reference_point,
                                          :address_link_visible, :rooms, :unit, :value, :value_m2,

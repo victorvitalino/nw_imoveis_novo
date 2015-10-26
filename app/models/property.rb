@@ -1,7 +1,7 @@
 class Property < ActiveRecord::Base
   has_many :property_images
   accepts_nested_attributes_for :property_images, allow_destroy: true
-  
+
   belongs_to :property_attribute, class_name: "Attribute"
 
   belongs_to :client
@@ -35,6 +35,14 @@ class Property < ActiveRecord::Base
   validates :name, presence: true
   validates :project, presence: true
 
+  mount_uploader :thumb, ImageUploader
+
+
+  scope :bathrooms, -> (bathrooms){ where(:suit => bathrooms )}
+  scope :groups, -> (groups){where(:group => groups)}
+  scope :by_type_properties, -> (type_properties){where(:type_property => type_properties)}
+  scope :property_numbers, -> (property_numbers){where(:number => property_numbers)}
+  scope :rooms, -> (rooms){where(:rooms => rooms)}
 
   def property_attributes; Attribute.where(id: self.property_attribute_id); end;
   def property_constructors; Client.where(id: self.construction_companies_id); end;

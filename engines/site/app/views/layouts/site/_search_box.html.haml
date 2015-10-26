@@ -1,42 +1,32 @@
 .gsearch-wrap
-  %form.gsearchform{:method => "get", :role => "search"}
+  = simple_form_for properties_path, method: :get do |f|
     .gsearch-content
       .gsearch-field
-        .form-group.glocation
+        .form-group.ggroup
           .label-select
-            %select.form-control
-              %option Localização
-              %option Localização 1
-              %option Localização 2
+            %select.form-control{name: "groups"}
+              %option{value: ''} Quadra
+              - Property.select(:group).distinct.each do |g|
+                %option{value: "#{g.group}"} #{g.group}
         .form-group.gsub-location
           .label-select
             %select.form-control
-              %option Bairros
-              %option Bairro 1
-              %option Bairro 2
-              %option Bairro 3
-              %option Bairro 4
-              %option Bairro 5
+              %option Noroeste
         .form-group.gstatus
           .label-select
-            %select.form-control
-              %option Status
-              %option Status 1
-              %option Status 2
-              %option Status 3
-              %option Status 4
+            %select.form-control{name: "by_type_properties", value: params[:by_type_properties]}
+              - Property.type_properties.each do |g|
+                %option{value: "#{g[1]}"} #{g[0].humanize}
         .form-group.gtype
           .label-select
-            %select.form-control
-              %option Tipos
-              %option Tipo 1
-              %option Tipo 2
-              %option Tipo 3
-              %option Tipo 4
+            %select.form-control{name: "property_numbers"}
+              %option{value: ''} Número
+              - Property.select(:number).distinct.each do |g|
+                %option{value: "#{g.number}"} #{g.number}
         .form-group.gbed
           .label-select
-            %select.form-control
-              %option Nº de Quartos
+            %select.form-control{name: "rooms"}
+              %option{value: ''} Nº de Quartos
               %option 1
               %option 2
               %option 3
@@ -44,22 +34,22 @@
               %option 5
         .form-group.gbath
           .label-select
-            %select.form-control
-              %option Nº de Banheiros
+            %select.form-control{name: "bathrooms"}
+              %option{value: ''} Nº de Banheiros
               %option 1
               %option 2
               %option 3
               %option 4
-        .form-group.gprice
-          %span.gprice-label Preço
-          .gslider-range.gprice-slider-range
-          %span.gslider-range-value.gprice-slider-range-value-min
-          %span.gslider-range-value.gprice-slider-range-value-max
-        .form-group.garea
-          %span.garea-label Área
-          .gslider-range.garea-slider-range
-          %span.gslider-range-value.garea-slider-range-value-min
-          %span.gslider-range-value.garea-slider-range-value-max
+        -# .form-group.gprice
+        -#   %span.gprice-label Preço
+        -#   .gslider-range.gprice-slider-range
+        -#   %span.gslider-range-value.gprice-slider-range-value-min
+        -#   %span.gslider-range-value.gprice-slider-range-value-max
+        -# .form-group.garea
+        -#   %span.garea-label Área
+        -#   .gslider-range.garea-slider-range
+        -#   %span.gslider-range-value.garea-slider-range-value-min
+        -#   %span.gslider-range-value.garea-slider-range-value-max
       .gsearch-action
         .gsubmit
-          %a.btn.btn-deault{:href => "#"} Buscar Imóvel
+          %input.btn.btn-deault{type: 'submit'}

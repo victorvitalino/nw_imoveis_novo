@@ -1,7 +1,13 @@
 require_dependency 'site/application_controller'
 module Site
   class PropertiesController < ApplicationController
+    has_scope :bathrooms
+    has_scope :groups
+    has_scope :by_type_properties
+    has_scope :property_numbers
+    has_scope :rooms
     def index
+      @properties = apply_scopes(Property).includes(:project).includes(:client).all
     end
 
     def show
@@ -15,7 +21,7 @@ module Site
 
     def property_detail_type
 
-       
+
 
       case params[:property_detail_type]
       when 'aluguel'

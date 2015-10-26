@@ -24,10 +24,10 @@
                   - @properties[0..1].each do |featured|
                     %article.hentry.has-featured
                       .property-featured
-                        %a.content-thumb{:href => "#{site.show_properties_path(featured)}"}
-                          %img.attachment-property-thumb{:alt => "", :src => "/images/property/property1.jpg"}/
+                        %a.content-thumb{:href => "#{property_path(featured)}"}
+                          %img.attachment-property-thumb.featured-thumb-home{:alt => "", :src => "#{featured.thumb? ? featured.thumb : '/images/property/property1.jpg'}"}/
                         %span.property-category
-                          %a{:href => "#{site.show_properties_path(featured)}"}
+                          %a{:href => "#{property_path(featured)}"}
                             = featured.name
                         .property-detail
                           .size
@@ -42,7 +42,7 @@
                               = featured.suit
                       .property-wrap
                         %h2.property-title
-                          %a{:href => "#{site.show_properties_path(featured)}", :title => "#{featured.name}"}
+                          %a{:href => "#{property_path(featured)}", :title => "#{featured.name}"}
                             = featured.group
                             = featured.number
                             = featured.block
@@ -56,15 +56,15 @@
                               %span.amount
                                 = number_to_currency featured.value
                           .property-action
-                            %a{:href => "#{site.show_properties_path(featured)}"} Mais Detalhes
+                            %a{:href => "#{property_path(featured)}"} Mais Detalhes
                 .property-row
                   - @properties[2..3].each do |featured|
                     %article.hentry.has-featured
                       .property-featured
-                        %a.content-thumb{:href => "#{site.show_properties_path(featured)}"}
-                          %img.attachment-property-thumb{:alt => "", :src => "/images/property/property1.jpg"}/
+                        %a.content-thumb{:href => "#{property_path(featured)}"}
+                          %img.attachment-property-thumb.featured-thumb-home{:alt => "", :src => "#{featured.thumb? ? featured.thumb : '/images/property/property1.jpg'}"}/
                         %span.property-category
-                          %a{:href => "#{site.show_properties_path(featured)}"}
+                          %a{:href => "#{property_path(featured)}"}
                             = featured.name
                         .property-detail
                           .size
@@ -79,7 +79,7 @@
                               = featured.suit
                       .property-wrap
                         %h2.property-title
-                          %a{:href => "#{site.show_properties_path(featured)}", :title => "#{featured.name}"}
+                          %a{:href => "#{property_path(featured)}", :title => "#{featured.name}"}
                             = featured.group
                             = featured.number
                             = featured.block
@@ -93,7 +93,7 @@
                               %span.amount
                                 = number_to_currency featured.value
                           .property-action
-                            %a{:href => "#{site.show_properties_path(featured)}"} Mais Detalhes
+                            %a{:href => "#{property_path(featured)}"} Mais Detalhes
             %a.caroufredsel-prev{:href => "#"}
             %a.caroufredsel-next{:href => "#"}
   %section#our-sevices.wrap.our-sevices

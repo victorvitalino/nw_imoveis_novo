@@ -1,0 +1,32 @@
+.has-featured > .property-wrap{
+  height: 230px;
+}
+.has-featured > .property-wrap > .property-excerpt{
+  text-overflow: ellipsis;
+  overflow: hidden;
+  height: 125px;
+}
+.has-featured > .property-wrap > .property-excerpt > p{
+  text-overflow: ellipsis;
+  overflow: hidden;
+  height: 125px;
+}
+.thumb img{
+  height: 100px!important;
+}
+.image-carrosel img{
+  height: 520px!important;
+  overflow: hidden;
+}
+.thumb-featured {
+  height: 57px!important;
+  width: 70px!important;
+  overflow: hidden;
+}
+.featured-thumb-home{
+  height: 230px;
+  width: auto!important;
+}
+.thumb-list{
+  height: 370px!important;
+}
