@@ -9,7 +9,7 @@
         .row
         - Button.principal.order(:order).each do |button|
           .col-sm-6.col-md-2.item-col
-            = link_to image_tag(button.image_path, class: 'img-item'), button.link.present? ? button.link : '#'
+            = link_to image_tag(button.image_path), properties_path(link_client: button.id),class: 'img-item'
   %section#recent-properties-slider.wrap.recent-properties.recent-properties-slider
     .container
       .recent-properties-inner
