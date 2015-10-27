@@ -8,6 +8,12 @@
               %option{value: ''} Quadra
               - Property.select(:group).distinct.each do |g|
                 %option{value: "#{g.group}"} #{g.group}
+        .form-group.gtype
+          .label-select
+            %select.form-control{name: "property_numbers"}
+              %option{value: ''} Número
+              - Property.select(:number).distinct.each do |g|
+                %option{value: "#{g.number}"} #{g.number}
         .form-group.gsub-location
           .label-select
             %select.form-control
@@ -17,12 +23,6 @@
             %select.form-control{name: "by_type_properties", value: params[:by_type_properties]}
               - Property.type_properties.each do |g|
                 %option{value: "#{g[1]}"} #{g[0].humanize}
-        .form-group.gtype
-          .label-select
-            %select.form-control{name: "property_numbers"}
-              %option{value: ''} Número
-              - Property.select(:number).distinct.each do |g|
-                %option{value: "#{g.number}"} #{g.number}
         .form-group.gbed
           .label-select
             %select.form-control{name: "rooms"}
@@ -35,7 +35,7 @@
         .form-group.gbath
           .label-select
             %select.form-control{name: "bathrooms"}
-              %option{value: ''} Nº de Banheiros
+              %option{value: ''} Nº de Suites
               %option 1
               %option 2
               %option 3
