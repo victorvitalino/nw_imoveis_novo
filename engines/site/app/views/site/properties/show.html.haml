@@ -102,7 +102,10 @@
                   %img.img-responsive.img-100{:src => "/images/icon/icon-360.png",:style => 'float:left; display:block;'}/
                 .col-md-8
                   %span.span-tour{:style => 'float:left; display:block;'}
-                    %a{:href => "#{@property.link_tour}", :target => "_BLANK"} Confira aqui o tour 360
+                    - if (@property.link_tour)
+                      %a{:href => "http://meunw.com.br/360/111/meunw.html?s=pano6160&h=-30.2721&v=2.4324&f=90.0000&skipintro&norotation", :target => "_BLANK"} Confira aqui o tour 360
+                    - else
+                      %a{:href => "#{@property.link_tour}", :target => "_BLANK"} Confira aqui o tour 360
             .property-feature{:style => "overflow: hidden;"}
               %h4.property-feature-title Vendedoras
               - @property.property_sellers.each do |seller|
