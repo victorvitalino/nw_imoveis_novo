@@ -30,13 +30,13 @@
                   %ul
                     - @property.property_images.each do |image|
                       %li.image-carrosel
-                        %img.img-responsive{:src => "#{image.image_path}"}/
+                        %img.img-responsive{:src => "#{image.image_path? ? image.image_path : '/images/property/property1.jpg'}"}/
               .thumbnails
                 .thumbnails-wrap
                   %ul
                     - @property.property_images.each do |image|
                       %li.thumb
-                        %img.img-responsive{:src => "#{image.image_path}"}/
+                        %img.img-responsive{:src => "#{image.image_path? ? image.image_path : '/images/property/property1.jpg'}"}/
                 %a.caroufredsel-prev{:href => "#"}
                 %a.caroufredsel-next{:href => "#"}
             .property-summary
