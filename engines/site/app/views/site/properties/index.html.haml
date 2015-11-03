@@ -82,6 +82,10 @@
                           .property-action
                             .property-links
                               %a{:href => "#{property_path(property)}"} Mais Detalhes
+                            .property-links
+                              %a{:href => "#{property.link_tour}", :target => "_BLANK"}
+                                %span.glyphicon.glyphicon-map-marker
+                                Tour 360
                         .property-info.property-fullwidth-info
                           .property-price
                             %span

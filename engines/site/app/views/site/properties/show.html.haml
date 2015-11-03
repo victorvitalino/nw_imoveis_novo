@@ -95,17 +95,18 @@
                   .has
                     %i.fa.fa-check-circle
                     = attribute.name
-            .tour_i.property-feature{:style => "overflow: hidden;"}
+            .property-feature{:style => "overflow: hidden;"}
               %h4.property-feature-title
               - @property.property_constructors.each do |constructor|
-                .col-sm-4.col-md-2.item-col.col-md-offset-1
-                  %img.img-responsive.img-100{:src => "/images/icon/icon-360.png",:style => 'float:left; display:block;'}/
-                .col-md-8
-                  %span.span-tour{:style => 'float:left; display:block;'}
-                    - if (@property.link_tour)
-                      %a{:href => "http://meunw.com.br/360/111/meunw.html?s=pano6160&h=-30.2721&v=2.4324&f=90.0000&skipintro&norotation", :target => "_BLANK"} Confira aqui o tour 360
-                    - else
-                      %a{:href => "#{@property.link_tour}", :target => "_BLANK"} Confira aqui o tour 360
+                .col-md-12
+                  - if (@property.link_tour)
+                    %a.btn.btn-block.btn-lg.btn-default{:href => "http://meunw.com.br/360/111/meunw.html?s=pano6160&h=-30.2721&v=2.4324&f=90.0000&skipintro&norotation", :target => "_BLANK"}
+                      %span.glyphicon.glyphicon-map-marker
+                      Confira o tour 360
+                  - else
+                    %a.btn.btn-block.btn-lg.btn-default{:href => "#{@property.link_tour}", :target => "_BLANK"}
+                      %span.glyphicon.glyphicon-map-marker
+                      Confira o tour 360
             .property-feature{:style => "overflow: hidden;"}
               %h4.property-feature-title Vendedoras
               - @property.property_sellers.each do |seller|
@@ -116,7 +117,6 @@
               - @property.property_constructors.each do |constructor|
                 .col-sm-6.col-md-2.item-col
                   %img.img-responsive.img-100{:src => "#{constructor.logo_path}"}/
-
             -# .property-map
             -#   %h4.property-map-title Localização do Imóvel
             -#   .property-map-content
