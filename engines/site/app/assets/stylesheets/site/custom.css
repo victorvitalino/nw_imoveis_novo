@@ -15,8 +15,14 @@
   height: 100px!important;
 }
 .image-carrosel img{
-  height: 520px!important;
+  width: 100%;
+}
+.img-carroselmod{
+  height: 90%!important;
   overflow: hidden;
+}
+.property-excerpt p{
+  display: none;
 }
 .thumb-featured {
   height: 57px!important;

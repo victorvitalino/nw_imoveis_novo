@@ -29,7 +29,7 @@
                 .caroufredsel-wrap
                   %ul
                     - @property.property_images.each do |image|
-                      %li.image-carrosel
+                      %li.image-carrosel.img-carroselmod
                         %img.img-responsive{:src => "#{image.image_path? ? image.image_path : '/images/property/property1.jpg'}"}/
               .thumbnails
                 .thumbnails-wrap
@@ -99,7 +99,7 @@
               %h4.property-feature-title
               - @property.property_constructors.each do |constructor|
                 .col-md-12
-                  - if (@property.link_tour)
+                  - if @property.link_tour.present?
                     %a.btn.btn-block.btn-lg.btn-default{:href => "http://meunw.com.br/360/111/meunw.html?s=pano6160&h=-30.2721&v=2.4324&f=90.0000&skipintro&norotation", :target => "_BLANK"}
                       %span.glyphicon.glyphicon-map-marker
                       Confira o tour 360
