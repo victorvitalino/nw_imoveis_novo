@@ -18,82 +18,83 @@
         .recent-properties-content
           .caroufredsel-wrap
             - @properties = Property.where(featured: true).limit(8).order(:created_at)
-            %ul
-              %li
-                .property-row
-                  - @properties[0..1].each do |featured|
-                    %article.hentry.has-featured
-                      .property-featured
-                        %a.content-thumb{:href => "#{property_path(featured)}"}
-                          %img.attachment-property-thumb.featured-thumb-home{:alt => "", :src => "#{featured.thumb? ? featured.thumb : '/images/property/property1.jpg'}"}/
-                        %span.property-category
-                          %a{:href => "#{property_path(featured)}"}
-                            = featured.name
-                        .property-detail
-                          .size
-                            %span
-                              = featured.area
-                              M²
-                          .bedrooms
-                            %span
-                              = featured.rooms
-                          .bathrooms
-                            %span
-                              = featured.suit
-                      .property-wrap
-                        %h2.property-title
-                          %a{:href => "#{property_path(featured)}", :title => "#{featured.name}"}
-                            = featured.group
-                            = featured.number
-                            = featured.block
-                        .property-excerpt
-                          %p
-                            = featured.description
-                      .property-summary
-                        .property-info
-                          .property-price
-                            %span
-                              %span.amount
-                                = number_to_currency featured.value
-                          .property-action
-                            %a{:href => "#{property_path(featured)}"} Mais Detalhes
-                .property-row
-                  - @properties[2..3].each do |featured|
-                    %article.hentry.has-featured
-                      .property-featured
-                        %a.content-thumb{:href => "#{property_path(featured)}"}
-                          %img.attachment-property-thumb.featured-thumb-home{:alt => "", :src => "#{featured.thumb? ? featured.thumb : '/images/property/property1.jpg'}"}/
-                        %span.property-category
-                          %a{:href => "#{property_path(featured)}"}
-                            = featured.name
-                        .property-detail
-                          .size
-                            %span
-                              = featured.area
-                              M²
-                          .bedrooms
-                            %span
-                              = featured.rooms
-                          .bathrooms
-                            %span
-                              = featured.suit
-                      .property-wrap
-                        %h2.property-title
-                          %a{:href => "#{property_path(featured)}", :title => "#{featured.name}"}
-                            = featured.group
-                            = featured.number
-                            = featured.block
-                        .property-excerpt
-                          %p
-                            = featured.description
-                      .property-summary
-                        .property-info
-                          .property-price
-                            %span
-                              %span.amount
-                                = number_to_currency featured.value
-                          .property-action
-                            %a{:href => "#{property_path(featured)}"} Mais Detalhes
+            - if @properties.present?
+              %ul
+                %li
+                  .property-row
+                    - @properties[0..1].each do |featured|
+                      %article.hentry.has-featured
+                        .property-featured
+                          %a.content-thumb{:href => "#{property_path(featured)}"}
+                            %img.attachment-property-thumb.featured-thumb-home{:alt => "", :src => "#{featured.thumb? ? featured.thumb : '/images/property/property1.jpg'}"}/
+                          %span.property-category
+                            %a{:href => "#{property_path(featured)}"}
+                              = featured.name
+                          .property-detail
+                            .size
+                              %span
+                                = featured.area
+                                M²
+                            .bedrooms
+                              %span
+                                = featured.rooms
+                            .bathrooms
+                              %span
+                                = featured.suit
+                        .property-wrap
+                          %h2.property-title
+                            %a{:href => "#{property_path(featured)}", :title => "#{featured.name}"}
+                              = featured.group
+                              = featured.number
+                              = featured.block
+                          .property-excerpt
+                            %p
+                              = featured.description
+                        .property-summary
+                          .property-info
+                            .property-price
+                              %span
+                                %span.amount
+                                  = number_to_currency featured.value
+                            .property-action
+                              %a{:href => "#{property_path(featured)}"} Mais Detalhes
+                  .property-row
+                    - @properties[2..3].each do |featured|
+                      %article.hentry.has-featured
+                        .property-featured
+                          %a.content-thumb{:href => "#{property_path(featured)}"}
+                            %img.attachment-property-thumb.featured-thumb-home{:alt => "", :src => "#{featured.thumb? ? featured.thumb : '/images/property/property1.jpg'}"}/
+                          %span.property-category
+                            %a{:href => "#{property_path(featured)}"}
+                              = featured.name
+                          .property-detail
+                            .size
+                              %span
+                                = featured.area
+                                M²
+                            .bedrooms
+                              %span
+                                = featured.rooms
+                            .bathrooms
+                              %span
+                                = featured.suit
+                        .property-wrap
+                          %h2.property-title
+                            %a{:href => "#{property_path(featured)}", :title => "#{featured.name}"}
+                              = featured.group
+                              = featured.number
+                              = featured.block
+                          .property-excerpt
+                            %p
+                              = featured.description
+                        .property-summary
+                          .property-info
+                            .property-price
+                              %span
+                                %span.amount
+                                  = number_to_currency featured.value
+                            .property-action
+                              %a{:href => "#{property_path(featured)}"} Mais Detalhes
             %a.caroufredsel-prev{:href => "#"}
             %a.caroufredsel-next{:href => "#"}
   %section#our-sevices.wrap.our-sevices
