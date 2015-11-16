@@ -18,7 +18,7 @@
           %h3 Imóveis Destaques
         .recent-properties-content
           .caroufredsel-wrap
-            - @properties = Property.where(featured: true).limit(8).order(:created_at)
+            - @properties = Property.where(featured: true).limit(8).order('created_at DESC')
             - if @properties.present?
               %ul
                 %li
