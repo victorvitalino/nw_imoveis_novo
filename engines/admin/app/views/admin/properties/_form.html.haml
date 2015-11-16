@@ -111,7 +111,7 @@
       = f.association :property_attribute, label: false, as: :check_boxes
 
   %hr/
-  -if (controller.action_name == 'create')
+  -if f.object.new_record?
     .row
       .col-md-12
         %br
