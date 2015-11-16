@@ -102,8 +102,6 @@
       = f.input :elevator, as: :select, include_blank: false
     .col-md-3
       = f.input :coverage, as: :select, include_blank: false
-    .col-md-3
-      = f.input :thumb, as: :file, include_blank: false
   %br/
   %br/
   %h4 Atributos
@@ -113,10 +111,22 @@
       = f.association :property_attribute, label: false, as: :check_boxes
 
   %hr/
+  -if (controller.action_name == 'create')
+    .row
+      .col-md-12
+        %br
+        .alert.alert-info
+          Você será redirecionado para a ferramenta de imagens do seu imóvel.
+  -else
+    .row
+      .col-md-12
+        = link_to "Editar Imagens", property_property_images_path(@property), class: 'btn btn-info'
+    %br
   .row
     .col-md-8
       = f.button :submit, class: 'btn btn-success'
       = link_to "Voltar", properties_path, class: 'btn btn-default'
+
 
 :javascript
 
