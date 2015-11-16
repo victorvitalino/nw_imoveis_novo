@@ -9,7 +9,7 @@
       .our-partners-inner
         .row
         - Button.principal.order(:order).each do |button|
-          .col-sm-6.col-md-2.item-col
+          .col-sm-7.col-md-2.item-col
             = link_to image_tag(button.image_path), properties_path(link_client: button.link),class: 'img-item'
   %section#recent-properties-slider.wrap.recent-properties.recent-properties-slider
     .container
