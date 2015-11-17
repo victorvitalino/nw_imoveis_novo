@@ -16,8 +16,10 @@
                 %option{value: "#{g.number}"} #{g.number}
         .form-group.gsub-location
           .label-select
-            %select.form-control
-              %option Noroeste
+            %select.form-control{name: "districts"}
+              %option{value: ''} Bairro
+              - Property.select(:district).distinct.each do |g|
+                %option{value: "#{g.district}"} #{g.district}
         .form-group.gstatus
           .label-select
             %select.form-control{name: "by_type_properties", value: params[:by_type_properties]}

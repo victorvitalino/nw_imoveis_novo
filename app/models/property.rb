@@ -44,6 +44,7 @@ class Property < ActiveRecord::Base
   scope :property_numbers, -> (property_numbers){where(:number => property_numbers)}
   scope :rooms, -> (rooms){where(:rooms => rooms)}
   scope :link_client, -> (link_client){joins(:project).where('projects.client_id = ?', link_client)}
+  scope :districts, ->(districts){ where(:district => districts)}
 
   def property_attributes; Attribute.where(id: self.property_attribute_id); end;
   def property_constructors; Client.where(id: self.construction_companies_id); end;

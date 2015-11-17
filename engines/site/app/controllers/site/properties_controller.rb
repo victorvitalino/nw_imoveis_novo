@@ -7,6 +7,8 @@ module Site
     has_scope :property_numbers
     has_scope :rooms
     has_scope :link_client
+    has_scope :districts
+    
     def index
       @properties = apply_scopes(Property).includes(:project).includes(:client).all
     end
