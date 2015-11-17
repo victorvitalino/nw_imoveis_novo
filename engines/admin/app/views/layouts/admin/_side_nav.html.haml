@@ -37,14 +37,14 @@
             %li
               %a{:href => "#{admin.buttons_path}"} Botões
             %li
-              %a{:href => "#{admin.banners_path}"} Banners            
-        %li.sub-menu
-          %a{:href => "javascript:;", class: "#{(@nav == 'user') ? 'active' : ''}"}
-            %i.fa.fa-th
-            %span Usuários
-          %ul.sub{style: "#{(@nav == 'user') ? 'display: block;' : ''}"}
-            %li
-              %a{:href => "#{admin.users_path}"} Listagem de Usuários
-            %li
-              %a{:href => "#{admin.new_user_path}"} Novo Usuário
-            
+              %a{:href => "#{admin.banners_path}"} Banners
+        - if ( current_user.id==1)
+          %li.sub-menu
+            %a{:href => "javascript:;", class: "#{(@nav == 'user') ? 'active' : ''}"}
+              %i.fa.fa-th
+              %span Usuários
+            %ul.sub{style: "#{(@nav == 'user') ? 'display: block;' : ''}"}
+              %li
+                %a{:href => "#{admin.users_path}"} Listagem de Usuários
+              %li
+                %a{:href => "#{admin.new_user_path}"} Novo Usuário
