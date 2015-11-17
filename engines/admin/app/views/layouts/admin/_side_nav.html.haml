@@ -7,15 +7,16 @@
           %a{:href => "#{admin.root_path}"}
             %i.fa.fa-dashboard
             %span Visão Geral
-        %li.sub-menu
-          %a{:href => "javascript:;", :class => "#{(@nav == 'client') ? 'active' : ''}"}
-            %i.fa.fa-laptop
-            %span Clientes
-          %ul.sub{style: "#{(@nav == 'client') ? 'display: block' : ''}"}
-            %li
-              %a{:href => "#{admin.clients_path}"} Listagem de Clientes
-            %li
-              %a{:href => "#{admin.new_client_path}"} Novo Cliente
+        - if ( current_user.id==1 || current_user.id==3 || current_user.id==5 )
+          %li.sub-menu
+            %a{:href => "javascript:;", :class => "#{(@nav == 'client') ? 'active' : ''}"}
+              %i.fa.fa-laptop
+              %span Clientes
+            %ul.sub{style: "#{(@nav == 'client') ? 'display: block' : ''}"}
+              %li
+                %a{:href => "#{admin.clients_path}"} Listagem de Clientes
+              %li
+                %a{:href => "#{admin.new_client_path}"} Novo Cliente
         %li.sub-menu
           %a{:href => "javascript:;", class: "#{(@nav == 'property') ? 'active' : ''}"}
             %i.fa.fa-book
@@ -29,16 +30,17 @@
               %a{:href => "#{admin.attributes_path}"} Attributos de Imóvel
             %li
               %a{:href => "#{admin.projects_path}"} Empreendimentos
-        %li.sub-menu
-          %a{:href => "javascript:;", class: "#{(@nav == 'ads') ? 'active' : ''}"}
-            %i.fa.fa-book
-            %span Publicidade
-          %ul.sub
-            %li
-              %a{:href => "#{admin.buttons_path}"} Botões
-            %li
-              %a{:href => "#{admin.banners_path}"} Banners
-        - if ( current_user.id==1)
+        - if ( current_user.id==1 || current_user.id==3 || current_user.id==5 )
+          %li.sub-menu
+            %a{:href => "javascript:;", class: "#{(@nav == 'ads') ? 'active' : ''}"}
+              %i.fa.fa-book
+              %span Publicidade
+            %ul.sub
+              %li
+                %a{:href => "#{admin.buttons_path}"} Botões
+              %li
+                %a{:href => "#{admin.banners_path}"} Banners
+        - if ( current_user.id==1 || current_user.id==3 || current_user.id==5 )
           %li.sub-menu
             %a{:href => "javascript:;", class: "#{(@nav == 'user') ? 'active' : ''}"}
               %i.fa.fa-th
