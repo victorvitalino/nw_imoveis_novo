@@ -6,6 +6,22 @@
   overflow: hidden;
   height: 125px;
 }
+.navbar-header .logo .logo-image a{
+      background: url("#") no-repeat left center;
+      width: 340px;
+      height: 71px;
+}
+.imglogo{
+  width: 70%;
+  height: auto;
+}
+.imglogs{
+  float: right;
+}
+.navbar-header .logo .logo-image a img {
+  height: auto!important;
+}
+.calling-info{border: none;}
 .has-featured > .property-wrap > .property-excerpt > p{
   text-overflow: ellipsis;
   overflow: hidden;
@@ -13,6 +29,9 @@
 }
 .thumb img{
   height: 100px!important;
+}
+.footer a:hover, .featured-property > ul > li .featured-decs .featured-status a:hover {
+    color: #fff!important;
 }
 .image-carrosel img{
   width: 100%;
