@@ -1,6 +1,6 @@
 class Button < ActiveRecord::Base
   enum code:  ['principal', 'lançamento','aluguel', 'venda']
-  enum order: [*'1'..'8']
+  enum order: [*'1'..'14']
 
   scope :principal,  -> {where(status: true, code: 0)}
 
